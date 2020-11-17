@@ -7,4 +7,3 @@ Group 27
 150119938 Muhammad Ismail
 150119814 Yunus Ahmed Stahlschmidt
 150119869 Umer Selmani
-8 
