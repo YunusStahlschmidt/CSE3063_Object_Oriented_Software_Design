@@ -9,16 +9,16 @@ We will get the data from the input json files which we have to parse in this cl
 */
 
 public class Dataset {
-    private float id;
+    private String id;
     private String name;
-    private float maxLabels;
-    private ArrayList<Label> Labels = new ArrayList<Label>();
+    private String maxLabel;
+    private ArrayList<Label> labels = new ArrayList<Label>();
     private ArrayList<Instance> instances = new ArrayList<Instance>();
    
    
     // Getters 
    
-    public float getId() {
+    public String getId() {
      return id;
     }
    
@@ -26,13 +26,13 @@ public class Dataset {
      return name;
     }
    
-    public float getMaxLabels() {
-     return maxLabels;
+    public String getMaxLabel() {
+     return maxLabel;
     }
    
     // Setters
    
-    public void setId(float newId) {
+    public void setId(String newId) {
      this.id = newId;
     }
    
@@ -40,7 +40,15 @@ public class Dataset {
      this.name = newName;
     }
    
-    public void setMaxLabels(float newMaxLabels) {
-     this.maxLabels = newMaxLabels;
+    public void setMaxLabel(String newMaxLabel) {
+     this.maxLabel = newMaxLabel;
+    }
+
+    public void addLabel(String id, String name) {
+        this.labels.add(new Label(id, name));
+    }
+
+    public void addInstance(String id, String text) {
+        this.instances.add(new Instance(id, text));
     }
    }

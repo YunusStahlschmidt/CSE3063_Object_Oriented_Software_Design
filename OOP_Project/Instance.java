@@ -5,13 +5,18 @@ Class for the instance object to store them in our array list in the dataset
 */
 
 public class Instance {
-    private int id;
+    private String id;
     private String text;
+
+    public Instance(String id, String text) {
+        this.id = id;
+        this.text = text;
+    }
 
 
     // Getters
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -22,7 +27,7 @@ public class Instance {
 
     // Setters
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
