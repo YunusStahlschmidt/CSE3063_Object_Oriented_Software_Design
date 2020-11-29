@@ -1,33 +1,36 @@
 package OOP_Project;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.DrbgParameters.NextBytes;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Dictionary;
-import java.util.HashMap;
+import java.util.Iterator; 
+import java.util.Map; 
+import java.util.Random;
+import java.util.Scanner;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import org.json.simple.*;
+import org.json.simple.parser.*;
+
+// import sun.jvm.hotspot.utilities.IntArray;
+
 
 /* 
 This class will where al "computations" will take place
 */
 
 public class Main {
-    private Dataset dataset;
-    private ArrayList<LabelAssignment> labelAssignments;
-    private Dictionary<String, User> usersDict;
-
     public static void main(String[] args) {
-
-        // File file = new File("C:\\demo\\demofile.txt");
-        String jsonString = "C:\\Users\\huzey\\Desktop\\Personal files (important)\\Github Repositories\\CSE3063F20P1_GRP27\\OOP_Project\\CES3063F20_LabelingProject_Input-1.json"; // assign your JSON String here
-        JSONParser jsonParser = new JSONParser();
         Dataset dataset = new Dataset();
+        ArrayList<LabelAssignment> labelAssignments = new ArrayList<>();
+        Dictionary<String, User> usersDict;
+
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Please type the absolute path of json file: ");
+        String jsonString = scan.nextLine(); // assign your JSON String here
+        JSONParser jsonParser = new JSONParser();
         try {
             FileReader reader = new FileReader(jsonString);
             Object obj = jsonParser.parse(reader);
@@ -36,9 +39,9 @@ public class Main {
             // Parsing
             JSONArray classLables = (JSONArray) jsonObject.get("class labels");
             JSONArray instances = (JSONArray) jsonObject.get("instances");
-            Object datasetId = jsonObject.get("dataset id");
-            Object datasetName = jsonObject.get("dataset name");
-            Object maxNumberOfLabelsPerInstance = jsonObject.get("maximum number of labels per instance");
+            long datasetId = (long) jsonObject.get("dataset id");
+            String datasetName = (String) jsonObject.get("dataset name");
+            long maxNumberOfLabelsPerInstance = (long) jsonObject.get("maximum number of labels per instance");
 
             System.out.println(classLables);
             System.out.println();
@@ -50,33 +53,82 @@ public class Main {
             System.out.println();
             System.out.println(maxNumberOfLabelsPerInstance);
 
-            dataset.setId(datasetId.toString());
+            dataset.setId(datasetId);
             dataset.setName(datasetName.toString());
-            dataset.setMaxLabel(maxNumberOfLabelsPerInstance.toString());
+            dataset.setMaxLabel(maxNumberOfLabelsPerInstance);
 
+            // Parsing and creating Class Labels
+            Iterator<Map.Entry> itr1;
+            Iterator itr2 = classLables.iterator();
+            long id = 0;
+            String text = "";
             
-            // for (int idx = 0; idx < classLables.size(); idx++) {
-            //     for (int idx2 = 0; idx2 < classLables.get; )
-            //     Object dict_ = classLables.get(idx);
-            //     System.out.println(dict_);
-            // }
+            while (itr2.hasNext())  
+            {
+                itr1 = ((Map) itr2.next()).entrySet().iterator();
+                while (itr1.hasNext()) {
+                    Map.Entry pair = itr1.next();
+                    if (pair.getKey().equals("label id")) {
+                        id = (long) pair.getValue();
+                    } else {
+                        text = (String) pair.getValue();
+                    }
+                    // System.out.println(pair.getKey() + " : " + pair.getValue()); 
+                }
+                dataset.addLabel(id, text);
+            }
+            // System.out.println("Labels");
+            // System.out.println(dataset.getLabels());
+            
+
+            itr2 = instances.iterator(); 
+            while (itr2.hasNext())  
+            {
+                itr1 = ((Map) itr2.next()).entrySet().iterator(); 
+                while (itr1.hasNext()) {
+                    Map.Entry pair = itr1.next(); 
+                    if (pair.getKey().equals("id")) {
+                        id = (long) pair.getValue();
+                    } else {
+                        text = (String) pair.getValue();
+                    }
+                    // System.out.println(pair.getKey() + " : " + pair.getValue()); 
+                }
+                dataset.addInstance(id, text);
+            }
+            // System.out.println("Instances");
+            // System.out.println(dataset.getInstances());
+
+            Random rand = new Random();
+            int numberOfUsers = rand.nextInt(7);
+            String username;
+            for (int i = 1; i < numberOfUsers; i++) {
+                username = String.format("RandomLabelingMechanism%d", i);
+                dataset.addUser(i, username, "RandomBot");
+            }
+
+            int userIndex;
+            for (int i = 0; i < dataset.getInstances().size(); i++) {
+                for (long maxlabel = 0; maxlabel < maxNumberOfLabelsPerInstance; maxlabel++) {
+                    userIndex = rand.nextInt(dataset.getUsers().size());
+                    labelAssignments.add(new LabelAssignment(dataset.getInstances().get(i).getId(),
+                                                             i+1, dataset.getUsers().get(userIndex).getId(),
+                                                             new Date()));
+                }
+            }
+            System.out.println(labelAssignments);
+
+            for (LabelAssignment lAssignment : labelAssignments) { 
+                System.out.println();
+                System.out.println(String.format("Instance Id: %d", lAssignment.getInstanceId()));
+                System.out.println(String.format("Assigned Label Id: %d", lAssignment.getAssignedLabelId()));
+                System.out.println(String.format("User Id: %d", lAssignment.getUserId()));
+                System.out.println("Date: " + lAssignment.getDate());
+            }
 
         } catch (IOException | ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
-
-
-    // Getters
-
-    public Dataset getDataset() {
-        return dataset;
-    }
-
-    // Setters
-
-    public void setDataset(Dataset dataset) {
-        this.dataset = dataset;
     }
 }

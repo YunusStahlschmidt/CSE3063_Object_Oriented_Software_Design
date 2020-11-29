@@ -7,14 +7,21 @@ We will also use that dictionary for our final output
 */
 
 public class User {
-    private int id;
+    private long id;
     private String name;
     private String type;
+
+    public User() {}
+    public User(long id, String name, String type) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+    }
 
     
     //Getters
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -29,7 +36,7 @@ public class User {
 
     // Setters
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -10,23 +10,31 @@ for our final output
 */
 
 public class LabelAssignment {
-    private int instanceId;
-    private int assignedLabelId;
-    private int userId;
+    private long instanceId;
+    private long assignedLabelId;
+    private long userId;
     private Date date;
+
+    public LabelAssignment() {}
+    public LabelAssignment(long instanceId, long assignedLabelId, long userId, Date date) {
+        this.instanceId = instanceId;
+        this.assignedLabelId = assignedLabelId;
+        this.userId = userId;
+        this.date = date;
+    }
 
 
     // Getters
 
-    public int getInstanceId() {
+    public long getInstanceId() {
         return instanceId;
     }
 
-    public int getAssignedLabelId() {
+    public long getAssignedLabelId() {
         return assignedLabelId;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
@@ -37,15 +45,15 @@ public class LabelAssignment {
 
     // Setters
 
-    public void setInstanceId(int instanceId) {
+    public void setInstanceId(long instanceId) {
         this.instanceId = instanceId;
     }
 
-    public void setAssignedLabelId(int assignedLabelId) {
+    public void setAssignedLabelId(long assignedLabelId) {
         this.assignedLabelId = assignedLabelId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
