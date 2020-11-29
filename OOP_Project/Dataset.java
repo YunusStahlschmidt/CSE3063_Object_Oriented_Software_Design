@@ -9,16 +9,22 @@ We will get the data from the input json files which we have to parse in this cl
 */
 
 public class Dataset {
-    private String id;
+    private long id;
     private String name;
-    private String maxLabel;
+    private long maxLabel;
     private ArrayList<Label> labels = new ArrayList<Label>();
     private ArrayList<Instance> instances = new ArrayList<Instance>();
+    private ArrayList<User> users = new ArrayList<>();
    
-   
+    public Dataset() {}
+    public Dataset(long id, String name, long maxLabel) {
+        this.id = id;
+        this.name = name;
+        this.maxLabel = maxLabel;
+    }
     // Getters 
    
-    public String getId() {
+    public long getId() {
      return id;
     }
    
@@ -26,13 +32,25 @@ public class Dataset {
      return name;
     }
    
-    public String getMaxLabel() {
+    public long getMaxLabel() {
      return maxLabel;
+    }
+
+    public ArrayList<Label> getLabels() {
+        return labels;
+    }
+
+    public ArrayList<Instance> getInstances() {
+        return instances;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
     }
    
     // Setters
    
-    public void setId(String newId) {
+    public void setId(long newId) {
      this.id = newId;
     }
    
@@ -40,15 +58,19 @@ public class Dataset {
      this.name = newName;
     }
    
-    public void setMaxLabel(String newMaxLabel) {
+    public void setMaxLabel(long newMaxLabel) {
      this.maxLabel = newMaxLabel;
     }
 
-    public void addLabel(String id, String name) {
+    public void addLabel(long id, String name) {
         this.labels.add(new Label(id, name));
     }
 
-    public void addInstance(String id, String text) {
+    public void addInstance(long id, String text) {
         this.instances.add(new Instance(id, text));
+    }
+
+    public void addUser(long id, String name, String type) {
+        this.users.add(new User(id, name, type));
     }
    }

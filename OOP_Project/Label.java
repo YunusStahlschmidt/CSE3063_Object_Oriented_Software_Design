@@ -5,16 +5,18 @@ Class for the label object to store them in our array list in the dataset
 */
 
 public class Label {
-    private String id;
+    private long id;
     private String name;
 
-    public Label(String id, String name) {
+    
+    public Label() {}
+    public Label(long id, String name) {
         this.id = id;
         this.name = name;
     }
     // Getters
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
@@ -25,7 +27,7 @@ public class Label {
 
     // Setters
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
