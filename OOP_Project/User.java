@@ -18,7 +18,7 @@ public class User {
         this.type = type;
     }
 
-    
+
     //Getters
 
     public long getId() {
