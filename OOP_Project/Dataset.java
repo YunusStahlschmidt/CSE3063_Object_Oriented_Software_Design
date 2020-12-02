@@ -1,4 +1,4 @@
-package OOP_Project;
+package CSE3063F20P1_GRP27.OOP_Project;
 
 import java.util.ArrayList;
 
@@ -14,8 +14,7 @@ public class Dataset {
     private long maxLabel;
     private ArrayList<Label> labels = new ArrayList<Label>();
     private ArrayList<Instance> instances = new ArrayList<Instance>();
-    private ArrayList<User> users = new ArrayList<>();
-   
+
     public Dataset() {}
     public Dataset(long id, String name, long maxLabel) {
         this.id = id;
@@ -23,15 +22,15 @@ public class Dataset {
         this.maxLabel = maxLabel;
     }
     // Getters 
-   
+
     public long getId() {
      return id;
     }
-   
+
     public String getName() {
      return name;
     }
-   
+
     public long getMaxLabel() {
      return maxLabel;
     }
@@ -44,20 +43,17 @@ public class Dataset {
         return instances;
     }
 
-    public ArrayList<User> getUsers() {
-        return users;
-    }
-   
+
     // Setters
-   
+
     public void setId(long newId) {
      this.id = newId;
     }
-   
+
     public void setName(String newName) {
      this.name = newName;
     }
-   
+
     public void setMaxLabel(long newMaxLabel) {
      this.maxLabel = newMaxLabel;
     }
@@ -69,8 +65,4 @@ public class Dataset {
     public void addInstance(long id, String text) {
         this.instances.add(new Instance(id, text));
     }
-
-    public void addUser(long id, String name, String type) {
-        this.users.add(new User(id, name, type));
-    }
-   }
+} 

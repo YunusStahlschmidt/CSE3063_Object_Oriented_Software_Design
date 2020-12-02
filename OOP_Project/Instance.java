@@ -1,4 +1,4 @@
-package OOP_Project;
+package CSE3063F20P1_GRP27.OOP_Project;
 
 /*
 Class for the instance object to store them in our array list in the dataset

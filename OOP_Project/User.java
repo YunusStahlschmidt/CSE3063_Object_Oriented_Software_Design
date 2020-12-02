@@ -1,4 +1,4 @@
-package OOP_Project;
+package CSE3063F20P1_GRP27.OOP_Project;
 
 /*
 Class for the user object to store them in our dictionary in the main class
@@ -18,7 +18,7 @@ public class User {
         this.type = type;
     }
 
-    
+
     //Getters
 
     public long getId() {
