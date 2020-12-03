@@ -1,5 +1,6 @@
 package OOP_Project;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /*
@@ -11,14 +12,14 @@ for our final output
 
 public class LabelAssignment {
     private long instanceId;
-    private long assignedLabelId;
+    private ArrayList<Long> assignedLabelIds;
     private long userId;
     private Date date;
 
     public LabelAssignment() {}
-    public LabelAssignment(long instanceId, long assignedLabelId, long userId, Date date) {
+    public LabelAssignment(long instanceId, ArrayList<Long> assignedLabelIds, long userId, Date date) {
         this.instanceId = instanceId;
-        this.assignedLabelId = assignedLabelId;
+        this.assignedLabelIds = assignedLabelIds;
         this.userId = userId;
         this.date = date;
     }
@@ -30,8 +31,8 @@ public class LabelAssignment {
         return instanceId;
     }
 
-    public long getAssignedLabelId() {
-        return assignedLabelId;
+    public ArrayList<Long> getAssignedLabelId() {
+        return assignedLabelIds;
     }
 
     public long getUserId() {
@@ -49,8 +50,8 @@ public class LabelAssignment {
         this.instanceId = instanceId;
     }
 
-    public void setAssignedLabelId(long assignedLabelId) {
-        this.assignedLabelId = assignedLabelId;
+    public void setAssignedLabelId(ArrayList<Long> assignedLabelIds) {
+        this.assignedLabelIds = assignedLabelIds;
     }
 
     public void setUserId(long userId) {
