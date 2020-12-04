@@ -46,9 +46,6 @@ public class Main {
             }
         }
 
-        System.out.println(users);
-        System.out.println(dataset.getInstances());
-
         int userIndex;
         ArrayList<Long> addedLabels;
         long randomLabel;
@@ -81,7 +78,7 @@ public class Main {
         
         while (true) {
             try {
-                System.out.print("Please type the absolute path of config.json file: ");
+                System.out.print("Please type the absolute path of output file: ");
                 String outputPath = scan.nextLine(); // assign your JSON String here
                 scan.close();
 

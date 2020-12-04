@@ -9,6 +9,9 @@ import java.util.Map;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 public class JSONSerializer {
 
     public JSONSerializer() {}
@@ -55,7 +58,7 @@ public class JSONSerializer {
             hashMap = new LinkedHashMap(3);
             hashMap.put("user id", user.getId());
             hashMap.put("user name", user.getName());
-            hashMap.put("user ty", user.getType());
+            hashMap.put("user type", user.getType());
             usersArray.add(hashMap);
         }
 
@@ -69,9 +72,15 @@ public class JSONSerializer {
         jsonObject.put("class label assignments", classLabelAssignments);
         jsonObject.put("users", usersArray);
 
+
+        Output myOutput = new Output(dataset.getId(), dataset.getName(), dataset.getMaxLabel(), classLabels, instances, classLabelAssignments, usersArray);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(myOutput);
+        //System.out.println(json);
+        
         // writing JSON to file:"JSONExample.json" in cwd 
         PrintWriter pw = new PrintWriter(outputPath);
-        pw.write(jsonObject.toJSONString()); 
+        pw.write(json); 
           
         pw.flush(); 
         pw.close(); 
