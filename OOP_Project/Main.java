@@ -1,18 +1,9 @@
 package OOP_Project;
 
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Dictionary;
-import java.util.Iterator; 
-import java.util.Map; 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
-
-import org.json.simple.*;
-import org.json.simple.parser.*;
 
 // import sun.jvm.hotspot.utilities.IntArray;
 
@@ -23,62 +14,80 @@ This class will where al "computations" will take place
 
 public class Main {
     public static void main(String[] args) {
+
+        // Required Objects
         Dataset dataset = new Dataset();
         ArrayList<LabelAssignment> labelAssignments = new ArrayList<>();
         ArrayList<User> users = new ArrayList<>();
-        Parser parser = new Parser(null, dataset);
+        Parser parser = new Parser();
+        JSONSerializer serializer = new JSONSerializer();
+        Scanner scan = new Scanner(System.in);
+        Random random = new Random();
 
-        parser.parseJSONFile();
+        while (true) {
+            try {
+                // Getting input path from client
+                System.out.print("Please type the absolute path of json file: ");
+                String jsonPath = scan.nextLine(); // assign your JSON String here
 
-        Random rand = new Random();
-        int numberOfUsers = rand.nextInt(7);
-        String username;
-        for (int i = 1; i < numberOfUsers; i++) {
-            username = String.format("RandomLabelingMechanism%d", i);
-            users.add(new User(i, username, "RandomBot"));
+                // parsing given json file
+                parser.parseJSONFile(jsonPath, dataset);
+
+                // Getting users path from client
+                System.out.print("Please type the absolute path of config.json file: ");
+                String configPath = scan.nextLine(); // assign your JSON String here
+                // scan.close();
+
+                // parsing given config.json file
+                parser.parseConfigFile(configPath, users);
+                break;
+            } catch (Exception e) {
+                System.out.println("FileNotFound error has been occured! Please check your file paths.");
+            }
         }
 
         int userIndex;
-        for (int i = 0; i < dataset.getInstances().size(); i++) {
-            for (long maxlabel = 0; maxlabel < dataset.getMaxLabel(); maxlabel++) {
-                userIndex = rand.nextInt(users.size());
-                ArrayList<Label> tempLabels = dataset.getLabels();
-                labelAssignments.add(new LabelAssignment(dataset.getInstances().get(i).getId(),
-                                                            getRandomElement(tempLabels, dataset.getMaxLabel()), users.get(userIndex).getId(),
-                                                            new Date()));
+        ArrayList<Long> addedLabels;
+        long randomLabel;
+        ArrayList<Label> tempLabels = dataset.getLabels();
+
+        for (Instance anInstance: dataset.getInstances()) {
+            userIndex = random.nextInt(users.size());
+            addedLabels = new ArrayList<>();
+
+            for (int maxlabel = 1; maxlabel <= random.nextInt((int)dataset.getMaxLabel())+1;) {
+                randomLabel = tempLabels.get( random.nextInt(tempLabels.size()) ).getId();
+
+                if (!addedLabels.contains(randomLabel)) {
+                    addedLabels.add(randomLabel);
+                    maxlabel++;
+                }
+                
             }
+            labelAssignments.add(new LabelAssignment(anInstance.getId(), addedLabels, users.get(userIndex).getId(), new Date()));
         }
         System.out.println(labelAssignments);
 
         for (LabelAssignment lAssignment : labelAssignments) { 
             System.out.println();
             System.out.println(String.format("Instance Id: %d", lAssignment.getInstanceId()));
-            System.out.println(String.format("Assigned Label Id: %d", lAssignment.getAssignedLabelId()));
-            System.out.println(String.format("User Id: %d", lAssignment.getUserId()));
+            System.out.println("Assigned Label Id: " + lAssignment.getAssignedLabelId());
+            System.out.println("User Id: " + lAssignment.getUserId());
             System.out.println("Date: " + lAssignment.getDate());
-        }    
+        }  
+        
+        while (true) {
+            try {
+                System.out.print("Please type the absolute path of output file: ");
+                String outputPath = scan.nextLine(); // assign your JSON String here
+                scan.close();
+
+                // serializing to json file
+                serializer.serializeJSONFile(outputPath, dataset, labelAssignments, users);
+                break;
+            } catch (Exception e) {
+                System.out.println("File not found! Please make sure you provided a correct path.");
+            }
+        }
     }
-
-    public static ArrayList<Long> getRandomElement(ArrayList<Label> labels, long totalItems) 
-    { 
-        Random rand = new Random(); 
-
-        // create a temporary list for storing 
-        // selected element 
-
-        ArrayList<Long> newList = new ArrayList<>(); 
-        for (long i = 0; i < totalItems; i++) { 
-
-            // take a raundom index between 0 to size  
-            // of given List 
-            int randomIndex = rand.nextInt(labels.size()); 
-
-            // add element in temporary list 
-            newList.add(labels.get(randomIndex).getId()); 
-
-            // Remove selected element from orginal list 
-            labels.remove(randomIndex); 
-        } 
-        return newList; 
-    } 
 }
