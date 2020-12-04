@@ -30,35 +30,28 @@ public class LabelAssignment {
     public long getInstanceId() {
         return instanceId;
     }
-
     public ArrayList<Long> getAssignedLabelId() {
         return assignedLabelIds;
     }
-
     public long getUserId() {
         return userId;
     }
-
     public Date getDate() {
         return date;
     }
-
 
     // Setters
 
     public void setInstanceId(long instanceId) {
         this.instanceId = instanceId;
     }
-
-    public void setAssignedLabelId(ArrayList<Long> assignedLabelIds) {
-        this.assignedLabelIds = assignedLabelIds;
-    }
-
     public void setUserId(long userId) {
         this.userId = userId;
     }
-
     public void setDate(Date date) {
         this.date = date;
+    }
+    public void addAssignedLabelId(Long id) {
+        this.assignedLabelIds.add(id);
     }
 }
