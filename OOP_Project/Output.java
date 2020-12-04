@@ -1,9 +1,6 @@
 package OOP_Project;
 
-import java.util.ArrayList;
-
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 public class Output {
     private long datasetId;

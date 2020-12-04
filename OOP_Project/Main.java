@@ -86,7 +86,7 @@ public class Main {
                 serializer.serializeJSONFile(outputPath, dataset, labelAssignments, users);
                 break;
             } catch (Exception e) {
-                System.out.println("FileNotFound error has been occured! Please check your file paths.");
+                System.out.println("File not found! Please make sure you provided a correct path.");
             }
         }
     }

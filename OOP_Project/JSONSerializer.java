@@ -62,17 +62,6 @@ public class JSONSerializer {
             usersArray.add(hashMap);
         }
 
-        // Creating JSON object and filling it
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("dataset id", dataset.getId());
-        jsonObject.put("dataset name", dataset.getName());
-        jsonObject.put("maximum number of labels per instance", dataset.getMaxLabel());
-        jsonObject.put("class labels", classLabels);
-        jsonObject.put("instances", instances);
-        jsonObject.put("class label assignments", classLabelAssignments);
-        jsonObject.put("users", usersArray);
-
-
         Output myOutput = new Output(dataset.getId(), dataset.getName(), dataset.getMaxLabel(), classLabels, instances, classLabelAssignments, usersArray);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(myOutput);
