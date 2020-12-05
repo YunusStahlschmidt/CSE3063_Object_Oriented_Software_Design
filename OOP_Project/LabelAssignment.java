@@ -16,7 +16,9 @@ public class LabelAssignment {
     private long userId;
     private Date date;
 
-    public LabelAssignment() {}
+    public LabelAssignment() {
+    }
+
     public LabelAssignment(long instanceId, ArrayList<Long> assignedLabelIds, long userId, Date date) {
         this.instanceId = instanceId;
         this.assignedLabelIds = assignedLabelIds;
@@ -24,18 +26,24 @@ public class LabelAssignment {
         this.date = date;
     }
 
-
     // Getters
 
     public long getInstanceId() {
         return instanceId;
     }
+
     public ArrayList<Long> getAssignedLabelId() {
         return assignedLabelIds;
     }
+
+    public long getSpecificAssignedLabelId(int n) {
+        return getAssignedLabelId().get(n);
+    }
+
     public long getUserId() {
         return userId;
     }
+
     public Date getDate() {
         return date;
     }
@@ -45,12 +53,15 @@ public class LabelAssignment {
     public void setInstanceId(long instanceId) {
         this.instanceId = instanceId;
     }
+
     public void setUserId(long userId) {
         this.userId = userId;
     }
+
     public void setDate(Date date) {
         this.date = date;
     }
+
     public void addAssignedLabelId(Long id) {
         this.assignedLabelIds.add(id);
     }

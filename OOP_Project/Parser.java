@@ -12,15 +12,20 @@ import java.util.Scanner;
 import org.json.simple.*;
 import org.json.simple.parser.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /* 
 This class is responsible for parsing the input and config files
 */
 
 public class Parser {
     private JSONParser jsonParser = new JSONParser();
+    private static final Logger logger = LoggerFactory.getLogger(Parser.class);
 
-    public Parser() {}
-    
+    public Parser() {
+    }
+
     public void parseJSONFile(String jsonPath, Dataset dataset) throws Exception {
         JSONObject jsonObject = jsonObjectCreator(jsonPath);
 
@@ -74,7 +79,7 @@ public class Parser {
 
         // Parsing
         JSONArray newUserArray = (JSONArray) jsonObject.get("users");
-        System.out.println(newUserArray);
+        // System.out.println(newUserArray);
         Iterator<Map.Entry> itr1;
         Iterator itr2 = newUserArray.iterator();
         long id = 0;
@@ -94,10 +99,11 @@ public class Parser {
                 }
             }
             users.add(new User(id, name, text));
+            logger.info("userManager: created " + name + " as " + text);
         }
     }
 
-    private JSONObject jsonObjectCreator(String path) throws Exception{
+    private JSONObject jsonObjectCreator(String path) throws Exception {
         FileReader reader = new FileReader(path);
         Object obj = jsonParser.parse(reader);
         return (JSONObject) obj;
