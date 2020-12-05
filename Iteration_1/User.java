@@ -1,4 +1,4 @@
-package OOP_Project;
+package Iteration_1;
 
 /*
 Class for the user object to store them in our dictionary in the main class
