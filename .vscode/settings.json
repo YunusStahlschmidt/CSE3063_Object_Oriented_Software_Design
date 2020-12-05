@@ -1,6 +1,24 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "json-simple-2.1.2.jar"
-    ]
+        "json-simple-2.1.2.jar",
+        "d:\\Development\\Java\\Libraries\\jar_files\\gson-2.8.6.jar",
+        "logback.jar",
+        "logback-access-1.0.2.jar",
+        "logback-classic.jar",
+        "logback-core-1.0.13.jar",
+        "slf4j.jar",
+        "Libraries/json-simple-2.1.2.jar",
+        "Libraries/logback.jar",
+        "Libraries/logback-access-1.0.2.jar",
+        "Libraries/logback-classic.jar",
+        "Libraries/logback-core-1.0.13.jar",
+        "Libraries/slf4j.jar"
+    ],
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
 }
