@@ -2,7 +2,6 @@ package OOP_Project;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /*
 This class should parse all the information from the dataset so we can 
