@@ -1,6 +1,8 @@
 package OOP_Project;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 This class should parse all the information from the dataset so we can 
@@ -14,6 +16,12 @@ public class Dataset {
     private long maxLabel;
     private ArrayList<Label> labels = new ArrayList<Label>();
     private ArrayList<Instance> instances = new ArrayList<Instance>();
+    private double completenessPercentage;
+    private HashMap classDistributions = new HashMap<>();
+    private HashMap uniqueInstancesForLabel = new HashMap<>();
+    private int numberOfAssignedUsers;
+    private HashMap assignedUsersCompleteness = new HashMap<>();
+    private HashMap assignedUsersConsistency = new HashMap<>();
 
     public Dataset() {}
     public Dataset(long id, String name, long maxLabel) {
@@ -43,6 +51,31 @@ public class Dataset {
         return instances;
     }
 
+    // tbd some of these may require computations before returning
+    public double getCompletenessPercentage() {
+        return completenessPercentage;
+    }
+
+    public HashMap getClassDistributions() {
+        return classDistributions;
+    }
+
+    public HashMap getUniqueInstancesForLabel() {
+        return uniqueInstancesForLabel;
+    }
+
+    public int getNumberOfAssignedUsers() {
+        return numberOfAssignedUsers;
+    }
+
+    public HashMap getAssignedUsersCompleteness() {
+        return assignedUsersCompleteness;
+    }
+
+    public HashMap getAssignedUsersConsistency() {
+        return assignedUsersConsistency;
+    }
+
 
     // Setters
 
@@ -64,5 +97,30 @@ public class Dataset {
 
     public void addInstance(long id, String text) {
         this.instances.add(new Instance(id, text));
+    }
+
+    // tbd some of these may require calculations or shoud be changed to add instead of set
+    public void setCompletenessPercentage(double completenessPercentage) {
+        this.completenessPercentage = completenessPercentage;
+    }
+
+    public void setClassDistributions(HashMap classDistributions) {
+        this.classDistributions = classDistributions;
+    }
+
+    public void setUniqueInstancesForLabel(HashMap uniqueInstancesForLabel) {
+        this.uniqueInstancesForLabel = uniqueInstancesForLabel;
+    }
+
+    public void setNumberOfAssignedUsers(int numberOfAssignedUsers) {
+        this.numberOfAssignedUsers = numberOfAssignedUsers;
+    }
+
+    public void setAssignedUsersCompleteness(HashMap assignedUsersCompleteness) {
+        this.assignedUsersCompleteness = assignedUsersCompleteness;
+    }
+
+    public void setAssignedUsersConsistency(HashMap assignedUsersConsistency) {
+        this.assignedUsersConsistency = assignedUsersConsistency;
     }
 } 
