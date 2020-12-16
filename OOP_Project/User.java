@@ -1,5 +1,8 @@
 package OOP_Project;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /*
 Class for the user object to store them in our dictionary in the main class
 We will get the users from a config file (in json format)
@@ -10,6 +13,15 @@ public class User {
     private long id;
     private String name;
     private String type;
+    private int numberOfDatasetAssigned;
+    private HashMap<Dataset, Double> datasetCompleteness=new HashMap<Dataset, Double>();
+    private int numOfLabeledInstances;
+    private HashMap<String, Integer> uniqueLabeledInstances =  new HashMap<String, Integer>();
+    private double consistencyPercentage;
+    private double averageTimeSpent;
+    private ArrayList<Double> timeSpentPerInstance = new ArrayList<Double>();
+    private double standarDeviation;
+
 
     public User() {}
     public User(long id, String name, String type) {
@@ -33,6 +45,34 @@ public class User {
         return type;
     }
 
+    public int getNumberOfDatesetsAssigned(){
+        return numberOfDatasetAssigned;
+    }
+    
+    public int getNumberOfLabeledInstances(){
+        return numOfLabeledInstances;
+    }
+
+    public double getConsistencyPercentage(){
+        return consistencyPercentage;
+    }
+
+    public int getNumberOfUniqueLabeledInstances(){
+        //implementation needed
+        return 0;
+    }
+
+    public double getAverageTimeSpent(){
+        return averageTimeSpent;
+    }
+
+    public ArrayList<Double> getTimeSpentPerInstance(){
+        return timeSpentPerInstance;
+    }
+
+    public double getStandardDeviation(){
+        return standarDeviation;
+    }
 
     // Setters
 
@@ -46,5 +86,21 @@ public class User {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public void setNumberOfDatasetsAssigned(){
+        //related calculations
+    }
+
+    public void setNumberOfLabeledInstances(){
+        //related calculations
+    }
+
+    public void setConsistencyPercentage(){
+        //related calculations
+    }
+
+    public void setStandardDeviation(){
+        //related calculations
     }
 }
