@@ -13,9 +13,9 @@ public class User {
     private long id;
     private String name;
     private String type;
-    private int numberOfDatasetAssigned;
+    private int numberOfDatasetAssigned = 0;
     private HashMap<Dataset, Double> datasetCompleteness=new HashMap<Dataset, Double>();
-    private int numOfLabeledInstances;
+    private int numOfLabeledInstances = 0;
     private HashMap<String, Integer> uniqueLabeledInstances =  new HashMap<String, Integer>();
     private double consistencyPercentage;
     private double averageTimeSpent;
@@ -88,8 +88,8 @@ public class User {
         this.type = type;
     }
 
-    public void setNumberOfDatasetsAssigned(){
-        //related calculations
+    public void setNumberOfDatasetsAssigned(int length){
+        this.numberOfDatasetAssigned = length;
     }
 
     public void setNumberOfLabeledInstances(){
