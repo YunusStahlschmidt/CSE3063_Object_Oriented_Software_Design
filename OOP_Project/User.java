@@ -3,6 +3,9 @@ package OOP_Project;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /*
 Class for the user object to store them in our dictionary in the main class
 We will get the users from a config file (in json format)
@@ -10,9 +13,15 @@ We will also use that dictionary for our final output
 */
 
 public class User {
-    private long id;
-    private String name;
-    private String type;
+    @SerializedName("userId")
+    @Expose
+    private int userId;
+    @SerializedName("userName")
+    @Expose
+    private String userName;
+    @SerializedName("userType")
+    @Expose
+    private String userType;
     private int numberOfDatasetAssigned = 0;
     private HashMap<Dataset, Double> datasetCompleteness=new HashMap<Dataset, Double>();
     private int numOfLabeledInstances = 0;
@@ -24,25 +33,25 @@ public class User {
 
 
     public User() {}
-    public User(long id, String name, String type) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
+    public User(int id, String name, String type) {
+        this.userId = id;
+        this.userName = name;
+        this.userType = type;
     }
 
 
     //Getters
 
-    public long getId() {
-        return id;
+    public Integer getId() {
+        return userId;
     }
-
+    
     public String getName() {
-        return name;
+        return userName;
     }
 
     public String getType() {
-        return type;
+        return userType;
     }
 
     public int getNumberOfDatesetsAssigned(){
@@ -76,16 +85,16 @@ public class User {
 
     // Setters
 
-    public void setId(long id) {
-        this.id = id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public void setNumberOfDatasetsAssigned(int length){

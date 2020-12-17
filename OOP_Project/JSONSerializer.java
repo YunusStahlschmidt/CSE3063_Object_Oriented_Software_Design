@@ -37,14 +37,14 @@ public class JSONSerializer {
         for (Label label : dataset.getLabels()) {
             hashMap = new LinkedHashMap(2);
             hashMap.put("label id", label.getId());
-            hashMap.put("label text", label.getName());
+            hashMap.put("label text", label.getLabelText());
             classLabels.add(hashMap);
         }
 
         for (Instance instance : dataset.getInstances()) {
             hashMap = new LinkedHashMap(2);
             hashMap.put("id", instance.getId());
-            hashMap.put("instance", instance.getText());
+            hashMap.put("instance", instance.getInstance());
             instances.add(hashMap);
         }
 
@@ -65,7 +65,7 @@ public class JSONSerializer {
             usersArray.add(hashMap);
         }
 
-        Output myOutput = new Output(dataset.getId(), dataset.getName(), dataset.getMaxLabel(), classLabels, instances,
+        Output myOutput = new Output(dataset.getDatasetId(), dataset.getDatasetName(), dataset.getMaxLabel(), classLabels, instances,
                 classLabelAssignments, usersArray);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(myOutput);

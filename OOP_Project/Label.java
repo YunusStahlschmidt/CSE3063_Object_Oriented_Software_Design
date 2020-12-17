@@ -1,37 +1,44 @@
 package OOP_Project;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /*
 Class for the label object to store them in our array list in the dataset
 */
 
 public class Label {
-    private long id;
-    private String name;
+    @SerializedName("label id")
+    @Expose
+    private Integer labelId;
+    @SerializedName("label text")
+    @Expose
+    private String labelText;
 
     
     public Label() {}
-    public Label(long id, String name) {
-        this.id = id;
-        this.name = name;
+    public Label(int id, String text) {
+        this.labelId = id;
+        this.labelText = text;
     }
     // Getters
 
-    public long getId() {
-        return id;
+    public Integer getId() {
+        return labelId;
     }
 
-    public String getName() {
-        return name;
+    public String getLabelText() {
+        return labelText;
     }
 
 
     // Setters
 
-    public void setId(long id) {
-        this.id = id;
+    public void setLabelId(Integer labelId) {
+        this.labelId = labelId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLabelText(String labelText) {
+        this.labelText = labelText;
     }
 }

@@ -2,7 +2,6 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "json-simple-2.1.2.jar",
-        "d:\\Development\\Java\\Libraries\\jar_files\\gson-2.8.6.jar",
         "logback.jar",
         "logback-access-1.0.2.jar",
         "logback-classic.jar",
