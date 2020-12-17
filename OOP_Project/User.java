@@ -2,6 +2,8 @@ package OOP_Project;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +30,7 @@ public class User {
     private int numberOfDatasetAssigned = 0;
     private HashMap<Dataset, Double> datasetCompleteness=new HashMap<Dataset, Double>();
     private int numOfLabeledInstances = 0;
-    private HashMap<String, Integer> uniqueLabeledInstances =  new HashMap<String, Integer>();
+    private Set<String> uniqueLabeledInstances = new HashSet<String>(); 
     private double consistencyPercentage;
     private double averageTimeSpent;
     private ArrayList<Double> timeSpentPerInstance = new ArrayList<Double>();
@@ -89,6 +91,10 @@ public class User {
     public double getStandardDeviation(){
         return standarDeviation;
     }
+    
+    public HashMap<Dataset, Double> getDatasetCompleteness() {
+        return datasetCompleteness;
+    }
 
     // Setters
 
@@ -122,5 +128,20 @@ public class User {
 
     public void setStandardDeviation(){
         //related calculations
+    }
+
+    public void setUniqueLabeledInstances(String labeledInstance) {
+        this.uniqueLabeledInstances.add(labeledInstance);
+    }
+
+    public void incrementDatasetCompleteness(Dataset dataset) {
+        if (this.datasetCompleteness.get(dataset) == null) {
+            this.datasetCompleteness.put(dataset, 0.0);
+        } else {
+            int sizeOfDataset = dataset.getInstances().size();
+            Double currentValue = this.datasetCompleteness.get(dataset);
+
+            this.datasetCompleteness.put(dataset, currentValue + 1/sizeOfDataset);
+        }
     }
 }

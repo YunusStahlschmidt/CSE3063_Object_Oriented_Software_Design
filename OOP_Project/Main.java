@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Required Objects
-        Dataset dataset = null;
+        Dataset dataset;
         ArrayList<LabelAssignment> labelAssignments = new ArrayList<>();
         ArrayList<User> users = new ArrayList<>();
         Parser parser = new Parser();
@@ -34,7 +34,6 @@ public class Main {
                 // Getting users path from client
                 System.out.print("Please type the absolute path of config.json file: ");
                 String configPath = scan.nextLine(); // assign your JSON String here
-                // scan.close();
 
                 // parsing given config.json file
                 parser.parseConfigFile(configPath);
@@ -52,15 +51,18 @@ public class Main {
                 logger.warn("FileNotFound error has occured!");
             }
         }
+        scan.close();
 
         int userIndex;
         ArrayList<Long> addedLabels;
         long randomLabel;
         List<Label> tempLabels;
         tempLabels = dataset.getLabels();
+        User currentUser;
 
         for (Instance anInstance : dataset.getInstances()) {
             userIndex = random.nextInt(users.size());
+            currentUser = users.get(userIndex);
             addedLabels = new ArrayList<>();
 
             for (int maxlabel = 1; maxlabel <= random.nextInt((int) dataset.getMaxLabel()) + 1;) {
@@ -73,7 +75,13 @@ public class Main {
 
             }
             labelAssignments.add(
-                    new LabelAssignment(anInstance.getId(), addedLabels, users.get(userIndex).getId(), new Date()));
+                    new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(), new Date()));
+
+            // updating User Metrices
+            currentUser.incrementDatasetCompleteness(dataset);
+            currentUser.setNumberOfLabeledInstances(); // should be handled
+            currentUser.setUniqueLabeledInstances(String.format("%d : %d", dataset.getDatasetId(), anInstance.getId()));
+
         }
         System.out.println(labelAssignments);
 
