@@ -22,6 +22,9 @@ public class User {
     @SerializedName("userType")
     @Expose
     private String userType;
+    @SerializedName("consistencyCheckProbability")
+    @Expose
+    private double consistencyCheckProbability;
     private int numberOfDatasetAssigned = 0;
     private HashMap<Dataset, Double> datasetCompleteness=new HashMap<Dataset, Double>();
     private int numOfLabeledInstances = 0;
@@ -52,6 +55,10 @@ public class User {
 
     public String getType() {
         return userType;
+    }
+
+    public double getConsistencyCheckProbability() {
+        return consistencyCheckProbability;
     }
 
     public int getNumberOfDatesetsAssigned(){
@@ -95,6 +102,10 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public void setConsistencyCheckProbability(double consistencyCheckProbability) {
+        this.consistencyCheckProbability = consistencyCheckProbability;
     }
 
     public void incrementNumberOfDatasetsAssigned(){
