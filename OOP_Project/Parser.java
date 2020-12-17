@@ -2,21 +2,9 @@ package OOP_Project;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-
-import javax.xml.crypto.Data;
 
 import com.google.gson.Gson;
 
@@ -31,55 +19,83 @@ This class is responsible for parsing the input and config files
 */
 
 public class Parser {
-    //private JSONParser jsonParser = new JSONParser();
-    //private static final Logger logger = LoggerFactory.getLogger(Parser.class);
-    long currentDatasetId;
+    private Dataset currentDataset;
+    private int currentDatasetId;
+    private ArrayList<User> users;
 
     public Parser() {
     }
 
-    public Dataset parseDatasetFile(String datasetPath, Dataset dataset) throws Exception {
+    // Getters
+
+    public Dataset getCurrentDataset() {
+        return currentDataset;
+    }
+
+    public int getCurrentDatasetId() {
+        return currentDatasetId;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+
+    // Setters
+
+    public void setCurrentDataset(Dataset currentDataset) {
+        this.currentDataset = currentDataset;
+    }
+
+    public void setCurrentDatasetId(int currentDatasetId) {
+        this.currentDatasetId = currentDatasetId;
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
+    }
+
+    public void parseDatasetFile(Dataset dataset) throws Exception {
         URL url;
         File file;
-        url = getClass().getResource(datasetPath);
+        url = getClass().getResource(dataset.getPath());
         file = new File(url.getPath());
-        System.out.println(file.getAbsolutePath());
+        //System.out.println(file.getAbsolutePath());
 
         Gson gson = new Gson();   
         BufferedReader br = new BufferedReader(new FileReader(file.getAbsolutePath()));
-        InputModel inputModel= gson.fromJson(br, InputModel.class);
-        System.out.println(inputModel.getDatasetName());
+        Dataset newDataset = gson.fromJson(br, Dataset.class);
+        //System.out.println(dataset.getDatasetName());
 
-        
-        dataset.setDatasetId(inputModel.getDatasetId());
-        dataset.setDatasetName(inputModel.getDatasetName());
-        dataset.setMaxLabel(inputModel.getMaximumNumberOfLabelsPerInstance());
-        dataset.setLabels(inputModel.getClassLabels());
-        //tbd datset set instances
-
-        return dataset;
+        this.currentDataset = newDataset;
+        this.currentDataset.setPath(dataset.getPath());
+        this.currentDataset.setAssignedUserIds(dataset.getAssignedUserIds());
     }
 
-    //private static final Type CONFIG_TYPE = new TypeToken<List<ConfigModel>>() {}.getType();
-
-    public void parseConfigFile(String configPath, ArrayList<User> users, HashMap<Long, Dataset> datasets, int currentDatasetId) throws Exception {    
+    public void parseConfigFile(String configPath) throws Exception {    
         Gson gson = new Gson();   
         BufferedReader br = new BufferedReader(new FileReader(configPath));
-        ConfigModel configModel= gson.fromJson(br, ConfigModel.class);
-        System.out.println(configModel.getUsers().get(0).getName());
+        ConfigModel configModel = gson.fromJson(br, ConfigModel.class);
+        //System.out.println(configModel.getUsers().get(0).getName());
 
-        // tbd set current dataset
-        // tbd add users to users in main
-        //currentDatasetId = configModel.getCurrentDatasetId();
-        //users = (ArrayList<User>) configModel.getUsers();
+        //System.out.println(configModel.getCurrentDatasetId());
+        //System.out.println(configModel.getUsers());
+        this.currentDatasetId = configModel.getCurrentDatasetId();
+        this.users = (ArrayList<User>) configModel.getUsers();
 
-        for (Dataset dataset : configModel.getDatasets()) {
-            // tbd add to datasets in main
-            if (dataset.getDatasetId()==configModel.getCurrentDatasetId()){
-                // tbd assign datasets to users
-                parseDatasetFile(dataset.getPath(), dataset);
-                break;
+        for (Dataset dataset : configModel.getDatasets()) {  
+            // tbd assign datasets to users    
+            for (User user : this.users){
+                for (Integer userId : dataset.getAssignedUserIds()){
+                    if (userId == user.getId()){
+                        user.incrementNumberOfDatasetsAssigned();
+                    }
+                }
+                //System.out.println(user.getNumberOfDatesetsAssigned()); 
+            }
+            if (dataset.getDatasetId() == configModel.getCurrentDatasetId()){
+                parseDatasetFile(dataset);
             }     
-        }
+        } 
     }
 }

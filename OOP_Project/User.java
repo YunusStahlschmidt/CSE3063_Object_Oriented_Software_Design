@@ -97,8 +97,8 @@ public class User {
         this.userType = userType;
     }
 
-    public void setNumberOfDatasetsAssigned(int length){
-        this.numberOfDatasetAssigned = length;
+    public void incrementNumberOfDatasetsAssigned(){
+        this.numberOfDatasetAssigned++;
     }
 
     public void setNumberOfLabeledInstances(){

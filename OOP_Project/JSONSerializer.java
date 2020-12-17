@@ -7,8 +7,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
