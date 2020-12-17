@@ -20,7 +20,7 @@ public class JSONSerializer {
     }
 
     public void serializeJSONFile(String outputPath, Dataset dataset, ArrayList<LabelAssignment> lAssignments,
-            ArrayList<User> users) throws Exception {
+        ArrayList<User> users) throws Exception {
 
         String pattern = "dd/M/yyyy, hh:mm:ss";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);

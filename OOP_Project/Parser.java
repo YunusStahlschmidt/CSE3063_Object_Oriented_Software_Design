@@ -91,7 +91,6 @@ public class Parser {
                         user.incrementNumberOfDatasetsAssigned();
                     }
                 }
-                //System.out.println(user.getNumberOfDatesetsAssigned()); 
             }
             if (dataset.getDatasetId() == configModel.getCurrentDatasetId()){
                 parseDatasetFile(dataset);
