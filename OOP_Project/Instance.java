@@ -3,13 +3,20 @@ package OOP_Project;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /*
 Class for the instance object to store them in our array list in the dataset
 */
 
 public class Instance {
-    private long id;
-    private String text;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("instance")
+    @Expose
+    private String instance;
     private double entropy;
     private Label mostFrequentClassLabel;
     private double percentageOfMostFrequentLabel;
@@ -19,20 +26,20 @@ public class Instance {
     private HashMap<Label, Double> classLabelsAndPercentages = new HashMap<Label,Double>();
 
     public Instance() {}
-    public Instance(long id, String text) {
+    public Instance(int id, String instance) {
         this.id = id;
-        this.text = text;
+        this.instance = instance;
     }
 
 
     // Getters
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public String getText() {
-        return text;
+    public String getInstance() {
+        return instance;
     }
 
     public double getEntropy(){
@@ -67,12 +74,12 @@ public class Instance {
 
     // Setters
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setInstance(String instance) {
+        this.instance = instance;
     }
 
     public void setClassLabelsAndPercentages(){

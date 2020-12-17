@@ -3,6 +3,7 @@ package OOP_Project;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -29,7 +30,7 @@ public class Main {
         JSONSerializer serializer = new JSONSerializer();
         Scanner scan = new Scanner(System.in);
         Random random = new Random();
-        int currentDatasetId;
+        int currentDatasetId = 0;
 
         
 
@@ -49,26 +50,27 @@ public class Main {
                 // scan.close();
 
                 // parsing given config.json file
-                parser.parseConfigFile(configPath, users, datasets);
+                parser.parseConfigFile(configPath, users, datasets, currentDatasetId);
+                System.out.println(currentDatasetId);
+                System.out.println(users);
                 // logger.info("config file was parsed successfully");
 
                 break;
             } catch (Exception e) {
                 System.out.println("FileNotFound error has been occured! Please check your file paths.");
                 logger.warn("FileNotFound error has occured!");
-
             }
         }
 
         int userIndex;
         ArrayList<Long> addedLabels;
         long randomLabel;
-        ArrayList<Label> tempLabels;
+        List<Label> tempLabels;
 
         for (Dataset dataset: datasets.values()) {
             tempLabels = dataset.getLabels();
-            System.out.println(dataset.getId());
-            System.out.println(dataset.getName());
+            System.out.println(dataset.getDatasetId());
+            System.out.println(dataset.getDatasetName());
 
             for (Instance anInstance : dataset.getInstances()) {
                 userIndex = random.nextInt(users.size());
@@ -98,19 +100,19 @@ public class Main {
                 long user_id = lAssignment.getUserId();
                 String user_name = users.get((int) lAssignment.getUserId() - 1).getName();
                 long instance_id = lAssignment.getInstanceId();
-                String instance_text = dataset.getInstances().get((int) lAssignment.getInstanceId() - 1).getText();
+                String instance_text = dataset.getInstances().get((int) lAssignment.getInstanceId() - 1).getInstance();
                 long class_label_id = lAssignment.getInstanceId();
 
                 if (lAssignment.getAssignedLabelId().size() == 1) {
                     String label_name = dataset.getLabels().get((int) lAssignment.getSpecificAssignedLabelId(0) - 1)
-                            .getName();
+                            .getLabelText();
                     logger.info("user id:" + user_id + " " + user_name + " tagged instance id:" + instance_id
                             + " with class label " + class_label_id + ":" + label_name + " instance: " + instance_text);
                 } else {
                     ArrayList<String> labels = new ArrayList<>();
 
                     for (int n = 0; n < lAssignment.getAssignedLabelId().size(); n++) {
-                        labels.add(dataset.getLabels().get((int) lAssignment.getSpecificAssignedLabelId(n) - 1).getName());
+                        labels.add(dataset.getLabels().get((int) lAssignment.getSpecificAssignedLabelId(n) - 1).getLabelText());
                     }
                     logger.info("user id:" + user_id + " " + user_name + " tagged instance id:" + instance_id
                             + " with class labels " + lAssignment.getAssignedLabelId().toString() + ":" + labels.toString()
