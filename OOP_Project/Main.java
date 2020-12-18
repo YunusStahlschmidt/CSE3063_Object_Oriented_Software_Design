@@ -54,34 +54,43 @@ public class Main {
         scan.close();
 
         int userIndex;
-        ArrayList<Long> addedLabels;
-        long randomLabel;
+        ArrayList<Integer> addedLabels;
+        Integer randomLabel;
         List<Label> tempLabels;
         tempLabels = dataset.getLabels();
         User currentUser;
+        Date startDate, endDate;
+        LabelAssignment newLabelAssignment;
 
         for (Instance anInstance : dataset.getInstances()) {
-            userIndex = random.nextInt(users.size());
-            currentUser = users.get(userIndex);
-            addedLabels = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                userIndex = random.nextInt(users.size());
+                currentUser = users.get(userIndex);
+                addedLabels = new ArrayList<>();
 
-            for (int maxlabel = 1; maxlabel <= random.nextInt((int) dataset.getMaxLabel()) + 1;) {
-                randomLabel = tempLabels.get(random.nextInt(tempLabels.size())).getId();
+                startDate = new Date();
+                for (int maxlabel = 1; maxlabel <= random.nextInt((int) dataset.getMaxLabel()) + 1;) {
+                    randomLabel = tempLabels.get(random.nextInt(tempLabels.size())).getId();
 
-                if (!addedLabels.contains(randomLabel)) {
-                    addedLabels.add(randomLabel);
-                    maxlabel++;
+                    if (!addedLabels.contains(randomLabel)) {
+                        addedLabels.add(randomLabel);
+                        maxlabel++;
+                    }
+
                 }
+                newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(), new Date());
+                labelAssignments.add(newLabelAssignment);
+                endDate = new Date();
 
+                // updating User Metrices
+                currentUser.incrementDatasetCompleteness(dataset);
+                currentUser.setNumberOfLabeledInstances(); // corresponding method should be handled
+                currentUser.setUniqueLabeledInstances(String.format("%d : %d", dataset.getDatasetId(), anInstance.getId()));
+                currentUser.setAverageTimeSpent((double)((endDate.getTime() - startDate.getTime()) / 1000)); // corresponding method should be handled
+
+                // updating Instance Metrics
+                anInstance.setLabelAssignments(newLabelAssignment);
             }
-            labelAssignments.add(
-                    new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(), new Date()));
-
-            // updating User Metrices
-            currentUser.incrementDatasetCompleteness(dataset);
-            currentUser.setNumberOfLabeledInstances(); // should be handled
-            currentUser.setUniqueLabeledInstances(String.format("%d : %d", dataset.getDatasetId(), anInstance.getId()));
-
         }
         System.out.println(labelAssignments);
 

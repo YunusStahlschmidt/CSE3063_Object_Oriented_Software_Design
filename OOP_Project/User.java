@@ -130,6 +130,11 @@ public class User {
         //related calculations
     }
 
+    public void setAverageTimeSpent(double TimeSpent) {
+        // in here we should take TimeSpent and add it to averageTimeSpent
+        // formula should be (AverageTimeSpent * numberOfLabeledInstances + TimeSpent) / (numberOfLabeledInstances + 1)
+    }
+
     public void setUniqueLabeledInstances(String labeledInstance) {
         this.uniqueLabeledInstances.add(labeledInstance);
     }

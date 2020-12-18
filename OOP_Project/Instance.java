@@ -17,24 +17,23 @@ public class Instance {
     @SerializedName("instance")
     @Expose
     private String instance;
-    private double entropy;
+    private Double entropy;
     private Label mostFrequentClassLabel;
-    private double percentageOfMostFrequentLabel;
-    private int totalNumberOfAssignedLabels;
-    private int totalNumberOfUniqueAssignedLabels;
-    private ArrayList<String[]> labelAssignments = new ArrayList<String[]>();
+    private Double percentageOfMostFrequentLabel;
+    private Integer totalNumberOfAssignedLabels;
+    private Integer totalNumberOfUniqueAssignedLabels;
+    private ArrayList<LabelAssignment> labelAssignments = new ArrayList<LabelAssignment>();
     private HashMap<Label, Double> classLabelsAndPercentages = new HashMap<Label,Double>();
 
     public Instance() {}
-    public Instance(int id, String instance) {
+    public Instance(Integer id, String instance) {
         this.id = id;
         this.instance = instance;
     }
 
-
     // Getters
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -42,19 +41,19 @@ public class Instance {
         return instance;
     }
 
-    public double getEntropy(){
+    public Double getEntropy(){
         return entropy;
     }
 
-    public int getTotalNumberOfAssignedLabels(){
+    public Integer getTotalNumberOfAssignedLabels(){
         return totalNumberOfAssignedLabels;
     }
 
-    public int getNumberOfUniqueAssignedLabels(){
+    public Integer getNumberOfUniqueAssignedLabels(){
         return totalNumberOfUniqueAssignedLabels;
     }
 
-    public int getNumberOfUniqueUsers(){
+    public Integer getNumberOfUniqueUsers(){
         //implementation needed
         return 0;
     }
@@ -63,13 +62,17 @@ public class Instance {
         return mostFrequentClassLabel;
     }
 
-    public double getMostFrequentLabelPercentage(){
+    public Double getMostFrequentLabelPercentage(){
         //implementation needed
-        return 0;
+        return 0.0;
     }
 
     public HashMap getClassLabelsAndPercentages(){
         return classLabelsAndPercentages;
+    }
+
+    public Integer getLabelAssignments() {
+        return labelAssignments.size();
     }
 
     // Setters
@@ -92,5 +95,9 @@ public class Instance {
 
     public void setEntropy(){
         //implementaion needed
+    }
+
+    public void setLabelAssignments(LabelAssignment newLabelAssignment) {
+        this.labelAssignments.add(newLabelAssignment);
     }
 }
