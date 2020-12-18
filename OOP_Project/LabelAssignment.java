@@ -12,16 +12,16 @@ for our final output
 
 public class LabelAssignment {
     private int instanceId;
-    private ArrayList<Integer> assignedLabelIds;
+    private ArrayList<Label> assignedLabels;
     private int userId;
     private Date date;
 
     public LabelAssignment() {
     }
 
-    public LabelAssignment(int instanceId, ArrayList<Integer> assignedLabelIds, int userId, Date date) {
+    public LabelAssignment(int instanceId, ArrayList<Label> assignedLabels, int userId, Date date) {
         this.instanceId = instanceId;
-        this.assignedLabelIds = assignedLabelIds;
+        this.assignedLabels = assignedLabels;
         this.userId = userId;
         this.date = date;
     }
@@ -33,10 +33,15 @@ public class LabelAssignment {
     }
 
     public ArrayList<Integer> getAssignedLabelId() {
-        return assignedLabelIds;
+        ArrayList<Integer> lablesIds = new ArrayList<>();
+        for (Label aLabel: assignedLabels) {
+            lablesIds.add(aLabel.getId());
+        } 
+        return lablesIds;
     }
 
     public int getSpecificAssignedLabelId(int n) {
+        /* To get specific label id */
         return getAssignedLabelId().get(n);
     }
 
@@ -62,7 +67,7 @@ public class LabelAssignment {
         this.date = date;
     }
 
-    public void addAssignedLabelId(int id) {
-        this.assignedLabelIds.add(id);
+    public void addAssignedLabel(Label label) {
+        this.assignedLabels.add(label);
     }
 }
