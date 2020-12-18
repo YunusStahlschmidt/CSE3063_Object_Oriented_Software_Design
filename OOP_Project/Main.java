@@ -54,8 +54,8 @@ public class Main {
         scan.close();
 
         int userIndex;
-        ArrayList<Integer> addedLabels;
-        Integer randomLabel;
+        ArrayList<Label> addedLabels;
+        Label randomLabel;
         List<Label> tempLabels;
         tempLabels = dataset.getLabels();
         User currentUser;
@@ -70,13 +70,17 @@ public class Main {
 
                 startDate = new Date();
                 for (int maxlabel = 1; maxlabel <= random.nextInt((int) dataset.getMaxLabel()) + 1;) {
-                    randomLabel = tempLabels.get(random.nextInt(tempLabels.size())).getId();
+                    randomLabel = dataset.getLabels().get(random.nextInt(dataset.getLabels().size()));
 
                     if (!addedLabels.contains(randomLabel)) {
                         addedLabels.add(randomLabel);
                         maxlabel++;
-                    }
 
+                        // updating Instance Metrices
+                        anInstance.incrementTotalNumberOfAssignedLabels();
+                        anInstance.addUniqueUser(currentUser);
+                        anInstance.addUniqueLabel(randomLabel);
+                    }
                 }
                 newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(), new Date());
                 labelAssignments.add(newLabelAssignment);
@@ -86,10 +90,20 @@ public class Main {
                 currentUser.incrementDatasetCompleteness(dataset);
                 currentUser.setNumberOfLabeledInstances(); // corresponding method should be handled
                 currentUser.setUniqueLabeledInstances(String.format("%d : %d", dataset.getDatasetId(), anInstance.getId()));
-                currentUser.setAverageTimeSpent((double)((endDate.getTime() - startDate.getTime()) / 1000)); // corresponding method should be handled
+                currentUser.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double)1000)); // corresponding method should be handled
 
                 // updating Instance Metrics
                 anInstance.setLabelAssignments(newLabelAssignment);
+                anInstance.setNumberOfUniqueAssignedLabels(); // parameters and method should be handled
+                anInstance.setNumberOfUniqueUsers();
+                /* May change the order of method calls */ 
+                anInstance.setMostFrequentLabel();
+                anInstance.setPercentageOfMostFrequentLabel();
+                anInstance.setClassLabelsAndPercentages();      
+
+                //------Hopefully Instance Metrics set-----
+
+
             }
         }
         System.out.println(labelAssignments);
