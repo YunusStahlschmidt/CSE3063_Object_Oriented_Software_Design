@@ -89,6 +89,8 @@ public class Parser {
                 for (Integer userId : dataset.getAssignedUserIds()){
                     if (userId == user.getId()){
                         user.incrementNumberOfDatasetsAssigned();
+                        // dataset completeness
+                        user.incrementDatasetCompleteness(dataset);
                     }
                 }
             }
