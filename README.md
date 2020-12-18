@@ -6,4 +6,3 @@ Group 27
   5. 150119693 Sameeh N O Kunbargi
   6. 150119938 Muhammad Ismail
   7. 150119814 Yunus Ahmed Stahlschmidt
-  8. 150119869 Umer Selmani
