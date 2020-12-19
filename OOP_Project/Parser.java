@@ -69,7 +69,7 @@ public class Parser {
 
         this.currentDataset = newDataset;
         this.currentDataset.setPath(dataset.getPath());
-        this.currentDataset.setAssignedUserIds(dataset.getAssignedUserIds());
+        this.currentDataset.setAssignedUsers(dataset.getAssignedUsers()); 
     }
 
     public void parseConfigFile(String configPath) throws Exception {    
@@ -77,20 +77,19 @@ public class Parser {
         BufferedReader br = new BufferedReader(new FileReader(configPath));
         ConfigModel configModel = gson.fromJson(br, ConfigModel.class);
         //System.out.println(configModel.getUsers().get(0).getName());
-
+        
         //System.out.println(configModel.getCurrentDatasetId());
         //System.out.println(configModel.getUsers());
         this.currentDatasetId = configModel.getCurrentDatasetId();
         this.users = (ArrayList<User>) configModel.getUsers();
-
         for (Dataset dataset : configModel.getDatasets()) {  
-            // tbd assign datasets to users    
+            // tbd assign datasets to users              
             for (User user : this.users){
-                for (Integer userId : dataset.getAssignedUserIds()){
-                    if (userId == user.getId()){
-                        user.incrementNumberOfDatasetsAssigned();
+                for (User userAssigned : dataset.getAssignedUsers()){
+                    if (userAssigned == user){
+                        user.getUserMetric().incrementNumberOfDatasetsAssigned();
                         // dataset completeness
-                        user.incrementDatasetCompleteness(dataset);
+                        user.getUserMetric().incrementDatasetCompleteness(dataset);
                     }
                 }
             }

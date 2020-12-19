@@ -62,12 +62,19 @@ public class Main {
         Date startDate, endDate;
         LabelAssignment newLabelAssignment;
 
+        // metrices
+        UserMetric userMetric;
+        InstanceMetric instanceMetric;
+        DatasetMetric datasetMetric = dataset.getDatasetMetric();
+
         for (Instance anInstance : dataset.getInstances()) {
             for (int i = 0; i < 10; i++) {
                 userIndex = random.nextInt(users.size());
                 currentUser = users.get(userIndex);
+                userMetric = currentUser.getUserMetric();
+                instanceMetric = anInstance.getInstanceMetric();
                 addedLabels = new ArrayList<>();
-
+                
                 startDate = new Date();
                 for (int maxlabel = 1; maxlabel <= random.nextInt((int) dataset.getMaxLabel()) + 1;) {
                     randomLabel = dataset.getLabels().get(random.nextInt(dataset.getLabels().size()));
@@ -76,10 +83,14 @@ public class Main {
                         addedLabels.add(randomLabel);
                         maxlabel++;
 
-                        // updating Instance Metrices
-                        anInstance.incrementTotalNumberOfAssignedLabels();
-                        anInstance.addUniqueUser(currentUser);
-                        anInstance.addUniqueLabel(randomLabel);
+                        // updating Instance Metric
+                        instanceMetric.findTotalNumberOfAssignedLabels(); //update while model class object is created
+                        instanceMetric.addUniqueUser(currentUser);
+                        instanceMetric.addUniqueLabel(randomLabel);
+                        
+                        // updating Datset Metric
+                        datasetMetric.addInstance(randomLabel, anInstance);
+                        
                     }
                 }
                 newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(), new Date());
@@ -87,25 +98,33 @@ public class Main {
                 endDate = new Date();
 
                 // updating User Metrices
-                currentUser.incrementDatasetCompleteness(dataset);
-                currentUser.setNumberOfLabeledInstances(); // corresponding method should be handled
-                currentUser.setUniqueLabeledInstances(String.format("%d : %d", dataset.getDatasetId(), anInstance.getId()));
-                currentUser.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double)1000)); // corresponding method should be handled
+                userMetric.incrementDatasetCompleteness(dataset);
+                userMetric.setNumberOfLabeledInstances(); // corresponding method should be handled
+                userMetric.addUniqueLabeledInstances(anInstance);
+                userMetric.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double)1000)); // corresponding method should be handled
 
                 // updating Instance Metrics
-                anInstance.setLabelAssignments(newLabelAssignment);
-                anInstance.setNumberOfUniqueAssignedLabels(); // parameters and method should be handled
-                anInstance.setNumberOfUniqueUsers();
+                instanceMetric.setLabelAssignments(newLabelAssignment);
+                instanceMetric.setNumberOfUniqueAssignedLabels(); // parameters and method should be handled
+                instanceMetric.setNumberOfUniqueUsers();
                 /* May change the order of method calls */ 
-                anInstance.setMostFrequentLabel();
-                anInstance.setPercentageOfMostFrequentLabel();
-                anInstance.setClassLabelsAndPercentages();      
+                instanceMetric.setMostFrequentLabel();
+                instanceMetric.setPercentageOfMostFrequentLabel();
+                instanceMetric.setClassLabelsAndPercentages();      
+                instanceMetric.setEntropy();
+                //------Hopefully Instance Metrics done-----
 
-                //------Hopefully Instance Metrics set-----
-
-
+                
             }
-        }
+            // updating Dataset Metrices
+            datasetMetric.calculateDatasetCompleteness();
+            datasetMetric.calculateClassDistribution();
+            // metric - 3 is done inside the loop
+            datasetMetric.calculateUserCompleteness();
+            //metric 4 should be called (maybe outside of the loop) 
+            datasetMetric.calculateAssignedUsersAndConcistencyPercentage();
+       
+        } 
         System.out.println(labelAssignments);
 
         for (LabelAssignment lAssignment : labelAssignments) {
