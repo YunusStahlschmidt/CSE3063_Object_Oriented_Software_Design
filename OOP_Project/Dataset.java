@@ -1,6 +1,7 @@
 package OOP_Project;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import com.google.gson.annotations.Expose;
@@ -25,22 +26,17 @@ public class Dataset {
     private String path;
     @SerializedName("assignedUserIds")
     @Expose
-    private List<Integer> assignedUserIds = null;
+    private List<User> assignedUsers;  
     @SerializedName("maximum number of labels per instance")
     @Expose
     private Integer maxLabel;
     @SerializedName("class labels")
     @Expose
-    private List<Label> labels = null;
+    private List<Label> labels;
     @SerializedName("instances")
     @Expose
-    private List<Instance> instances = null;
-    private double completenessPercentage;
-    private HashMap classDistributions = new HashMap<>();
-    private HashMap uniqueInstancesForLabel = new HashMap<>();
-    private int numberOfAssignedUsers;
-    private HashMap assignedUsersCompleteness = new HashMap<>();
-    private HashMap assignedUsersConsistency = new HashMap<>();
+    private List<Instance> instances; // should be arraylist
+    private DatasetMetric datasetMetric = new DatasetMetric();
 
     public Dataset() {}
     public Dataset(int id, String name, int maxLabel) {
@@ -62,8 +58,12 @@ public class Dataset {
         return path;
     }
 
-    public List<Integer> getAssignedUserIds() {
-        return assignedUserIds;
+    public List<User> getAssignedUsers() {
+        return this.assignedUsers;
+    }
+
+    public DatasetMetric getDatasetMetric(){
+        return datasetMetric;
     }
 //----------------------Datset Model--------------------------------
 
@@ -80,30 +80,6 @@ public class Dataset {
         return instances;
     }
 
-    // tbd some of these may require computations before returning
-    public double getCompletenessPercentage() {
-        return completenessPercentage;
-    }
-
-    public HashMap getClassDistributions() {
-        return classDistributions;
-    }
-
-    public HashMap getUniqueInstancesForLabel() {
-        return uniqueInstancesForLabel;
-    }
-
-    public int getNumberOfAssignedUsers() {
-        return numberOfAssignedUsers;
-    }
-
-    public HashMap getAssignedUsersCompleteness() {
-        return assignedUsersCompleteness;
-    }
-
-    public HashMap getAssignedUsersConsistency() {
-        return assignedUsersConsistency;
-    }
 
 
     // Setters
@@ -120,8 +96,8 @@ public class Dataset {
         this.path = path;
     }
 
-    public void setAssignedUserIds(List<Integer> assignedUserIds) {
-        this.assignedUserIds = assignedUserIds;
+    public void setAssignedUsers(List<User> assignedUsers) {
+        this.assignedUsers = assignedUsers;
     }
 
     public void setMaxLabel(int newMaxLabel) {
@@ -136,28 +112,5 @@ public class Dataset {
         this.instances = instances;
     }
 
-    // tbd some of these may require calculations or shoud be changed to add instead of set
-    public void setCompletenessPercentage(double completenessPercentage) {
-        this.completenessPercentage = completenessPercentage;
-    }
-
-    public void setClassDistributions(HashMap classDistributions) {
-        this.classDistributions = classDistributions;
-    }
-
-    public void setUniqueInstancesForLabel(HashMap uniqueInstancesForLabel) {
-        this.uniqueInstancesForLabel = uniqueInstancesForLabel;
-    }
-
-    public void setNumberOfAssignedUsers(int numberOfAssignedUsers) {
-        this.numberOfAssignedUsers = numberOfAssignedUsers;
-    }
-
-    public void setAssignedUsersCompleteness(HashMap assignedUsersCompleteness) {
-        this.assignedUsersCompleteness = assignedUsersCompleteness;
-    }
-
-    public void setAssignedUsersConsistency(HashMap assignedUsersConsistency) {
-        this.assignedUsersConsistency = assignedUsersConsistency;
-    }
+  
 } 
