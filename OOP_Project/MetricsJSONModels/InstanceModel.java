@@ -9,9 +9,9 @@ public class InstanceModel {
     @SerializedName("instanceId")
     @Expose
     private Integer instanceId;
-    @SerializedName("Total number of label assignments (e.g. for labeling assignments of user")
+    @SerializedName("Total number of label assignments")
     @Expose
-    private Integer totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser;
+    private Integer totalNumberOfLabelAssignments;
     @SerializedName("Number of unique label assignments")
     @Expose
     private Integer numberOfUniqueLabelAssignments;
@@ -36,12 +36,12 @@ public class InstanceModel {
         this.instanceId = instanceId;
     }
 
-    public Integer getTotalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser() {
-        return totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser;
+    public Integer getTotalNumberOfLabelAssignments() {
+        return totalNumberOfLabelAssignments;
     }
 
-    public void setTotalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser(Integer totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser) {
-        this.totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser = totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser;
+    public void setTotalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser(Integer totalNumberOfLabelAssignments) {
+        this.totalNumberOfLabelAssignments = totalNumberOfLabelAssignments;
     }
 
     public Integer getNumberOfUniqueLabelAssignments() {

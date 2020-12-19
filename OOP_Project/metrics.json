@@ -56,34 +56,37 @@
     "Instance": [
         {
             "instanceId": 1,
-            "Total number of label assignments (e.g. for labeling assignments of user": 10,
+            "Total number of label assignments": 10,
             "Number of unique label assignments": 5,
             "Number of unique users": 1,
             "Most frequent class label and percentage": 60,
             "List class labels and percentages": [
-                {"userId": 1, "label": "positive"}
+                {"label":"positive", "percentage": 70},
+                {"label":"negative", "percentage": 30}
             ],
             "Entropy": 2.36
         },
         {
             "instanceId": 2,
-            "Total number of label assignments (e.g. for labeling assignments of user": 10,
+            "Total number of label assignments": 10,
             "Number of unique label assignments": 5,
             "Number of unique users": 1,
             "Most frequent class label and percentage": 60,
             "List class labels and percentages": [
-                {"userId": 2, "label": "positive"}
+                {"label":"positive", "percentage": 60},
+                {"label":"negative", "percentage": 40}
             ],
             "Entropy": 2.36
         },
         {
             "instanceId": 3,
-            "Total number of label assignments (e.g. for labeling assignments of user": 10,
+            "Total number of label assignments": 10,
             "Number of unique label assignments": 5,
             "Number of unique users": 1,
             "Most frequent class label and percentage": 60,
             "List class labels and percentages": [
-                {"userId": 3, "label": "negative"}
+                {"label":"positive", "percentage": 30},
+                {"label":"negative", "percentage": 70}
             ],
             "Entropy": 2.36
         }
@@ -93,8 +96,8 @@
             "datasetId": 1,
             "Completeness percentage": 15,
             "Class distribution based on final instance labels": [
-                {"label":"positive", "distribution": 70},
-                {"label":"negative", "distribution": 30}
+                {"label":"positive", "distributionPercentage": 70},
+                {"label":"negative", "distributionPercentage": 30}
             ],
             "List number of unique instances for each class label": [
                 {"label":"positive", "amount": 5},
@@ -113,8 +116,8 @@
             "datasetId": 2,
             "Completeness percentage": 15,
             "Class distribution based on final instance labels": [
-                {"label":"positive", "distribution": 50},
-                {"label":"negative", "distribution": 50}
+                {"label":"positive", "distributionPercentage": 50},
+                {"label":"negative", "distributionPercentage": 50}
             ],
             "List number of unique instances for each class label": [
                 {"label":"positive", "amount": 87},
@@ -135,9 +138,9 @@
             "datasetId": 3,
             "Completeness percentage": 15,
             "Class distribution based on final instance labels": [
-                {"label":"positive", "distribution": 87},
-                {"label":"negative", "distribution": 12},
-                {"label":"notr", "distribution": 56}
+                {"label":"positive", "distributionPercentage": 87},
+                {"label":"negative", "distributionPercentage": 12},
+                {"label":"notr", "distributionPercentage": 56}
             ],
             "List number of unique instances for each class label": [
                 {"label":"positive", "amount": 14},
