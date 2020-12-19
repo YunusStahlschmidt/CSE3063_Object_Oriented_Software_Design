@@ -5,20 +5,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListClassLabelsAndPercentage {
 
-    @SerializedName("userId")
-    @Expose
-    private Integer userId;
     @SerializedName("label")
     @Expose
     private String label;
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+    @SerializedName("percentage")
+    @Expose
+    private Integer percentage;
 
     public String getLabel() {
         return label;
@@ -26,6 +18,14 @@ public class ListClassLabelsAndPercentage {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public Integer getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(Integer percentage) {
+        this.percentage = percentage;
     }
 
 }
