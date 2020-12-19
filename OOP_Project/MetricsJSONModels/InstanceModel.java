@@ -1,10 +1,10 @@
-package OOP_Project.MetricsModels;
+package OOP_Project.MetricsJSONModels;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Instance {
+public class InstanceModel {
 
     @SerializedName("instanceId")
     @Expose
@@ -29,59 +29,59 @@ public class Instance {
     private Double entropy;
 
     public Integer getInstanceId() {
-    return instanceId;
+        return instanceId;
     }
 
     public void setInstanceId(Integer instanceId) {
-    this.instanceId = instanceId;
+        this.instanceId = instanceId;
     }
 
     public Integer getTotalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser() {
-    return totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser;
+        return totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser;
     }
 
     public void setTotalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser(Integer totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser) {
-    this.totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser = totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser;
+        this.totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser = totalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser;
     }
 
     public Integer getNumberOfUniqueLabelAssignments() {
-    return numberOfUniqueLabelAssignments;
+        return numberOfUniqueLabelAssignments;
     }
 
     public void setNumberOfUniqueLabelAssignments(Integer numberOfUniqueLabelAssignments) {
-    this.numberOfUniqueLabelAssignments = numberOfUniqueLabelAssignments;
+        this.numberOfUniqueLabelAssignments = numberOfUniqueLabelAssignments;
     }
 
     public Integer getNumberOfUniqueUsers() {
-    return numberOfUniqueUsers;
+        return numberOfUniqueUsers;
     }
 
     public void setNumberOfUniqueUsers(Integer numberOfUniqueUsers) {
-    this.numberOfUniqueUsers = numberOfUniqueUsers;
+        this.numberOfUniqueUsers = numberOfUniqueUsers;
     }
 
     public Integer getMostFrequentClassLabelAndPercentage() {
-    return mostFrequentClassLabelAndPercentage;
+        return mostFrequentClassLabelAndPercentage;
     }
 
     public void setMostFrequentClassLabelAndPercentage(Integer mostFrequentClassLabelAndPercentage) {
-    this.mostFrequentClassLabelAndPercentage = mostFrequentClassLabelAndPercentage;
+        this.mostFrequentClassLabelAndPercentage = mostFrequentClassLabelAndPercentage;
     }
 
     public List<ListClassLabelsAndPercentage> getListClassLabelsAndPercentages() {
-    return listClassLabelsAndPercentages;
+        return listClassLabelsAndPercentages;
     }
 
     public void setListClassLabelsAndPercentages(List<ListClassLabelsAndPercentage> listClassLabelsAndPercentages) {
-    this.listClassLabelsAndPercentages = listClassLabelsAndPercentages;
+        this.listClassLabelsAndPercentages = listClassLabelsAndPercentages;
     }
 
     public Double getEntropy() {
-    return entropy;
+        return entropy;
     }
 
     public void setEntropy(Double entropy) {
-    this.entropy = entropy;
+        this.entropy = entropy;
     }
 
 }

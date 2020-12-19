@@ -1,4 +1,4 @@
-package OOP_Project.MetricsModels;
+package OOP_Project.MetricsJSONModels;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -13,19 +13,19 @@ public class ClassDistributionBasedOnFinalInstanceLabel {
     private Integer distribution;
 
     public String getLabel() {
-    return label;
+        return label;
     }
 
     public void setLabel(String label) {
-    this.label = label;
+        this.label = label;
     }
 
     public Integer getDistribution() {
-    return distribution;
+        return distribution;
     }
 
     public void setDistribution(Integer distribution) {
-    this.distribution = distribution;
+        this.distribution = distribution;
     }
 
 }
