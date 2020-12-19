@@ -24,6 +24,9 @@ public class User {
     @SerializedName("userType")
     @Expose
     private String userType;
+    @SerializedName("consistencyCheckProbability")
+    @Expose
+    private double consistencyCheckProbability;
     private UserMetric userMetric = new UserMetric();
     public User() {}
     public User(int id, String name, String type) {
