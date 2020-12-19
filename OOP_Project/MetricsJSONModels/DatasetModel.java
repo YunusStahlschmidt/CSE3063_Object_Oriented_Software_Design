@@ -1,10 +1,10 @@
-package OOP_Project.MetricsModels;
+package OOP_Project.MetricsJSONModels;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Dataset {
+public class DatasetModel {
 
     @SerializedName("datasetId")
     @Expose
@@ -29,59 +29,59 @@ public class Dataset {
     private List<ListOfUsersAssignedAndTheirConsistencyPercentage> listOfUsersAssignedAndTheirConsistencyPercentage = null;
 
     public Integer getDatasetId() {
-    return datasetId;
+        return datasetId;
     }
 
     public void setDatasetId(Integer datasetId) {
-    this.datasetId = datasetId;
+        this.datasetId = datasetId;
     }
 
     public Integer getCompletenessPercentage() {
-    return completenessPercentage;
+        return completenessPercentage;
     }
 
     public void setCompletenessPercentage(Integer completenessPercentage) {
-    this.completenessPercentage = completenessPercentage;
+        this.completenessPercentage = completenessPercentage;
     }
 
     public List<ClassDistributionBasedOnFinalInstanceLabel> getClassDistributionBasedOnFinalInstanceLabels() {
-    return classDistributionBasedOnFinalInstanceLabels;
+        return classDistributionBasedOnFinalInstanceLabels;
     }
 
     public void setClassDistributionBasedOnFinalInstanceLabels(List<ClassDistributionBasedOnFinalInstanceLabel> classDistributionBasedOnFinalInstanceLabels) {
-    this.classDistributionBasedOnFinalInstanceLabels = classDistributionBasedOnFinalInstanceLabels;
+        this.classDistributionBasedOnFinalInstanceLabels = classDistributionBasedOnFinalInstanceLabels;
     }
 
     public List<ListNumberOfUniqueInstancesForEachClassLabel> getListNumberOfUniqueInstancesForEachClassLabel() {
-    return listNumberOfUniqueInstancesForEachClassLabel;
+        return listNumberOfUniqueInstancesForEachClassLabel;
     }
 
     public void setListNumberOfUniqueInstancesForEachClassLabel(List<ListNumberOfUniqueInstancesForEachClassLabel> listNumberOfUniqueInstancesForEachClassLabel) {
-    this.listNumberOfUniqueInstancesForEachClassLabel = listNumberOfUniqueInstancesForEachClassLabel;
+        this.listNumberOfUniqueInstancesForEachClassLabel = listNumberOfUniqueInstancesForEachClassLabel;
     }
 
     public Integer getNumberOfUsersAssignedToThisDataset() {
-    return numberOfUsersAssignedToThisDataset;
+        return numberOfUsersAssignedToThisDataset;
     }
 
     public void setNumberOfUsersAssignedToThisDataset(Integer numberOfUsersAssignedToThisDataset) {
-    this.numberOfUsersAssignedToThisDataset = numberOfUsersAssignedToThisDataset;
+        this.numberOfUsersAssignedToThisDataset = numberOfUsersAssignedToThisDataset;
     }
 
     public List<ListOfUsersAssignedAndTheirCompletenessPercentage> getListOfUsersAssignedAndTheirCompletenessPercentage() {
-    return listOfUsersAssignedAndTheirCompletenessPercentage;
+        return listOfUsersAssignedAndTheirCompletenessPercentage;
     }
 
     public void setListOfUsersAssignedAndTheirCompletenessPercentage(List<ListOfUsersAssignedAndTheirCompletenessPercentage> listOfUsersAssignedAndTheirCompletenessPercentage) {
-    this.listOfUsersAssignedAndTheirCompletenessPercentage = listOfUsersAssignedAndTheirCompletenessPercentage;
+        this.listOfUsersAssignedAndTheirCompletenessPercentage = listOfUsersAssignedAndTheirCompletenessPercentage;
     }
 
     public List<ListOfUsersAssignedAndTheirConsistencyPercentage> getListOfUsersAssignedAndTheirConsistencyPercentage() {
-    return listOfUsersAssignedAndTheirConsistencyPercentage;
+        return listOfUsersAssignedAndTheirConsistencyPercentage;
     }
 
     public void setListOfUsersAssignedAndTheirConsistencyPercentage(List<ListOfUsersAssignedAndTheirConsistencyPercentage> listOfUsersAssignedAndTheirConsistencyPercentage) {
-    this.listOfUsersAssignedAndTheirConsistencyPercentage = listOfUsersAssignedAndTheirConsistencyPercentage;
+        this.listOfUsersAssignedAndTheirConsistencyPercentage = listOfUsersAssignedAndTheirConsistencyPercentage;
     }
 
 }

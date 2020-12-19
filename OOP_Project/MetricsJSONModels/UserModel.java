@@ -1,10 +1,10 @@
-package OOP_Project.MetricsModels;
+package OOP_Project.MetricsJSONModels;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+public class UserModel {
 
     @SerializedName("userId")
     @Expose
@@ -41,91 +41,91 @@ public class User {
     private Integer stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
 
     public Integer getUserId() {
-    return userId;
+        return userId;
     }
 
     public void setUserId(Integer userId) {
-    this.userId = userId;
+        this.userId = userId;
     }
 
     public String getUserName() {
-    return userName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-    this.userName = userName;
+        this.userName = userName;
     }
 
     public String getUserType() {
-    return userType;
+        return userType;
     }
 
     public void setUserType(String userType) {
-    this.userType = userType;
+        this.userType = userType;
     }
 
     public String getConsistencyCheckProbability() {
-    return consistencyCheckProbability;
+        return consistencyCheckProbability;
     }
 
     public void setConsistencyCheckProbability(String consistencyCheckProbability) {
-    this.consistencyCheckProbability = consistencyCheckProbability;
+        this.consistencyCheckProbability = consistencyCheckProbability;
     }
 
     public Integer getNumberOfDatasetsAssigned() {
-    return numberOfDatasetsAssigned;
+        return numberOfDatasetsAssigned;
     }
 
     public void setNumberOfDatasetsAssigned(Integer numberOfDatasetsAssigned) {
-    this.numberOfDatasetsAssigned = numberOfDatasetsAssigned;
+        this.numberOfDatasetsAssigned = numberOfDatasetsAssigned;
     }
 
     public List<ListOfAllDatasetsWithTheirCompletenessPercentage> getListOfAllDatasetsWithTheirCompletenessPercentage() {
-    return listOfAllDatasetsWithTheirCompletenessPercentage;
+        return listOfAllDatasetsWithTheirCompletenessPercentage;
     }
 
     public void setListOfAllDatasetsWithTheirCompletenessPercentage(List<ListOfAllDatasetsWithTheirCompletenessPercentage> listOfAllDatasetsWithTheirCompletenessPercentage) {
-    this.listOfAllDatasetsWithTheirCompletenessPercentage = listOfAllDatasetsWithTheirCompletenessPercentage;
+        this.listOfAllDatasetsWithTheirCompletenessPercentage = listOfAllDatasetsWithTheirCompletenessPercentage;
     }
 
     public Integer getTotalNumberOfInstancesLabeled() {
-    return totalNumberOfInstancesLabeled;
+        return totalNumberOfInstancesLabeled;
     }
 
     public void setTotalNumberOfInstancesLabeled(Integer totalNumberOfInstancesLabeled) {
-    this.totalNumberOfInstancesLabeled = totalNumberOfInstancesLabeled;
+        this.totalNumberOfInstancesLabeled = totalNumberOfInstancesLabeled;
     }
 
     public Integer getTotalNumberOfUniqueInstancesLabeled() {
-    return totalNumberOfUniqueInstancesLabeled;
+        return totalNumberOfUniqueInstancesLabeled;
     }
 
     public void setTotalNumberOfUniqueInstancesLabeled(Integer totalNumberOfUniqueInstancesLabeled) {
-    this.totalNumberOfUniqueInstancesLabeled = totalNumberOfUniqueInstancesLabeled;
+        this.totalNumberOfUniqueInstancesLabeled = totalNumberOfUniqueInstancesLabeled;
     }
 
     public Integer getConsistencyPercentage() {
-    return consistencyPercentage;
+        return consistencyPercentage;
     }
 
     public void setConsistencyPercentage(Integer consistencyPercentage) {
-    this.consistencyPercentage = consistencyPercentage;
+        this.consistencyPercentage = consistencyPercentage;
     }
 
     public Integer getAverageTimeSpentInLabelingAnInstanceInSeconds() {
-    return averageTimeSpentInLabelingAnInstanceInSeconds;
+        return averageTimeSpentInLabelingAnInstanceInSeconds;
     }
 
     public void setAverageTimeSpentInLabelingAnInstanceInSeconds(Integer averageTimeSpentInLabelingAnInstanceInSeconds) {
-    this.averageTimeSpentInLabelingAnInstanceInSeconds = averageTimeSpentInLabelingAnInstanceInSeconds;
+        this.averageTimeSpentInLabelingAnInstanceInSeconds = averageTimeSpentInLabelingAnInstanceInSeconds;
     }
 
     public Integer getStdDevOfTimeSpentInLabelingAnInstanceInSeconds() {
-    return stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
+        return stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
     }
 
     public void setStdDevOfTimeSpentInLabelingAnInstanceInSeconds(Integer stdDevOfTimeSpentInLabelingAnInstanceInSeconds) {
-    this.stdDevOfTimeSpentInLabelingAnInstanceInSeconds = stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
+        this.stdDevOfTimeSpentInLabelingAnInstanceInSeconds = stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
     }
 
 }

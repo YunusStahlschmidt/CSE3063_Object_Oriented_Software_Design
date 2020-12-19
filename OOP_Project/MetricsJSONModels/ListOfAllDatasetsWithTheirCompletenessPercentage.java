@@ -1,4 +1,4 @@
-package OOP_Project.MetricsModels;
+package OOP_Project.MetricsJSONModels;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -13,19 +13,19 @@ public class ListOfAllDatasetsWithTheirCompletenessPercentage {
     private Integer completenessPercentage;
 
     public Integer getDatasetId() {
-    return datasetId;
+        return datasetId;
     }
 
     public void setDatasetId(Integer datasetId) {
-    this.datasetId = datasetId;
+        this.datasetId = datasetId;
     }
 
     public Integer getCompletenessPercentage() {
-    return completenessPercentage;
+        return completenessPercentage;
     }
 
     public void setCompletenessPercentage(Integer completenessPercentage) {
-    this.completenessPercentage = completenessPercentage;
+        this.completenessPercentage = completenessPercentage;
     }
 
 }

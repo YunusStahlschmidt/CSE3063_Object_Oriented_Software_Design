@@ -1,4 +1,4 @@
-package OOP_Project.MetricsModels;
+package OOP_Project.MetricsJSONModels;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -13,19 +13,19 @@ public class ListClassLabelsAndPercentage {
     private String label;
 
     public Integer getUserId() {
-    return userId;
+        return userId;
     }
 
     public void setUserId(Integer userId) {
-    this.userId = userId;
+        this.userId = userId;
     }
 
     public String getLabel() {
-    return label;
+        return label;
     }
 
     public void setLabel(String label) {
-    this.label = label;
+        this.label = label;
     }
 
 }

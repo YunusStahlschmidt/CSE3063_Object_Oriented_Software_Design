@@ -1,4 +1,4 @@
-package OOP_Project.MetricsModels;
+package OOP_Project.MetricsJSONModels;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -13,19 +13,19 @@ public class ListOfUsersAssignedAndTheirCompletenessPercentage {
     private Integer completenessPercentage;
 
     public Integer getUserId() {
-    return userId;
+        return userId;
     }
 
     public void setUserId(Integer userId) {
-    this.userId = userId;
+        this.userId = userId;
     }
 
     public Integer getCompletenessPercentage() {
-    return completenessPercentage;
+        return completenessPercentage;
     }
 
     public void setCompletenessPercentage(Integer completenessPercentage) {
-    this.completenessPercentage = completenessPercentage;
+        this.completenessPercentage = completenessPercentage;
     }
 
 }
