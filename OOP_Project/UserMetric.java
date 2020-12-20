@@ -1,4 +1,3 @@
-package OOP_Project;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,16 +13,17 @@ public class UserMetric {
     // @SerializedName("consistencyCheckProbability")
     // @Expose
     // private double consistencyCheckProbability;
-    // private int numberOfDatasetAssigned = 0;
+     private int numberOfDatasetAssigned = 0;
     private UserModel userModel = new UserModel();
     private HashMap<Dataset, Double> datasetCompleteness = new HashMap<Dataset, Double>();
-    // private int numOfLabeledInstances = 0;
-    private Set<Instance> uniqueLabeledInstances = new HashSet<Instance>(); 
+    private int numOfLabeledInstances = 0;
+    private int uniqueLabeledInstances = 0;
     // private double consistencyPercentage;
-    // private double averageTimeSpent;
+    private double averageTimeSpent;
     private ArrayList<Double> timeSpentPerInstance = new ArrayList<Double>();
-    // private double standarDeviation;
-
+    private double standarDeviation;
+    private double sumOfTimeSpent =0;
+    private double avgTimeSpentForInstances;
     public UserMetric() {}
     
     // Getters 
@@ -32,13 +32,13 @@ public class UserMetric {
     //     return consistencyCheckProbability;
     // }
 
-    // public int getNumberOfDatesetsAssigned(){
-    //     return numberOfDatasetAssigned;
-    // }
+     public int getNumberOfDatesetsAssigned(){
+         return numberOfDatasetAssigned;
+     }
     
-    // public int getNumberOfLabeledInstances(){
-    //     return numOfLabeledInstances;
-    // }
+     public int getNumberOfLabeledInstances(){
+         return numOfLabeledInstances;
+     }
 
     // public double getConsistencyPercentage(){
     //     return consistencyPercentage;
@@ -46,7 +46,7 @@ public class UserMetric {
     public UserModel getUserModel() {
         return userModel;
     }
-    public Set<Instance> getUniqueLabeledInstances() {
+    public int getUniqueLabeledInstances() {
         return uniqueLabeledInstances;
     }
 
@@ -58,9 +58,9 @@ public class UserMetric {
         return timeSpentPerInstance;
     }
 
-    // public double getStandardDeviation(){
-    //     return standarDeviation;
-    // }
+     public double getStandardDeviation(){
+         return standarDeviation;
+     }
     
     public HashMap<Dataset, Double> getDatasetCompleteness() {
         return datasetCompleteness;
@@ -74,11 +74,11 @@ public class UserMetric {
     }
 
     public void incrementNumberOfDatasetsAssigned(){
-        // this.numberOfDatasetAssigned++;
+         this.numberOfDatasetAssigned++;
     }
-    
-    public void setNumberOfLabeledInstances(){
-        // this.numOfLabeledInstances++;
+
+    public void incrementNumberOfLabeledInstances(){
+        this.numOfLabeledInstances++;
     }
 
     public void setConsistencyPercentage(){
@@ -86,16 +86,20 @@ public class UserMetric {
     }
 
     public void setStandardDeviation(){
-        //related calculations
+        standarDeviation = Math.sqrt(Math.pow(sumOfTimeSpent,2)/timeSpentPerInstance.size());
     }
 
     public void setAverageTimeSpent(double TimeSpent) {
-        // in here we should take TimeSpent and add it to averageTimeSpent
-        // formula should be (AverageTimeSpent * numberOfLabeledInstances + TimeSpent) / (numberOfLabeledInstances + 1)
+
+        for (int i= 0; i<timeSpentPerInstance.size();i++)
+            sumOfTimeSpent +=timeSpentPerInstance.get(i) ;
+        averageTimeSpent= sumOfTimeSpent/timeSpentPerInstance.size();
+        avgTimeSpentForInstances = (averageTimeSpent * numOfLabeledInstances + TimeSpent) / (numOfLabeledInstances + 1);
+        //TBD +1 depends on the execution order
     }
 
-    public void addUniqueLabeledInstances(Instance labeledInstance) {
-        this.uniqueLabeledInstances.add(labeledInstance);
+    public void incrementUniqueLabeledInstances() {
+        this.uniqueLabeledInstances++;
     }
 
     public void incrementDatasetCompleteness(Dataset dataset) {
@@ -108,4 +112,7 @@ public class UserMetric {
             this.datasetCompleteness.put(dataset, currentValue + 1/sizeOfDataset);
         }
     }
+//    public void updateUserMetrics(){
+
+//    }
 }
