@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import OOP_Project.MetricsJSONModels.MetricModel;
 
 /* 
 This class will where al "computations" will take place
@@ -21,6 +21,7 @@ public class Main {
 
         // Required Objects
         Dataset dataset;
+        MetricModel metrics;
         ArrayList<LabelAssignment> labelAssignments = new ArrayList<>();
         ArrayList<User> users = new ArrayList<>();
         Parser parser = new Parser();
@@ -28,20 +29,19 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         Random random = new Random();
         int currentDatasetId = 0;
+        String currentDirectory = System.getProperty("user.dir");
+        currentDirectory += "\\OOP_Project";
 
         while (true) {
             try {
-                // Getting users path from client
-                System.out.print("Please type the absolute path of config.json file: ");
-                String configPath = scan.nextLine(); // assign your JSON String here
 
-                // parsing given config.json file
-                parser.parseConfigFile(configPath);
+                parser.parseConfigFile(currentDirectory);
                 dataset = parser.getCurrentDataset();
+                parser.parseMetrics(currentDirectory);
+                metrics = parser.getMetrics();
                 currentDatasetId = parser.getCurrentDatasetId();
                 users = parser.getUsers();
-                //System.out.println(currentDatasetId);
-                //System.out.println(users);
+
                 logger.info("config file was parsed successfully");
                 logger.info("dataset was parsed successfully");
 
@@ -51,7 +51,6 @@ public class Main {
                 logger.warn("FileNotFound error has occured!");
             }
         }
-        scan.close();
 
         int userIndex;
         ArrayList<Label> addedLabels;
@@ -62,19 +61,29 @@ public class Main {
         Date startDate, endDate;
         LabelAssignment newLabelAssignment;
 
+        ArrayList<Instance> labeledInstaneces = new ArrayList<>();
+        ArrayList<Instance> newInstances = new ArrayList<>();
         // metrices
         UserMetric userMetric;
         InstanceMetric instanceMetric;
         DatasetMetric datasetMetric = dataset.getDatasetMetric();
-
+        // algorithm
+        /*
+         * 
+         * while newInstanes.length > 0 ; random num from 1 to 100 ; if num < 10 ;label
+         * from labeledInstances; else; label from newInstace and add instanece to
+         * labeledInstances; update metrics; serialize output metric
+         * 
+         */
         for (Instance anInstance : dataset.getInstances()) {
+            instanceMetric = anInstance.getInstanceMetric();
+
             for (int i = 0; i < 10; i++) {
                 userIndex = random.nextInt(users.size());
                 currentUser = users.get(userIndex);
-                userMetric = currentUser.getUserMetric();
-                instanceMetric = anInstance.getInstanceMetric();
                 addedLabels = new ArrayList<>();
-                
+                userMetric = currentUser.getUserMetric();
+
                 startDate = new Date();
                 for (int maxlabel = 1; maxlabel <= random.nextInt((int) dataset.getMaxLabel()) + 1;) {
                     randomLabel = dataset.getLabels().get(random.nextInt(dataset.getLabels().size()));
@@ -83,48 +92,40 @@ public class Main {
                         addedLabels.add(randomLabel);
                         maxlabel++;
 
-                        // updating Instance Metric
-                        instanceMetric.findTotalNumberOfAssignedLabels(); //update while model class object is created
+                        // updating Instance Metrices
+                        instanceMetric.incrementTotalNumberOfAssignedLabels();
                         instanceMetric.addUniqueUser(currentUser);
                         instanceMetric.addUniqueLabel(randomLabel);
-                        
-                        // updating Datset Metric
-                        datasetMetric.addInstance(randomLabel, anInstance);
-                        
                     }
                 }
-                newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(), new Date());
+                newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(),
+                        new Date());
                 labelAssignments.add(newLabelAssignment);
                 endDate = new Date();
 
                 // updating User Metrices
                 userMetric.incrementDatasetCompleteness(dataset);
                 userMetric.setNumberOfLabeledInstances(); // corresponding method should be handled
-                userMetric.addUniqueLabeledInstances(anInstance);
-                userMetric.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double)1000)); // corresponding method should be handled
+                // userMetric.setUniqueLabeledInstances(
+                // String.format("%d : %d", dataset.getDatasetId(), anInstance.getId()));
+                userMetric.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double) 1000)); // corresponding
+                // method
+                // should
+                // be
+                // handled
 
                 // updating Instance Metrics
                 instanceMetric.setLabelAssignments(newLabelAssignment);
                 instanceMetric.setNumberOfUniqueAssignedLabels(); // parameters and method should be handled
                 instanceMetric.setNumberOfUniqueUsers();
-                /* May change the order of method calls */ 
+                /* May change the order of method calls */
                 instanceMetric.setMostFrequentLabel();
                 instanceMetric.setPercentageOfMostFrequentLabel();
-                instanceMetric.setClassLabelsAndPercentages();      
-                instanceMetric.setEntropy();
-                //------Hopefully Instance Metrics done-----
+                instanceMetric.setClassLabelsAndPercentages();
 
-                
+                // ------Hopefully Instance Metrics set-----
             }
-            // updating Dataset Metrices
-            datasetMetric.calculateDatasetCompleteness();
-            datasetMetric.calculateClassDistribution();
-            // metric - 3 is done inside the loop
-            datasetMetric.calculateUserCompleteness();
-            //metric 4 should be called (maybe outside of the loop) 
-            datasetMetric.calculateAssignedUsersAndConcistencyPercentage();
-       
-        } 
+        }
         System.out.println(labelAssignments);
 
         for (LabelAssignment lAssignment : labelAssignments) {
@@ -149,7 +150,8 @@ public class Main {
                 ArrayList<String> labels = new ArrayList<>();
 
                 for (int n = 0; n < lAssignment.getAssignedLabelId().size(); n++) {
-                    labels.add(dataset.getLabels().get((int) lAssignment.getSpecificAssignedLabelId(n) - 1).getLabelText());
+                    labels.add(dataset.getLabels().get((int) lAssignment.getSpecificAssignedLabelId(n) - 1)
+                            .getLabelText());
                 }
                 logger.info("user id:" + user_id + " " + user_name + " tagged instance id:" + instance_id
                         + " with class labels " + lAssignment.getAssignedLabelId().toString() + ":" + labels.toString()
@@ -159,12 +161,11 @@ public class Main {
 
         while (true) {
             try {
-                System.out.print("Please type the absolute path of output file: ");
-                String outputPath = scan.nextLine(); // assign your JSON String here
-                scan.close();
+                String outputPath = currentDirectory + "\\output" + String.valueOf(currentDatasetId) + ".json";
+                serializer.serializeOutputFile(outputPath, dataset, labelAssignments, users);
 
-                // serializing to json file
-                serializer.serializeJSONFile(outputPath, dataset, labelAssignments, users);
+                String filePath = currentDirectory + "\\metrics" + String.valueOf(currentDatasetId) + ".json";
+                serializer.serializeMetricFile(metrics, filePath);
 
                 break;
             } catch (Exception e) {

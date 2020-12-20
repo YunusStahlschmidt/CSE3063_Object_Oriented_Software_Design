@@ -16,7 +16,9 @@ public class Instance {
     private String instance;
     private InstanceMetric instanceMetric = new InstanceMetric();
 
-    public Instance() {}
+    public Instance() {
+    }
+
     public Instance(Integer id, String instance) {
         this.id = id;
         this.instance = instance;
@@ -32,7 +34,7 @@ public class Instance {
         return instance;
     }
 
-    public InstanceMetric getInstanceMetric(){
+    public InstanceMetric getInstanceMetric() {
         return instanceMetric;
     }
 
@@ -46,8 +48,8 @@ public class Instance {
         this.instance = instance;
     }
 
-    public void setInstanceMetric(){
-        //not sure do
+    public void setInstanceMetric() {
+        // not sure do
     }
-    
+
 }
