@@ -1,5 +1,7 @@
 package OOP_Project;
 
+import OOP_Project.MetricsJSONModels.MetricModel;
+
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,8 +21,8 @@ public class JSONSerializer {
     public JSONSerializer() {
     }
 
-    public void serializeJSONFile(String outputPath, Dataset dataset, ArrayList<LabelAssignment> lAssignments,
-        ArrayList<User> users) throws Exception {
+    public void serializeOutputFile(String outputPath, Dataset dataset, ArrayList<LabelAssignment> lAssignments,
+            ArrayList<User> users) throws Exception {
 
         String pattern = "dd/M/yyyy, hh:mm:ss";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -63,8 +65,8 @@ public class JSONSerializer {
             usersArray.add(hashMap);
         }
 
-        Output myOutput = new Output(dataset.getDatasetId(), dataset.getDatasetName(), dataset.getMaxLabel(), classLabels, instances,
-                classLabelAssignments, usersArray);
+        Output myOutput = new Output(dataset.getDatasetId(), dataset.getDatasetName(), dataset.getMaxLabel(),
+                classLabels, instances, classLabelAssignments, usersArray);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(myOutput);
         // System.out.println(json);
@@ -80,4 +82,17 @@ public class JSONSerializer {
 
     }
 
+    public void serializeMetricFile(MetricModel metrics, String filePath) throws Exception {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(metrics);
+
+        // writing JSON to file:"JSONExample.json" in cwd
+        PrintWriter pw = new PrintWriter(filePath);
+        logger.info("Metrics file was created successfully");
+
+        pw.write(json);
+
+        pw.flush();
+        pw.close();
+    }
 }
