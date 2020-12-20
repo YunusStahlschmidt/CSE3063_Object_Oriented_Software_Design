@@ -7,7 +7,6 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
 /*
 This class should parse all the information from the dataset so we can 
 process them in our main function
@@ -26,7 +25,7 @@ public class Dataset {
     private String path;
     @SerializedName("assignedUserIds")
     @Expose
-    private List<User> assignedUsers;  
+    private List<Integer> assignedUserIds;
     @SerializedName("maximum number of labels per instance")
     @Expose
     private Integer maxLabel;
@@ -38,13 +37,15 @@ public class Dataset {
     private List<Instance> instances; // should be arraylist
     private DatasetMetric datasetMetric = new DatasetMetric();
 
-    public Dataset() {}
+    public Dataset() {
+    }
+
     public Dataset(int id, String name, int maxLabel) {
         this.datasetId = id;
         this.datasetName = name;
         this.maxLabel = maxLabel;
     }
-    // Getters 
+    // Getters
 
     public Integer getDatasetId() {
         return datasetId;
@@ -58,18 +59,17 @@ public class Dataset {
         return path;
     }
 
-    public List<User> getAssignedUsers() {
-        return this.assignedUsers;
+    public List<Integer> getAssignedUserIds() {
+        return this.assignedUserIds;
     }
 
-    public DatasetMetric getDatasetMetric(){
+    public DatasetMetric getDatasetMetric() {
         return datasetMetric;
     }
-//----------------------Datset Model--------------------------------
-
+    // ----------------------Datset Model--------------------------------
 
     public int getMaxLabel() {
-     return maxLabel;
+        return maxLabel;
     }
 
     public List<Label> getLabels() {
@@ -79,8 +79,6 @@ public class Dataset {
     public List<Instance> getInstances() {
         return instances;
     }
-
-
 
     // Setters
 
@@ -96,12 +94,12 @@ public class Dataset {
         this.path = path;
     }
 
-    public void setAssignedUsers(List<User> assignedUsers) {
-        this.assignedUsers = assignedUsers;
+    public void setAssignedUserIds(List<Integer> assignedUserIds) {
+        this.assignedUserIds = assignedUserIds;
     }
 
     public void setMaxLabel(int newMaxLabel) {
-     this.maxLabel = newMaxLabel;
+        this.maxLabel = newMaxLabel;
     }
 
     public void setLabels(List<Label> labels) {
@@ -112,5 +110,4 @@ public class Dataset {
         this.instances = instances;
     }
 
-  
-} 
+}

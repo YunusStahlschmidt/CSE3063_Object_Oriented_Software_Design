@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import OOP_Project.MetricsJSONModels.MetricModel;
 
 /* 
 This class will where al "computations" will take place
@@ -21,6 +21,7 @@ public class Main {
 
         // Required Objects
         Dataset dataset;
+        MetricModel metrics;
         ArrayList<LabelAssignment> labelAssignments = new ArrayList<>();
         ArrayList<User> users = new ArrayList<>();
         Parser parser = new Parser();
@@ -28,20 +29,19 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         Random random = new Random();
         int currentDatasetId = 0;
+        String currentDirectory = System.getProperty("user.dir");
+        currentDirectory += "\\OOP_Project";
 
         while (true) {
             try {
-                // Getting users path from client
-                System.out.print("Please type the absolute path of config.json file: ");
-                String configPath = scan.nextLine(); // assign your JSON String here
 
-                // parsing given config.json file
-                parser.parseConfigFile(configPath);
+                parser.parseConfigFile(currentDirectory);
                 dataset = parser.getCurrentDataset();
+                parser.parseMetrics(currentDirectory);
+                metrics = parser.getMetrics();
                 currentDatasetId = parser.getCurrentDatasetId();
                 users = parser.getUsers();
-                //System.out.println(currentDatasetId);
-                //System.out.println(users);
+
                 logger.info("config file was parsed successfully");
                 logger.info("dataset was parsed successfully");
 
@@ -74,7 +74,7 @@ public class Main {
                 userMetric = currentUser.getUserMetric();
                 instanceMetric = anInstance.getInstanceMetric();
                 addedLabels = new ArrayList<>();
-                
+
                 startDate = new Date();
                 for (int maxlabel = 1; maxlabel <= random.nextInt((int) dataset.getMaxLabel()) + 1;) {
                     randomLabel = dataset.getLabels().get(random.nextInt(dataset.getLabels().size()));
@@ -84,16 +84,17 @@ public class Main {
                         maxlabel++;
 
                         // updating Instance Metric
-                        instanceMetric.findTotalNumberOfAssignedLabels(); //update while model class object is created
+                        instanceMetric.findTotalNumberOfAssignedLabels(); // update while model class object is created
                         instanceMetric.addUniqueUser(currentUser);
                         instanceMetric.addUniqueLabel(randomLabel);
-                        
+
                         // updating Datset Metric
                         datasetMetric.addInstance(randomLabel, anInstance);
-                        
+
                     }
                 }
-                newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(), new Date());
+                newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(),
+                        new Date());
                 labelAssignments.add(newLabelAssignment);
                 endDate = new Date();
 
@@ -101,30 +102,33 @@ public class Main {
                 userMetric.incrementDatasetCompleteness(dataset);
                 userMetric.setNumberOfLabeledInstances(); // corresponding method should be handled
                 userMetric.addUniqueLabeledInstances(anInstance);
-                userMetric.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double)1000)); // corresponding method should be handled
+                userMetric.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double) 1000)); // corresponding
+                                                                                                             // method
+                                                                                                             // should
+                                                                                                             // be
+                                                                                                             // handled
 
                 // updating Instance Metrics
                 instanceMetric.setLabelAssignments(newLabelAssignment);
                 instanceMetric.setNumberOfUniqueAssignedLabels(); // parameters and method should be handled
                 instanceMetric.setNumberOfUniqueUsers();
-                /* May change the order of method calls */ 
+                /* May change the order of method calls */
                 instanceMetric.setMostFrequentLabel();
                 instanceMetric.setPercentageOfMostFrequentLabel();
-                instanceMetric.setClassLabelsAndPercentages();      
+                instanceMetric.setClassLabelsAndPercentages();
                 instanceMetric.setEntropy();
-                //------Hopefully Instance Metrics done-----
+                // ------Hopefully Instance Metrics done-----
 
-                
             }
             // updating Dataset Metrices
             datasetMetric.calculateDatasetCompleteness();
             datasetMetric.calculateClassDistribution();
             // metric - 3 is done inside the loop
             datasetMetric.calculateUserCompleteness();
-            //metric 4 should be called (maybe outside of the loop) 
+            // metric 4 should be called (maybe outside of the loop)
             datasetMetric.calculateAssignedUsersAndConcistencyPercentage();
-       
-        } 
+
+        }
         System.out.println(labelAssignments);
 
         for (LabelAssignment lAssignment : labelAssignments) {
@@ -149,7 +153,8 @@ public class Main {
                 ArrayList<String> labels = new ArrayList<>();
 
                 for (int n = 0; n < lAssignment.getAssignedLabelId().size(); n++) {
-                    labels.add(dataset.getLabels().get((int) lAssignment.getSpecificAssignedLabelId(n) - 1).getLabelText());
+                    labels.add(dataset.getLabels().get((int) lAssignment.getSpecificAssignedLabelId(n) - 1)
+                            .getLabelText());
                 }
                 logger.info("user id:" + user_id + " " + user_name + " tagged instance id:" + instance_id
                         + " with class labels " + lAssignment.getAssignedLabelId().toString() + ":" + labels.toString()
@@ -159,12 +164,11 @@ public class Main {
 
         while (true) {
             try {
-                System.out.print("Please type the absolute path of output file: ");
-                String outputPath = scan.nextLine(); // assign your JSON String here
-                scan.close();
+                String outputPath = currentDirectory + "\\output" + String.valueOf(currentDatasetId) + ".json";
+                serializer.serializeOutputFile(outputPath, dataset, labelAssignments, users);
 
-                // serializing to json file
-                serializer.serializeJSONFile(outputPath, dataset, labelAssignments, users);
+                String filePath = currentDirectory + "\\metrics" + String.valueOf(currentDatasetId) + ".json";
+                serializer.serializeMetricFile(metrics, filePath);
 
                 break;
             } catch (Exception e) {
