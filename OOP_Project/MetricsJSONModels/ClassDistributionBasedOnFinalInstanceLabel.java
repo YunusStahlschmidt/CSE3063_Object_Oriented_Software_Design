@@ -10,7 +10,7 @@ public class ClassDistributionBasedOnFinalInstanceLabel {
     private String label;
     @SerializedName("distributionPercentage")
     @Expose
-    private Integer distributionPercentage;
+    private Double distributionPercentage;
 
     public String getLabel() {
         return label;
@@ -20,11 +20,11 @@ public class ClassDistributionBasedOnFinalInstanceLabel {
         this.label = label;
     }
 
-    public Integer getdistributionPercentage() {
+    public Double getdistributionPercentage() {
         return distributionPercentage;
     }
 
-    public void setDistribution(Integer distributionPercentage) {
+    public void setDistribution(Double distributionPercentage) {
         this.distributionPercentage = distributionPercentage;
     }
 

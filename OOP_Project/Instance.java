@@ -1,3 +1,7 @@
+/*
+
+*/
+
 package OOP_Project;
 
 import com.google.gson.annotations.Expose;
@@ -8,21 +12,31 @@ Class for the instance object to store them in our array list in the dataset
 */
 
 public class Instance {
+    @SerializedName("datasetId")
+    @Expose
+    private Integer datasetId;
     @SerializedName("id")
     @Expose
     private Integer id;
     @SerializedName("instance")
     @Expose
     private String instance;
+
     private InstanceMetric instanceMetric = new InstanceMetric();
 
-    public Instance() {}
+    public Instance() {
+    }
+
     public Instance(Integer id, String instance) {
         this.id = id;
         this.instance = instance;
     }
 
     // Getters
+
+    public Integer getDatasetId() {
+        return datasetId;
+    }
 
     public Integer getId() {
         return id;
@@ -32,11 +46,14 @@ public class Instance {
         return instance;
     }
 
-    public InstanceMetric getInstanceMetric(){
+    public InstanceMetric getInstanceMetric() {
         return instanceMetric;
     }
 
     // Setters
+    public void setDatasetId(Integer datasetId) {
+        this.datasetId = datasetId;
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -46,8 +63,8 @@ public class Instance {
         this.instance = instance;
     }
 
-    public void setInstanceMetric(){
-        //not sure do
+    public void setInstanceMetric() {
+        // not sure do
     }
-    
+
 }

@@ -10,7 +10,7 @@ public class ListOfUsersAssignedAndTheirConsistencyPercentage {
     private Integer userId;
     @SerializedName("consistencyPercentage")
     @Expose
-    private Integer consistencyPercentage;
+    private Double consistencyPercentage;
 
     public Integer getUserId() {
         return userId;
@@ -20,11 +20,11 @@ public class ListOfUsersAssignedAndTheirConsistencyPercentage {
         this.userId = userId;
     }
 
-    public Integer getConsistencyPercentage() {
+    public Double getConsistencyPercentage() {
         return consistencyPercentage;
     }
 
-    public void setConsistencyPercentage(Integer consistencyPercentage) {
+    public void setConsistencyPercentage(Double consistencyPercentage) {
         this.consistencyPercentage = consistencyPercentage;
     }
 

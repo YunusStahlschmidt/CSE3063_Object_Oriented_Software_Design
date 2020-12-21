@@ -3,6 +3,9 @@ package OOP_Project;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /*
 This class is for the result of our processing, after the user has labeled
 an instance we will store this created LabelAssignment object in the arrar list
@@ -11,9 +14,17 @@ for our final output
 */
 
 public class LabelAssignment {
+    @SerializedName("instance id")
+    @Expose
     private int instanceId;
+    @SerializedName("class label ids")
+    @Expose
     private ArrayList<Label> assignedLabels;
+    @SerializedName("user id")
+    @Expose
     private int userId;
+    @SerializedName("datetime")
+    @Expose
     private Date date;
 
     public LabelAssignment() {
@@ -34,9 +45,9 @@ public class LabelAssignment {
 
     public ArrayList<Integer> getAssignedLabelId() {
         ArrayList<Integer> lablesIds = new ArrayList<>();
-        for (Label aLabel: assignedLabels) {
+        for (Label aLabel : assignedLabels) {
             lablesIds.add(aLabel.getId());
-        } 
+        }
         return lablesIds;
     }
 
