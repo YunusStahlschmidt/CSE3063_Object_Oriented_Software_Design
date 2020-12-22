@@ -23,7 +23,7 @@ public class JSONSerializer {
 
         Output myOutput = new Output(dataset.getDatasetId(), dataset.getDatasetName(), dataset.getMaxLabel(),
                 dataset.getLabels(), dataset.getInstances(), lAssignments, users);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
         String json = gson.toJson(myOutput);
         // System.out.println(json);
 
@@ -39,7 +39,7 @@ public class JSONSerializer {
     }
 
     public void serializeMetricFile(MetricModel metrics, String filePath) throws Exception {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
         String json = gson.toJson(metrics);
 
         // writing JSON to file:"JSONExample.json" in cwd

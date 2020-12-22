@@ -12,9 +12,9 @@ Class for the instance object to store them in our array list in the dataset
 */
 
 public class Instance {
-    @SerializedName("datasetId")
-    @Expose
-    private Integer datasetId;
+    // @SerializedName("datasetId")
+    // @Expose
+    // private Integer datasetId;
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -34,9 +34,9 @@ public class Instance {
 
     // Getters
 
-    public Integer getDatasetId() {
-        return datasetId;
-    }
+    // public Integer getDatasetId() {
+    // return datasetId;
+    // }
 
     public Integer getId() {
         return id;
@@ -51,9 +51,9 @@ public class Instance {
     }
 
     // Setters
-    public void setDatasetId(Integer datasetId) {
-        this.datasetId = datasetId;
-    }
+    // public void setDatasetId(Integer datasetId) {
+    // this.datasetId = datasetId;
+    // }
 
     public void setId(Integer id) {
         this.id = id;
@@ -65,6 +65,14 @@ public class Instance {
 
     public void setInstanceMetric() {
         // not sure do
+    }
+
+    public void setDatasetIdToInstanceModel(Integer datasetId) {
+        instanceMetric.getInstanceModel().setDatasetId(datasetId);
+    }
+
+    public void setInstanceIdToModel() {
+        instanceMetric.getInstanceModel().setInstanceId(this.id);
     }
 
 }

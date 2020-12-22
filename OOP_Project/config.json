@@ -1,12 +1,12 @@
 {
-"CurrentDatasetId":1,
-"users":[
-    {"userId":1,"userName":"RandomLabelingMechanism1","userType":"RandomBot", "consistencyCheckProbability":"0.1"},
-    {"userId":2,"userName":"RandomLabelingMechanism2","userType":"RandomBot", "consistencyCheckProbability":"0.1"},
-    {"userId":3,"userName":"MachineLearningLabelingMechanism","userType":"MachineLearningBot", "consistencyCheckProbability":"0.1"}
-],
-"datasets":[
-	{"dataset id":1, "dataset name":"Sentiment Dataset", "path":"/CES3063F20_LabelingProject_Input-1.json", "assignedUserIds":[1, 2, 3]},
-    {"dataset id":2, "dataset name":"Multilabel Topic Classification Dataset", "path":"/CES3063F20_LabelingProject_Input-2.json", "assignedUserIds":[2, 3]}
-]
+    "CurrentDatasetId": 2,
+    "users": [
+        { "userId": 1, "userName": "RandomLabelingMechanism1", "userType": "RandomBot", "consistencyCheckProbability": "0.1" },
+        { "userId": 2, "userName": "RandomLabelingMechanism2", "userType": "RandomBot", "consistencyCheckProbability": "0.1" },
+        { "userId": 3, "userName": "MachineLearningLabelingMechanism", "userType": "MachineLearningBot", "consistencyCheckProbability": "0.1" }
+    ],
+    "datasets": [
+        { "dataset id": 1, "dataset name": "Sentiment Dataset", "path": "CES3063F20_LabelingProject_Input-1.json", "assignedUserIds": [1, 2, 3] },
+        { "dataset id": 2, "dataset name": "Multilabel Topic Classification Dataset", "path": "CES3063F20_LabelingProject_Input-2.json", "assignedUserIds": [2, 3] }
+    ]
 }

@@ -16,7 +16,7 @@ public class MetricModel {
     @Expose
     private List<DatasetModel> dataset = null;
 
-    public List<UserModel> getUsers() {
+    public List<UserModel> getUsersList() {
         return users;
     }
 
@@ -24,7 +24,7 @@ public class MetricModel {
         this.users = users;
     }
 
-    public List<InstanceModel> getInstance() {
+    public List<InstanceModel> getInstanceList() {
         return instance;
     }
 
@@ -32,7 +32,7 @@ public class MetricModel {
         this.instance = instance;
     }
 
-    public List<DatasetModel> getDataset() {
+    public List<DatasetModel> getDatasetList() {
         return dataset;
     }
 

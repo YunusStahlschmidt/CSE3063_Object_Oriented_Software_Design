@@ -118,4 +118,8 @@ public class Dataset {
         this.instances = instances;
     }
 
+    public void setDatasetIdToModel() {
+        this.datasetMetric.getDatasetModel().setDatasetId(this.datasetId);
+    }
+
 }

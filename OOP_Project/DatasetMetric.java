@@ -1,6 +1,5 @@
 /*
-    - datasetCompleteness = 0
-    - classDistributions = empty
+    - datasetCompleteness = 0  --> called addUniqueLabeledInstances in main so the size is updated
     
 */
 
@@ -8,6 +7,7 @@ package OOP_Project;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
 
@@ -27,6 +27,22 @@ public class DatasetMetric {
     public DatasetMetric() {
     }
 
+    public void setInitialDatasetModel() {
+        datasetModel.setCompletenessPercentage(0.0);
+        List<ListOfUsersAssignedAndTheirCompletenessPercentage> userList = new ArrayList<>();
+        datasetModel.setListOfUsersAssignedAndTheirCompletenessPercentage(userList);
+        List<ClassDistributionBasedOnFinalInstanceLabel> distList = new ArrayList<>();
+        datasetModel.setClassDistributionBasedOnFinalInstanceLabels(distList);
+        List<ListNumberOfUniqueInstancesForEachClassLabel> uniqueInstanceList = new ArrayList<>();
+        datasetModel.setListNumberOfUniqueInstancesForEachClassLabel(uniqueInstanceList);
+        List<ListOfUsersAssignedAndTheirConsistencyPercentage> consistencyList = new ArrayList<>();
+        datasetModel.setListOfUsersAssignedAndTheirConsistencyPercentage(consistencyList);
+    }
+
+    public DatasetModel getDatasetModel() {
+        return this.datasetModel;
+    }
+
     public void addUniqueLabeledInstances(Instance instance) {
         this.uniqueLabeledInstances.add(instance);
     }
@@ -38,6 +54,10 @@ public class DatasetMetric {
     public void calculateDatasetCompleteness(Integer numberOfInstances) {
 
         this.datasetModel.setCompletenessPercentage(this.uniqueLabeledInstances.size() / (double) numberOfInstances);
+    }
+
+    public void setDatasetModel(DatasetModel datasetModel) {
+        this.datasetModel = datasetModel;
     }
 
     public void calculateClassDistribution() {

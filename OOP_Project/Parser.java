@@ -72,6 +72,9 @@ public class Parser {
             newDataset.setPath(dataset.getPath());
             newDataset.setAssignedUserIds(dataset.getAssignedUserIds());
             String logString = "dataset " + newDataset.getDatasetId() + " was parsed successfully";
+            // for (Instance instance : dataset.getInstances()){
+            // instance.setDatasetIdToInstanceModel(dataset.getDatasetId());
+            // }
             logger.info(logString);
             return newDataset;
 
@@ -92,7 +95,7 @@ public class Parser {
                 ArrayList<User> assignedUsers = new ArrayList<User>();
                 for (User user : this.users) {
                     for (Integer userId : dataset.getAssignedUserIds()) {
-                        if (userId == user.getId()) {
+                        if (userId.equals(user.getId())) {
                             user.getUserMetric().incrementNumberOfDatasetsAssigned();// set number of assigned datasets
                             assignedUsers.add(user);
                             // dataset completeness
@@ -116,14 +119,14 @@ public class Parser {
     public void parseMetrics(String currentDirectory) throws Exception {
         Gson gson = new Gson();
         try {
-            currentDirectory += "\\metrics.json";
+            currentDirectory += "\\metrics.json"; // tbd
             BufferedReader br = new BufferedReader(new FileReader(currentDirectory));
             metrics = gson.fromJson(br, MetricModel.class);
-
+            logger.info("metrics file was parsed successfully");
         } catch (Exception e) {
             logger.warn("No previous metrics on record!");
         }
-        logger.info("metrics file was parsed successfully");
+
     }
 
     public ArrayList<LabelAssignment> parsePreviousLabelAssignemts(String currentDirectory, Integer datasetId)

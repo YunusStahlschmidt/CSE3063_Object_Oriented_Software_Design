@@ -1,25 +1,35 @@
 /* - We are not setting datasetId
    - InstanceId is null
-   - NumberOfUniqueUsers */
+   - DONE NumberOfUniqueUsers */
 
 package OOP_Project;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import OOP_Project.MetricsJSONModels.InstanceModel;
 import OOP_Project.MetricsJSONModels.ListClassLabelsAndPercentage;
 
 public class InstanceMetric {
-    private InstanceModel instanceModel = new InstanceModel();
     private ArrayList<LabelAssignment> labelAssignments = new ArrayList<LabelAssignment>();
     private HashMap<Label, Double> classLabelsAndPercentages = new HashMap<Label, Double>();
     private HashMap<Label, Integer> uniqueLabels = new HashMap<Label, Integer>();
     private Set<User> uniqueUsers = new HashSet<User>();
+    private InstanceModel instanceModel = new InstanceModel();
 
     public InstanceMetric() {
+    }
+
+    public void setInitialInstanceModel() {
+        instanceModel.setTotalNumberOfLabelAssignments(0);
+        List<ListClassLabelsAndPercentage> classLabelList = new ArrayList<>();
+        instanceModel.setMostFrequentClassLabelAndPercentage(classLabelList);
+        instanceModel.setListClassLabelsAndPercentages(classLabelList);
+        instanceModel.setNumberOfUniqueLabelAssignments(0);
+        instanceModel.setEntropy(0.0);
     }
 
     public InstanceModel getInstanceModel() {
@@ -40,6 +50,10 @@ public class InstanceMetric {
 
     public Set<User> getUniqueUsers() {
         return uniqueUsers;
+    }
+
+    public void setInstanceModel(InstanceModel instanceModel) {
+        this.instanceModel = instanceModel;
     }
 
     // Setters
@@ -82,7 +96,7 @@ public class InstanceMetric {
         instanceModel.setMostFrequentClassLabelAndPercentage(list);
     }
 
-    public void setEntropy() {
+    public void setEntropy() { // check for base of logarithm (num of labels)
         Double resultEnt = 0d;
 
         for (Double percentage : classLabelsAndPercentages.values()) {
@@ -95,7 +109,7 @@ public class InstanceMetric {
     }
 
     public Double log2(Double N) {
-        Double result = (Double) (Math.log(N) / Math.log(2));
+        Double result = (Double) (Math.log(N) / Math.log(this.uniqueLabels.size()));
         return result;
     }
 
@@ -118,7 +132,8 @@ public class InstanceMetric {
 
     public void addUniqueUser(User user) { // call before setNumberOfUniqueUsers
         uniqueUsers.add(user);
-        this.setNumberOfUniqueUsers();
+        // this.setNumberOfUniqueUsers();
+        instanceModel.setNumberOfUniqueUsers(this.uniqueUsers.size());
     }
 
     public void addUniqueLabel(Label label) { // call before setNumberOfUniqueLabels
