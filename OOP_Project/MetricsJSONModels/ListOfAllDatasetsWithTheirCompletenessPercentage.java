@@ -10,7 +10,7 @@ public class ListOfAllDatasetsWithTheirCompletenessPercentage {
     private Integer datasetId;
     @SerializedName("completenessPercentage")
     @Expose
-    private Integer completenessPercentage;
+    private Double completenessPercentage;
 
     public Integer getDatasetId() {
         return datasetId;
@@ -20,11 +20,11 @@ public class ListOfAllDatasetsWithTheirCompletenessPercentage {
         this.datasetId = datasetId;
     }
 
-    public Integer getCompletenessPercentage() {
+    public Double getCompletenessPercentage() {
         return completenessPercentage;
     }
 
-    public void setCompletenessPercentage(Integer completenessPercentage) {
+    public void setCompletenessPercentage(Double completenessPercentage) {
         this.completenessPercentage = completenessPercentage;
     }
 

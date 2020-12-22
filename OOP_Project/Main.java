@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,40 +22,46 @@ public class Main {
     public static void main(String[] args) {
 
         // Required Objects
+        HashMap<Integer, Dataset> datasetHashMap;
         Dataset dataset;
         MetricModel metrics;
         ArrayList<LabelAssignment> labelAssignments = new ArrayList<>();
         ArrayList<User> users = new ArrayList<>();
         Parser parser = new Parser();
         JSONSerializer serializer = new JSONSerializer();
-        Scanner scan = new Scanner(System.in);
         Random random = new Random();
         int currentDatasetId = 0;
         String currentDirectory = System.getProperty("user.dir");
         currentDirectory += "\\OOP_Project";
+        HashMap<Integer, ArrayList<LabelAssignment>> previousLabelAssignments = new HashMap<>();
 
         while (true) {
             try {
 
                 parser.parseConfigFile(currentDirectory);
-                dataset = parser.getCurrentDataset();
+                datasetHashMap = parser.getDatasetHashMap();
+                previousLabelAssignments = parser.getPreviousLabelAssignments();
                 parser.parseMetrics(currentDirectory);
                 metrics = parser.getMetrics();
                 currentDatasetId = parser.getCurrentDatasetId();
                 users = parser.getUsers();
-
-                logger.info("config file was parsed successfully");
-                logger.info("dataset was parsed successfully");
-
                 break;
+
             } catch (Exception e) {
                 System.out.println("FileNotFound error has been occured! Please check your file paths.");
                 logger.warn("FileNotFound error has occured!");
+                System.exit(0);
             }
         }
-        scan.close();
+        for (Dataset myDataset : datasetHashMap.values()) {
+            for (User user : myDataset.getAssignedUsers()) {
+                user.getUserMetric().incrementDatasetCompleteness(myDataset);
+            }
+        }
 
-        int userIndex;
+        dataset = datasetHashMap.get(currentDatasetId);
+
+        int userIndex, numberOfAssignmentsPerInstance;
         ArrayList<Label> addedLabels;
         Label randomLabel;
         List<Label> tempLabels;
@@ -66,11 +74,33 @@ public class Main {
         UserMetric userMetric;
         InstanceMetric instanceMetric;
         DatasetMetric datasetMetric = dataset.getDatasetMetric();
+        Integer randomInstanceProbability, recurrentLabeledInstanceIdx;
+        ArrayList<Instance> recurrentLabeledInstances;
 
         for (Instance anInstance : dataset.getInstances()) {
-            for (int i = 0; i < 10; i++) {
+
+            numberOfAssignmentsPerInstance = random.nextInt(users.size()) + 1;
+            for (int i = 0; i < numberOfAssignmentsPerInstance; i++) {
                 userIndex = random.nextInt(users.size());
                 currentUser = users.get(userIndex);
+                // picking random Instance based on probability
+                randomInstanceProbability = random.nextInt(100) + 1;
+
+                if (randomInstanceProbability <= currentUser.getUserMetric().getConsistencyPercentage() * 100) {
+                    recurrentLabeledInstances = new ArrayList<>();
+                    for (Instance instanceToArray : currentUser.getUserMetric().getUniqueLabeledInstances()) {
+                        recurrentLabeledInstances.add(instanceToArray);
+                    }
+                    while (true) {
+                        recurrentLabeledInstanceIdx = random.nextInt(recurrentLabeledInstances.size());
+                        if (anInstance == recurrentLabeledInstances.get(recurrentLabeledInstanceIdx)) {
+                            continue;
+                        }
+                        anInstance = recurrentLabeledInstances.get(recurrentLabeledInstanceIdx);
+                        break;
+                    }
+                }
+
                 userMetric = currentUser.getUserMetric();
                 instanceMetric = anInstance.getInstanceMetric();
                 addedLabels = new ArrayList<>();
@@ -84,13 +114,10 @@ public class Main {
                         maxlabel++;
 
                         // updating Instance Metric
-                        instanceMetric.findTotalNumberOfAssignedLabels(); // update while model class object is created
-                        instanceMetric.addUniqueUser(currentUser);
                         instanceMetric.addUniqueLabel(randomLabel);
 
-                        // updating Datset Metric
-                        datasetMetric.addInstance(randomLabel, anInstance);
-
+                        // updating Dataset Metric - 3
+                        datasetMetric.addInstanceForLabel(randomLabel, anInstance);
                     }
                 }
                 newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(),
@@ -99,34 +126,40 @@ public class Main {
                 endDate = new Date();
 
                 // updating User Metrices
-                userMetric.incrementDatasetCompleteness(dataset);
-                userMetric.setNumberOfLabeledInstances(); // corresponding method should be handled
-                userMetric.addUniqueLabeledInstances(anInstance);
-                userMetric.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double) 1000)); // corresponding
-                                                                                                             // method
-                                                                                                             // should
-                                                                                                             // be
-                                                                                                             // handled
+                // User metric 1: Number of datasets assigned already done in parser class
+                userMetric.addUniqueLabeledInstances(anInstance); // User Metric -4
+                // List of all datasets with their completeness percentage setting with
+                // incrementDatasetCompleteness
+                userMetric.incrementDatasetCompleteness(dataset);// User Metric - 2
+                userMetric.incrementNumberOfLabeledInstances();// User Metric - 3
+                userMetric.setConsistencyPercentage(); // User Metric - 5
+                // STD DEV called inside the setAverageTimeSpent func Metric - 6 - 7
+                userMetric.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double) 1000));
 
                 // updating Instance Metrics
-                instanceMetric.setLabelAssignments(newLabelAssignment);
+                /* we are calling addUniqueLabel inside the for loop */
+                instanceMetric.addUniqueUser(currentUser);
+                instanceMetric.addLabelAssignments(newLabelAssignment);
+                instanceMetric.setTotalNumberOfAssignedLabels(); // update while model class object is created
                 instanceMetric.setNumberOfUniqueAssignedLabels(); // parameters and method should be handled
-                instanceMetric.setNumberOfUniqueUsers();
+                // instanceMetric.setNumberOfUniqueUsers(); // calling inside addUniqueUser
+
                 /* May change the order of method calls */
-                instanceMetric.setMostFrequentLabel();
-                instanceMetric.setPercentageOfMostFrequentLabel();
-                instanceMetric.setClassLabelsAndPercentages();
+                // instanceMetric.setMostFrequentLabel();
+                // instanceMetric.setPercentageOfMostFrequentLabel();
+                instanceMetric.updateClassLabelsAndPercentages();
                 instanceMetric.setEntropy();
                 // ------Hopefully Instance Metrics done-----
 
             }
             // updating Dataset Metrices
-            datasetMetric.calculateDatasetCompleteness();
-            datasetMetric.calculateClassDistribution();
-            // metric - 3 is done inside the loop
-            datasetMetric.calculateUserCompleteness();
-            // metric 4 should be called (maybe outside of the loop)
-            datasetMetric.calculateAssignedUsersAndConcistencyPercentage();
+            datasetMetric.calculateDatasetCompleteness(dataset.getInstances().size());// Dataset Metric - 1
+            datasetMetric.calculateClassDistribution(); // Dataset Metric - 2
+            // dataset metric - 3 is done inside the loop
+            datasetMetric.calculateUserCompleteness(dataset, dataset.getAssignedUsers()); // Dataset Metric - 5
+            // dataset metric 4 called while parsing
+            datasetMetric.calculateAssignedUsersAndConcistencyPercentage(dataset.getAssignedUsers()); // Dataset Metric
+                                                                                                      // - 6
 
         }
         System.out.println(labelAssignments);
@@ -162,19 +195,16 @@ public class Main {
             }
         }
 
-        while (true) {
-            try {
-                String outputPath = currentDirectory + "\\output" + String.valueOf(currentDatasetId) + ".json";
-                serializer.serializeOutputFile(outputPath, dataset, labelAssignments, users);
+        try {
+            String outputPath = currentDirectory + "\\output" + String.valueOf(currentDatasetId) + ".json";
+            serializer.serializeOutputFile(outputPath, dataset, labelAssignments, users);
 
-                String filePath = currentDirectory + "\\metrics" + String.valueOf(currentDatasetId) + ".json";
-                serializer.serializeMetricFile(metrics, filePath);
+            String filePath = currentDirectory + "\\metrics" + String.valueOf(currentDatasetId) + ".json";
+            serializer.serializeMetricFile(metrics, filePath);
 
-                break;
-            } catch (Exception e) {
-                System.out.println("File not found! Please make sure you provided a correct path.");
-                logger.warn("Output File not found!");
-            }
+        } catch (Exception e) {
+            System.out.println("File not found! Please make sure you provided a correct path.");
+            logger.warn("Output File path not found!");
         }
         logger.info("Program Excuted Successfully");
     }

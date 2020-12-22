@@ -11,7 +11,7 @@ public class DatasetModel {
     private Integer datasetId;
     @SerializedName("Completeness percentage")
     @Expose
-    private Integer completenessPercentage;
+    private Double completenessPercentage;
     @SerializedName("Class distribution based on final instance labels")
     @Expose
     private List<ClassDistributionBasedOnFinalInstanceLabel> classDistributionBasedOnFinalInstanceLabels = null;
@@ -36,11 +36,11 @@ public class DatasetModel {
         this.datasetId = datasetId;
     }
 
-    public Integer getCompletenessPercentage() {
+    public Double getCompletenessPercentage() {
         return completenessPercentage;
     }
 
-    public void setCompletenessPercentage(Integer completenessPercentage) {
+    public void setCompletenessPercentage(double completenessPercentage) {
         this.completenessPercentage = completenessPercentage;
     }
 
@@ -48,7 +48,8 @@ public class DatasetModel {
         return classDistributionBasedOnFinalInstanceLabels;
     }
 
-    public void setClassDistributionBasedOnFinalInstanceLabels(List<ClassDistributionBasedOnFinalInstanceLabel> classDistributionBasedOnFinalInstanceLabels) {
+    public void setClassDistributionBasedOnFinalInstanceLabels(
+            List<ClassDistributionBasedOnFinalInstanceLabel> classDistributionBasedOnFinalInstanceLabels) {
         this.classDistributionBasedOnFinalInstanceLabels = classDistributionBasedOnFinalInstanceLabels;
     }
 
@@ -56,7 +57,8 @@ public class DatasetModel {
         return listNumberOfUniqueInstancesForEachClassLabel;
     }
 
-    public void setListNumberOfUniqueInstancesForEachClassLabel(List<ListNumberOfUniqueInstancesForEachClassLabel> listNumberOfUniqueInstancesForEachClassLabel) {
+    public void setListNumberOfUniqueInstancesForEachClassLabel(
+            List<ListNumberOfUniqueInstancesForEachClassLabel> listNumberOfUniqueInstancesForEachClassLabel) {
         this.listNumberOfUniqueInstancesForEachClassLabel = listNumberOfUniqueInstancesForEachClassLabel;
     }
 
@@ -72,7 +74,8 @@ public class DatasetModel {
         return listOfUsersAssignedAndTheirCompletenessPercentage;
     }
 
-    public void setListOfUsersAssignedAndTheirCompletenessPercentage(List<ListOfUsersAssignedAndTheirCompletenessPercentage> listOfUsersAssignedAndTheirCompletenessPercentage) {
+    public void setListOfUsersAssignedAndTheirCompletenessPercentage(
+            List<ListOfUsersAssignedAndTheirCompletenessPercentage> listOfUsersAssignedAndTheirCompletenessPercentage) {
         this.listOfUsersAssignedAndTheirCompletenessPercentage = listOfUsersAssignedAndTheirCompletenessPercentage;
     }
 
@@ -80,7 +83,8 @@ public class DatasetModel {
         return listOfUsersAssignedAndTheirConsistencyPercentage;
     }
 
-    public void setListOfUsersAssignedAndTheirConsistencyPercentage(List<ListOfUsersAssignedAndTheirConsistencyPercentage> listOfUsersAssignedAndTheirConsistencyPercentage) {
+    public void setListOfUsersAssignedAndTheirConsistencyPercentage(
+            List<ListOfUsersAssignedAndTheirConsistencyPercentage> listOfUsersAssignedAndTheirConsistencyPercentage) {
         this.listOfUsersAssignedAndTheirConsistencyPercentage = listOfUsersAssignedAndTheirConsistencyPercentage;
     }
 

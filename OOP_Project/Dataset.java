@@ -1,7 +1,6 @@
 package OOP_Project;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.annotations.Expose;
@@ -35,6 +34,7 @@ public class Dataset {
     @SerializedName("instances")
     @Expose
     private List<Instance> instances; // should be arraylist
+    private ArrayList<User> assignedUsers;
     private DatasetMetric datasetMetric = new DatasetMetric();
 
     public Dataset() {
@@ -61,6 +61,10 @@ public class Dataset {
 
     public List<Integer> getAssignedUserIds() {
         return this.assignedUserIds;
+    }
+
+    public ArrayList<User> getAssignedUsers() {
+        return this.assignedUsers;
     }
 
     public DatasetMetric getDatasetMetric() {
@@ -96,6 +100,10 @@ public class Dataset {
 
     public void setAssignedUserIds(List<Integer> assignedUserIds) {
         this.assignedUserIds = assignedUserIds;
+    }
+
+    public void setAssignedUsers(ArrayList<User> assignedUsers) {
+        this.assignedUsers = assignedUsers;
     }
 
     public void setMaxLabel(int newMaxLabel) {

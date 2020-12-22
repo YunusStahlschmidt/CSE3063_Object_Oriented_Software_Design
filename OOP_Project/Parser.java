@@ -3,10 +3,9 @@ package OOP_Project;
 import OOP_Project.MetricsJSONModels.MetricModel;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
-import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.google.gson.Gson;
 
@@ -21,10 +20,11 @@ This class is responsible for parsing the input and config files
 */
 
 public class Parser {
-    private Dataset currentDataset;
+    private HashMap<Integer, Dataset> datasetHashMap = new HashMap<Integer, Dataset>();
     private int currentDatasetId;
     private ArrayList<User> users;
     MetricModel metrics = null;
+    HashMap<Integer, ArrayList<LabelAssignment>> previousLabelAssignments = new HashMap<>();
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public Parser() {
@@ -32,8 +32,8 @@ public class Parser {
 
     // Getters
 
-    public Dataset getCurrentDataset() {
-        return currentDataset;
+    public HashMap<Integer, Dataset> getDatasetHashMap() {
+        return datasetHashMap;
     }
 
     public int getCurrentDatasetId() {
@@ -47,11 +47,12 @@ public class Parser {
     public MetricModel getMetrics() {
         return metrics;
     }
-    // Setters
 
-    public void setCurrentDataset(Dataset currentDataset) {
-        this.currentDataset = currentDataset;
+    public HashMap<Integer, ArrayList<LabelAssignment>> getPreviousLabelAssignments() {
+        return previousLabelAssignments;
     }
+
+    // Setters
 
     public void setCurrentDatasetId(int currentDatasetId) {
         this.currentDatasetId = currentDatasetId;
@@ -61,39 +62,55 @@ public class Parser {
         this.users = users;
     }
 
-    public void parseDatasetFile(Dataset dataset, String currentDirectory) throws Exception {
-        Gson gson = new Gson();
-        currentDirectory += "\\" + dataset.getPath();
-        BufferedReader br = new BufferedReader(new FileReader(currentDirectory));
-        Dataset newDataset = gson.fromJson(br, Dataset.class);
-        // System.out.println(dataset.getDatasetName());
+    public Dataset parseDatasetFile(Dataset dataset, String currentDirectory) throws Exception {
+        try {
+            Gson gson = new Gson();
+            currentDirectory += "\\" + dataset.getPath();
+            BufferedReader br = new BufferedReader(new FileReader(currentDirectory));
+            Dataset newDataset = gson.fromJson(br, Dataset.class);
 
-        this.currentDataset = newDataset;
-        this.currentDataset.setPath(dataset.getPath());
-        this.currentDataset.setAssignedUserIds(dataset.getAssignedUserIds());
+            newDataset.setPath(dataset.getPath());
+            newDataset.setAssignedUserIds(dataset.getAssignedUserIds());
+            String logString = "dataset " + newDataset.getDatasetId() + " was parsed successfully";
+            logger.info(logString);
+            return newDataset;
+
+        } catch (Exception e) {
+            logger.warn("Invalid dataset path!");
+        }
+        return dataset;
     }
 
     public void parseConfigFile(String currentDirectory) throws Exception {
-        Gson gson = new Gson();
-        BufferedReader br = new BufferedReader(new FileReader(currentDirectory + "\\config.json"));
-        ConfigModel configModel = gson.fromJson(br, ConfigModel.class);
-        this.currentDatasetId = configModel.getCurrentDatasetId();
-        this.users = (ArrayList<User>) configModel.getUsers();
-        for (Dataset dataset : configModel.getDatasets()) {
-            // tbd assign datasets to users
-            for (User user : this.users) {
-                for (Integer userId : dataset.getAssignedUserIds()) {
-                    if (userId == user.getId()) {
-                        user.getUserMetric().incrementNumberOfDatasetsAssigned();
-                        // dataset completeness
-                        user.getUserMetric().incrementDatasetCompleteness(dataset);
+        try {
+            Gson gson = new Gson();
+            BufferedReader br = new BufferedReader(new FileReader(currentDirectory + "\\config.json"));
+            ConfigModel configModel = gson.fromJson(br, ConfigModel.class);
+            this.currentDatasetId = configModel.getCurrentDatasetId();
+            this.users = (ArrayList<User>) configModel.getUsers();
+            for (Dataset dataset : configModel.getDatasets()) {
+                ArrayList<User> assignedUsers = new ArrayList<User>();
+                for (User user : this.users) {
+                    for (Integer userId : dataset.getAssignedUserIds()) {
+                        if (userId == user.getId()) {
+                            user.getUserMetric().incrementNumberOfDatasetsAssigned();// set number of assigned datasets
+                            assignedUsers.add(user);
+                            // dataset completeness
+                            // user.getUserMetric().incrementDatasetCompleteness(dataset); // tbd ???
+                        }
                     }
                 }
+                previousLabelAssignments.put(dataset.getDatasetId(),
+                        parsePreviousLabelAssignemts(currentDirectory, dataset.getDatasetId()));
+                dataset = parseDatasetFile(dataset, currentDirectory); // parse each dataset
+                dataset.setAssignedUsers(assignedUsers);
+                dataset.getDatasetMetric().setNumberOfAssignedUsers(assignedUsers.size());// Dataset Metric - 4
+                datasetHashMap.put(dataset.getDatasetId(), dataset); // put dataset into map of datasets
             }
-            if (dataset.getDatasetId() == configModel.getCurrentDatasetId()) {
-                parseDatasetFile(dataset, currentDirectory);
-            }
+        } catch (Exception e) {
+            logger.warn("Error while parsing datasets!");
         }
+        logger.info("config file was parsed successfully");
     }
 
     public void parseMetrics(String currentDirectory) throws Exception {
@@ -104,14 +121,27 @@ public class Parser {
             metrics = gson.fromJson(br, MetricModel.class);
 
         } catch (Exception e) {
-            System.out.println("No previous metrcics on record!");
-            logger.warn("No previous metrcics on record!");
+            logger.warn("No previous metrics on record!");
         }
-        if (metrics != null) { // if not first run set flag true and parse
-            // actions?
+        logger.info("metrics file was parsed successfully");
+    }
 
-            // logger.info("metrcics has been parsed sucessfully!");
+    public ArrayList<LabelAssignment> parsePreviousLabelAssignemts(String currentDirectory, Integer datasetId)
+            throws Exception {
+        Gson gson = new Gson();
+        ArrayList<LabelAssignment> listOfLabelAssignments = null;
+        try {
+            currentDirectory += "\\output" + String.valueOf(datasetId) + ".json";
+            BufferedReader br = new BufferedReader(new FileReader(currentDirectory));
+            Output output;
+            output = gson.fromJson(br, Output.class);
 
+            listOfLabelAssignments = output.getClassLabelAssignments();
+            logger.info("old output file was parsed successfully");
+
+        } catch (Exception e) {
+            logger.warn("No previous output on record!");
         }
+        return listOfLabelAssignments;
     }
 }

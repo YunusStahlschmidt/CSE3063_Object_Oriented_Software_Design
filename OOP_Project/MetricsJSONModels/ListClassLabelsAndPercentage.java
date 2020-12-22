@@ -10,7 +10,7 @@ public class ListClassLabelsAndPercentage {
     private String label;
     @SerializedName("percentage")
     @Expose
-    private Integer percentage;
+    private Double percentage;
 
     public String getLabel() {
         return label;
@@ -20,11 +20,11 @@ public class ListClassLabelsAndPercentage {
         this.label = label;
     }
 
-    public Integer getPercentage() {
+    public Double getPercentage() {
         return percentage;
     }
 
-    public void setPercentage(Integer percentage) {
+    public void setPercentage(Double percentage) {
         this.percentage = percentage;
     }
 

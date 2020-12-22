@@ -32,13 +32,13 @@ public class UserModel {
     private Integer totalNumberOfUniqueInstancesLabeled;
     @SerializedName("consistency percentage")
     @Expose
-    private Integer consistencyPercentage;
+    private Double consistencyPercentage;
     @SerializedName("Average time spent in labeling an instance in seconds")
     @Expose
-    private Integer averageTimeSpentInLabelingAnInstanceInSeconds;
+    private Double averageTimeSpentInLabelingAnInstanceInSeconds;
     @SerializedName("Std. dev. of time spent in labeling an instance in seconds")
     @Expose
-    private Integer stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
+    private Double stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
 
     public Integer getUserId() {
         return userId;
@@ -84,7 +84,8 @@ public class UserModel {
         return listOfAllDatasetsWithTheirCompletenessPercentage;
     }
 
-    public void setListOfAllDatasetsWithTheirCompletenessPercentage(List<ListOfAllDatasetsWithTheirCompletenessPercentage> listOfAllDatasetsWithTheirCompletenessPercentage) {
+    public void setListOfAllDatasetsWithTheirCompletenessPercentage(
+            List<ListOfAllDatasetsWithTheirCompletenessPercentage> listOfAllDatasetsWithTheirCompletenessPercentage) {
         this.listOfAllDatasetsWithTheirCompletenessPercentage = listOfAllDatasetsWithTheirCompletenessPercentage;
     }
 
@@ -104,27 +105,28 @@ public class UserModel {
         this.totalNumberOfUniqueInstancesLabeled = totalNumberOfUniqueInstancesLabeled;
     }
 
-    public Integer getConsistencyPercentage() {
+    public Double getConsistencyPercentage() {
         return consistencyPercentage;
     }
 
-    public void setConsistencyPercentage(Integer consistencyPercentage) {
+    public void setConsistencyPercentage(Double consistencyPercentage) {
         this.consistencyPercentage = consistencyPercentage;
     }
 
-    public Integer getAverageTimeSpentInLabelingAnInstanceInSeconds() {
+    public Double getAverageTimeSpentInLabelingAnInstanceInSeconds() {
         return averageTimeSpentInLabelingAnInstanceInSeconds;
     }
 
-    public void setAverageTimeSpentInLabelingAnInstanceInSeconds(Integer averageTimeSpentInLabelingAnInstanceInSeconds) {
+    public void setAverageTimeSpentInLabelingAnInstanceInSeconds(Double averageTimeSpentInLabelingAnInstanceInSeconds) {
         this.averageTimeSpentInLabelingAnInstanceInSeconds = averageTimeSpentInLabelingAnInstanceInSeconds;
     }
 
-    public Integer getStdDevOfTimeSpentInLabelingAnInstanceInSeconds() {
+    public Double getStdDevOfTimeSpentInLabelingAnInstanceInSeconds() {
         return stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
     }
 
-    public void setStdDevOfTimeSpentInLabelingAnInstanceInSeconds(Integer stdDevOfTimeSpentInLabelingAnInstanceInSeconds) {
+    public void setStdDevOfTimeSpentInLabelingAnInstanceInSeconds(
+            Double stdDevOfTimeSpentInLabelingAnInstanceInSeconds) {
         this.stdDevOfTimeSpentInLabelingAnInstanceInSeconds = stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
     }
 
