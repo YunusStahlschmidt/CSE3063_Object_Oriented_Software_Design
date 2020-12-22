@@ -6,6 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceModel {
 
+    @SerializedName("datasetId")
+    @Expose
+    private Integer datasetId;
     @SerializedName("instanceId")
     @Expose
     private Integer instanceId;
@@ -20,13 +23,21 @@ public class InstanceModel {
     private Integer numberOfUniqueUsers;
     @SerializedName("Most frequent class label and percentage")
     @Expose
-    private Integer mostFrequentClassLabelAndPercentage;
+    private List<ListClassLabelsAndPercentage> mostFrequentClassLabelAndPercentage;
     @SerializedName("List class labels and percentages")
     @Expose
     private List<ListClassLabelsAndPercentage> listClassLabelsAndPercentages = null;
     @SerializedName("Entropy")
     @Expose
     private Double entropy;
+
+    public Integer getDatasetId() {
+        return datasetId;
+    }
+
+    public void setDatasetId(Integer datasetId) {
+        this.datasetId = datasetId;
+    }
 
     public Integer getInstanceId() {
         return instanceId;
@@ -40,7 +51,7 @@ public class InstanceModel {
         return totalNumberOfLabelAssignments;
     }
 
-    public void setTotalNumberOfLabelAssignmentsEGForLabelingAssignmentsOfUser(Integer totalNumberOfLabelAssignments) {
+    public void setTotalNumberOfLabelAssignments(Integer totalNumberOfLabelAssignments) {
         this.totalNumberOfLabelAssignments = totalNumberOfLabelAssignments;
     }
 
@@ -60,11 +71,12 @@ public class InstanceModel {
         this.numberOfUniqueUsers = numberOfUniqueUsers;
     }
 
-    public Integer getMostFrequentClassLabelAndPercentage() {
+    public List<ListClassLabelsAndPercentage> getMostFrequentClassLabelAndPercentage() {
         return mostFrequentClassLabelAndPercentage;
     }
 
-    public void setMostFrequentClassLabelAndPercentage(Integer mostFrequentClassLabelAndPercentage) {
+    public void setMostFrequentClassLabelAndPercentage(
+            List<ListClassLabelsAndPercentage> mostFrequentClassLabelAndPercentage) {
         this.mostFrequentClassLabelAndPercentage = mostFrequentClassLabelAndPercentage;
     }
 

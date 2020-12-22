@@ -1,3 +1,7 @@
+/* - We are not setting datasetId
+   - InstanceId is null
+   - NumberOfUniqueUsers */
+
 package OOP_Project;
 
 import java.util.ArrayList;
@@ -5,50 +9,24 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import OOP_Project.MetricsJSONModels.InstanceModel;
+import OOP_Project.MetricsJSONModels.ListClassLabelsAndPercentage;
 
 public class InstanceMetric {
-    // private Double entropy;
-    // private Label mostFrequentClassLabel;
-    // private Double percentageOfMostFrequentLabel;
-    // private Integer totalNumberOfAssignedLabels = 0;
-    // private Integer totalNumberOfUniqueAssignedLabels = 0;
+    private InstanceModel instanceModel = new InstanceModel();
     private ArrayList<LabelAssignment> labelAssignments = new ArrayList<LabelAssignment>();
-    private HashMap<Label, Double> classLabelsAndPercentages = new HashMap<Label,Double>();
-    private HashMap<Label, Integer> uniqueLabels = new HashMap<Label,Integer>();
+    private HashMap<Label, Double> classLabelsAndPercentages = new HashMap<Label, Double>();
+    private HashMap<Label, Integer> uniqueLabels = new HashMap<Label, Integer>();
     private Set<User> uniqueUsers = new HashSet<User>();
-    
-    public InstanceMetric() {}
 
-    // Getters
+    public InstanceMetric() {
+    }
 
-    // public Double getEntropy(){
-    //     return entropy;
-    // }
+    public InstanceModel getInstanceModel() {
+        return instanceModel;
+    }
 
-    // public Integer getTotalNumberOfAssignedLabels(){
-    //     return totalNumberOfAssignedLabels;
-    // }
-
-    // public Integer getNumberOfUniqueAssignedLabels(){
-    //     return uniqueLabels.size();
-    // }
-
-    // public Integer getNumberOfUniqueUsers(){
-    //     return uniqueUsers.size();
-    // }
-
-    // public Label getMostFrequentLabel(){
-    //     return mostFrequentClassLabel;
-    // }
-
-    // public Double getMostFrequentLabelPercentage(){
-    //     //implementation needed
-    //     return 0.0;
-    // }
-
-    public HashMap getClassLabelsAndPercentages(){
+    public HashMap<Label, Double> getClassLabelsAndPercentages() {
         return classLabelsAndPercentages;
     }
 
@@ -66,48 +44,89 @@ public class InstanceMetric {
 
     // Setters
 
-    public void setClassLabelsAndPercentages(){
-        //implementaion needed
+    public void updateClassLabelsAndPercentages() {
+        Double total = 0.0, mostPercentage = 0.0, currentPercentage = 0.0;
+        Label frequentLabel = null;
+
+        ArrayList<ListClassLabelsAndPercentage> listClassLabelsAndPercentages = new ArrayList<>();
+        ListClassLabelsAndPercentage aClassUserAndPercentagesObject;
+        for (Label label : uniqueLabels.keySet()) {
+            total += uniqueLabels.get(label);
+        }
+        for (Label label : uniqueLabels.keySet()) {
+            currentPercentage = uniqueLabels.get(label) / total;
+            this.classLabelsAndPercentages.put(label, currentPercentage);
+
+            aClassUserAndPercentagesObject = new ListClassLabelsAndPercentage();
+            aClassUserAndPercentagesObject.setLabel(label.getLabelText());
+            aClassUserAndPercentagesObject.setPercentage(currentPercentage);
+            listClassLabelsAndPercentages.add(aClassUserAndPercentagesObject);
+
+            if (currentPercentage > mostPercentage) {
+                mostPercentage = currentPercentage;
+                frequentLabel = label;
+            }
+        }
+        instanceModel.setListClassLabelsAndPercentages(listClassLabelsAndPercentages);
+        this.setMostFrequentLabel(frequentLabel, mostPercentage);
     }
 
-    public void setPercentageOfMostFrequentLabel(){
-        //implementaion needed
-    }
-    /*New added*/ 
-    public void setMostFrequentLabel(){
-        //implementaion needed
+    /* New added */
+    public void setMostFrequentLabel(Label frequentLabel, Double percentage) { // Do not call again, already called
+                                                                               // updateClassLabels above
+        ListClassLabelsAndPercentage mostFreq = new ListClassLabelsAndPercentage();
+        mostFreq.setLabel(frequentLabel.getLabelText());
+        mostFreq.setPercentage(percentage);
+        ArrayList<ListClassLabelsAndPercentage> list = new ArrayList<>();
+        list.add(mostFreq);
+        instanceModel.setMostFrequentClassLabelAndPercentage(list);
     }
 
-    public void setEntropy(){
-        //implementaion needed
+    public void setEntropy() {
+        Double resultEnt = 0d;
+
+        for (Double percentage : classLabelsAndPercentages.values()) {
+            resultEnt += -(percentage * log2(percentage));
+        }
+
+        // DecimalFormat df = new DecimalFormat("#.000");
+        // String strResultEntropy = df.format(resultEnt);
+        instanceModel.setEntropy(resultEnt); // tbd
     }
 
-    public void findTotalNumberOfAssignedLabels() {
-        // this.totalNumberOfAssignedLabels++;
+    public Double log2(Double N) {
+        Double result = (Double) (Math.log(N) / Math.log(2));
+        return result;
     }
-    
-    public void setLabelAssignments(LabelAssignment newLabelAssignment) {
+
+    public void setTotalNumberOfAssignedLabels() {
+        instanceModel.setTotalNumberOfLabelAssignments(labelAssignments.size());
+    }
+
+    public void addLabelAssignments(LabelAssignment newLabelAssignment) { // call before setTotalNumberOfAssignedLabels
+                                                                          // method
         this.labelAssignments.add(newLabelAssignment);
     }
 
-    public void setNumberOfUniqueAssignedLabels(){
-        //go over labelAssignments array and find and set totalNumberOfUniqueAssignedLabels 
+    public void setNumberOfUniqueAssignedLabels() {
+        instanceModel.setTotalNumberOfLabelAssignments(uniqueLabels.size());
     }
 
-    public void setNumberOfUniqueUsers(){
-        //get size of hashset userList
+    public void setNumberOfUniqueUsers() {
+        instanceModel.setNumberOfUniqueUsers(uniqueUsers.size());
     }
 
-    public void addUniqueUser(User user){
+    public void addUniqueUser(User user) { // call before setNumberOfUniqueUsers
         uniqueUsers.add(user);
+        this.setNumberOfUniqueUsers();
     }
 
-    public void addUniqueLabel(Label label){
+    public void addUniqueLabel(Label label) { // call before setNumberOfUniqueLabels
         if (uniqueLabels.get(label) == null) {
             uniqueLabels.put(label, 1);
         } else {
-            uniqueLabels.put(label, uniqueLabels.get(label)+1);
+            uniqueLabels.put(label, uniqueLabels.get(label) + 1);
         }
     }
-    
+
 }
