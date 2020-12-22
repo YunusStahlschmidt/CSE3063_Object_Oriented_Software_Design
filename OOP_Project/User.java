@@ -28,19 +28,22 @@ public class User {
     @Expose
     private double consistencyCheckProbability;
     private UserMetric userMetric = new UserMetric();
-    public User() {}
+
+    public User() {
+    }
+
     public User(int id, String name, String type) {
         this.userId = id;
         this.userName = name;
         this.userType = type;
     }
 
-    //Getters
+    // Getters
 
     public Integer getId() {
         return userId;
     }
-    
+
     public String getName() {
         return userName;
     }
@@ -49,8 +52,12 @@ public class User {
         return userType;
     }
 
-    public UserMetric getUserMetric(){
+    public UserMetric getUserMetric() {
         return userMetric;
+    }
+
+    public double getConsistencyCheckProbability() {
+        return consistencyCheckProbability;
     }
     // Setters
 
@@ -66,7 +73,7 @@ public class User {
         this.userType = userType;
     }
 
-    public void setUserMetric(){
-        //should set user metric
+    public void setUserIdToModel() {
+        this.userMetric.getUserModel().setUserId(this.userId);
     }
 }

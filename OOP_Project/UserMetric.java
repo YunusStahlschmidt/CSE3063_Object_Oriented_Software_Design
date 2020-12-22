@@ -1,7 +1,7 @@
 /*
     - ConsistencyPercentage: NaN
     - consistencyCheckProb is not set
-    - LabeledInstances size = 0 but numberOfLAbeldInstances = 5  (totalNumberOfInstancesLabeld is null in model)
+    - LabeledInstances size = 0 but numberOfLabeldInstances = 5  (totalNumberOfInstancesLabeld is null in model)
     - user id name and type are not set in model
 */
 
@@ -52,7 +52,21 @@ public class UserMetric {
         return datasetCompleteness;
     }
 
+    public void setUserModel(UserModel userModel) {
+        this.userModel = userModel;
+    }
+
     // Setters
+    public void addLabeledInstances(Instance instance, LabelAssignment lAssignment) {
+        ArrayList<LabelAssignment> listOfAssignment;
+        if (!labeledInstances.containsKey(instance)) {
+            listOfAssignment = new ArrayList<LabelAssignment>();
+            listOfAssignment.add(lAssignment);
+        } else {
+            listOfAssignment = labeledInstances.get(instance);
+            listOfAssignment.add(lAssignment);
+        }
+    }
 
     public void addTimeSpentPerInstance(Double timeSpent) {
         this.timeSpentPerInstance.add(timeSpent);
@@ -64,8 +78,7 @@ public class UserMetric {
     }
 
     public void incrementNumberOfLabeledInstances() {
-        this.numOfLabeledInstances++;
-        userModel.setNumberOfDatasetsAssigned(this.numOfLabeledInstances);
+        userModel.setNumberOfDatasetsAssigned(labeledInstances.size());
     }
 
     // HashMap<Instance, ArrayList<LabelAssignment>>
@@ -89,6 +102,9 @@ public class UserMetric {
             }
         }
         consistencyPercentage = consistent / Double.valueOf(total);
+        if (total == 0) {
+            consistencyPercentage = 0.0;
+        }
         userModel.setConsistencyPercentage(consistencyPercentage);
     }
 
