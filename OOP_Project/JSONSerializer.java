@@ -5,6 +5,7 @@ import OOP_Project.MetricsJSONModels.MetricModel;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,10 +43,13 @@ public class JSONSerializer {
 
     }
 
-    public void serializeMetricFile(MetricModel metrics, String filePath) throws Exception {
+    public void serializeMetricFile(MetricModel metrics, String filePath) {
         try {
+            // TimeUnit.SECONDS.sleep(1);
             Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+            // TimeUnit.SECONDS.sleep(1);
             String json = gson.toJson(metrics);
+            // TimeUnit.SECONDS.sleep(1);
 
             // writing JSON to file:"JSONExample.json" in cwd
             PrintWriter pw = new PrintWriter(filePath);

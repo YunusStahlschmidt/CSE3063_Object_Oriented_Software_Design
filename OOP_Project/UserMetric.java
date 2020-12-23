@@ -79,7 +79,9 @@ public class UserMetric {
     }
 
     public void incrementNumberOfLabeledInstances() {
-        userModel.setTotalNumberOfInstancesLabeled(labeledInstances.size());
+        this.numOfLabeledInstances++;
+        //userModel.setTotalNumberOfInstancesLabeled(labeledInstances.size());
+        userModel.setTotalNumberOfInstancesLabeled(this.numOfLabeledInstances);
     }
 
     // HashMap<Instance, ArrayList<LabelAssignment>>
@@ -163,11 +165,24 @@ public class UserMetric {
         // List of all datasets with their completeness percentage setting with
         // incrementDatasetCompleteness
         this.incrementDatasetCompleteness(dataset);// User Metric - 2
-        this.incrementNumberOfLabeledInstances();// User Metric - 3
+        this.incrementNumberOfLabeledInstances();// User Metric - 3 
         this.setConsistencyPercentage(); // User Metric - 5
         // STD DEV called inside the setAverageTimeSpent func Metric - 6 - 7
         if (startDate != null && endDate != null) {
             this.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double) 1000));
         }
+    }
+
+    /*"total number of instances labeled": 0,
+      "total number of unique instances labeled": 5,
+      "consistency percentage": 0.0,
+      "Average time spent in labeling an instance in seconds": 0.0,
+      "Std. dev. of time spent in labeling an instance in seconds": 4.803844614152614E-4 */
+    public void setInitialUserModel () {
+        userModel.setTotalNumberOfInstancesLabeled(0);
+        userModel.setTotalNumberOfUniqueInstancesLabeled(0);
+        userModel.setConsistencyPercentage(0.0);
+        userModel.setAverageTimeSpentInLabelingAnInstanceInSeconds(0.0);
+        userModel.setStdDevOfTimeSpentInLabelingAnInstanceInSeconds(0.0);
     }
 }
