@@ -1,5 +1,5 @@
 {
-    "CurrentDatasetId": 2,
+    "CurrentDatasetId": 1,
     "users": [
         { "userId": 1, "userName": "RandomLabelingMechanism1", "userType": "RandomBot", "consistencyCheckProbability": "0.1" },
         { "userId": 2, "userName": "RandomLabelingMechanism2", "userType": "RandomBot", "consistencyCheckProbability": "0.1" },

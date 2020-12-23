@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -80,9 +81,9 @@ public class Main {
             userModelList = (ArrayList<UserModel>) metrics.getUsersList();
 
             // temp lists
-            ArrayList<DatasetModel> tempDatasetModelList = (ArrayList<DatasetModel>) metrics.getDatasetList();
-            ArrayList<InstanceModel> tempInstanceModelList = (ArrayList<InstanceModel>) metrics.getInstanceList();
-            ArrayList<UserModel> tempUserModelList = (ArrayList<UserModel>) metrics.getUsersList();
+            // ArrayList<DatasetModel> tempDatasetModelList = (ArrayList<DatasetModel>) metrics.getDatasetList();
+            // ArrayList<InstanceModel> tempInstanceModelList = (ArrayList<InstanceModel>) metrics.getInstanceList();
+            // ArrayList<UserModel> tempUserModelList = (ArrayList<UserModel>) metrics.getUsersList();
 
             // Traversing inside the modelLists to set corresponding dataset, instance and
             // user objects.
@@ -92,6 +93,7 @@ public class Main {
             ArrayList<LabelAssignment> updatedLabelAssignments = new ArrayList<>();
             LabelAssignment newestLabelAssignment;
             ArrayList<Label> newAddedLabels;
+            Boolean checkpoint = false;
 
             for (LabelAssignment prevLabelAssignment : previousLabelAssignments.get(currentDatasetId)) {
                 for (Instance currInstance : dataset.getInstances()) {
@@ -110,52 +112,82 @@ public class Main {
                                     }
                                 }
                             }
-                            newestLabelAssignment = new LabelAssignment(currInstance.getId(), newAddedLabels,
-                                    currUser.getId(), prevLabelAssignment.getDate());
+                            newestLabelAssignment = new LabelAssignment(currInstance.getId(), newAddedLabels, currUser.getId(), prevLabelAssignment.getDate());
                             updatedLabelAssignments.add(newestLabelAssignment);
 
                             currInstance.getInstanceMetric().callAllNecessaryMethods(currUser, newestLabelAssignment);
-                            currUser.getUserMetric().callAllNecessaryMethods(currInstance, dataset,
-                                    newestLabelAssignment, null, null);
+                            currUser.getUserMetric().callAllNecessaryMethods(currInstance, dataset, newestLabelAssignment, null, null);
 
                             /* should be added */
                             // updating Instance Metric
 
                             // updating Dataset Metric - 3
+                            checkpoint = true;
                         }
                     }
-                    dataset.getDatasetMetric().callAllNecessaryMethods(currInstance, dataset);
+                    if (checkpoint) {
+                        dataset.getDatasetMetric().callAllNecessaryMethods(currInstance, dataset);
+                        checkpoint = false;
+                    }
+                }
+            }
+            for (User user : users) {
+                for (UserModel userModel : userModelList) {
+                    if (userModel.getUserId().equals(user.getId())) {
+                        user.getUserMetric().setUserModel(userModel);
+                        // tempUserModelList.remove(userModel);
+                        break;
+                    }
                 }
             }
 
             for (Dataset myDataset : datasetHashMap.values()) {
-                for (DatasetModel datasetModel : tempDatasetModelList) {
+                for (DatasetModel datasetModel : datasetModelList) {
                     if (datasetModel.getDatasetId().equals(myDataset.getDatasetId())) {
                         myDataset.getDatasetMetric().setDatasetModel(datasetModel);
-                        tempDatasetModelList.remove(datasetModel);
+                        // datasetModelList.remove(datasetModel);
                         break;
                     }
                 }
-
-                for (User user : myDataset.getAssignedUsers()) {
-                    for (UserModel userModel : tempUserModelList) {
-                        if (userModel.getUserId().equals(user.getId())) {
-                            user.getUserMetric().setUserModel(userModel);
-                            tempUserModelList.remove(userModel);
-                            break;
-                        }
-                    }
-                }
+                
                 for (Instance instanceForId : myDataset.getInstances()) {
-                    for (InstanceModel instanceModel : tempInstanceModelList) {
-                        if (instanceModel.getInstanceId().equals(instanceForId.getId())) {
+                    for (InstanceModel instanceModel : instanceModelList) {
+                        if (instanceModel.getInstanceId().equals(instanceForId.getId()) && (instanceModel.getDatasetId().equals(myDataset.getDatasetId())) ){
                             instanceForId.getInstanceMetric().setInstanceModel(instanceModel);
-                            tempInstanceModelList.remove(instanceModel);
+                            // tempInstanceModelList.remove(instanceModel);
                             break;
                         }
                     }
                 }
             }
+            // for (Dataset myDataset : datasetHashMap.values()) {
+            //     for (DatasetModel datasetModel : datasetModelList) {
+            //         if (datasetModel.getDatasetId().equals(myDataset.getDatasetId())) {
+            //             myDataset.getDatasetMetric().setDatasetModel(datasetModel);
+            //             // datasetModelList.remove(datasetModel);
+            //             break;
+            //         }
+            //     }
+
+            //     for (User user : myDataset.getAssignedUsers()) {
+            //         for (UserModel userModel : userModelList) {
+            //             if (userModel.getUserId().equals(user.getId())) {
+            //                 user.getUserMetric().setUserModel(userModel);
+            //                 // tempUserModelList.remove(userModel);
+            //                 break;
+            //             }
+            //         }
+            //     }
+            //     for (Instance instanceForId : myDataset.getInstances()) {
+            //         for (InstanceModel instanceModel : instanceModelList) {
+            //             if (instanceModel.getInstanceId().equals(instanceForId.getId())) {
+            //                 instanceForId.getInstanceMetric().setInstanceModel(instanceModel);
+            //                 // tempInstanceModelList.remove(instanceModel);
+            //                 break;
+            //             }
+            //         }
+            //     }
+            // }
         } else {
             // Metric Model ListList<ListOfUsersAssignedAndTheirConsistencyPercentage>s
             metrics = new MetricModel();
@@ -168,6 +200,7 @@ public class Main {
                 // }
 
                 for (User user : myDataset.getAssignedUsers()) {
+                    // user.getUserMetric().set
                     user.getUserMetric().incrementDatasetCompleteness(myDataset);
                     user.setUserIdToModel();
                 }
@@ -192,9 +225,6 @@ public class Main {
 
         ArrayList<User> assignedUsers = dataset.getAssignedUsers();
 
-        // Number of assigned datasets niye 5 birinde :D
-        // valla mı oha 6 hatta gg :D
-
         // metric model set datase model list
         // datasetModelList.add(datasetMetric.getDatasetModel());
         for (Instance anInstance : dataset.getInstances()) {
@@ -207,7 +237,7 @@ public class Main {
                 // picking random Instance based on probability
                 randomInstanceProbability = random.nextInt(100) + 1;
 
-                if (randomInstanceProbability <= currentUser.getConsistencyCheckProbability() * 100
+                if (randomInstanceProbability < currentUser.getConsistencyCheckProbability() * 100
                         && currentUser.getUserMetric().getUniqueLabeledInstances().size() > 0) {
                     recurrentLabeledInstances = new ArrayList<>();
                     for (Instance instanceToArray : currentUser.getUserMetric().getUniqueLabeledInstances()) {
@@ -215,9 +245,9 @@ public class Main {
                     }
                     while (true) {
                         recurrentLabeledInstanceIdx = random.nextInt(recurrentLabeledInstances.size());
-                        if (anInstance == recurrentLabeledInstances.get(recurrentLabeledInstanceIdx)) {
-                            continue;
-                        }
+                        // if (anInstance == recurrentLabeledInstances.get(recurrentLabeledInstanceIdx)) {
+                        //     continue;
+                        // }
                         anInstance = recurrentLabeledInstances.get(recurrentLabeledInstanceIdx);
                         break;
                     }
@@ -301,9 +331,9 @@ public class Main {
 
         }
         // setting hashset to final metric file !
+
         metrics.setUsers(List.copyOf(userModelList));
         metrics.setDataset(List.copyOf(datasetModelList));
-
         metrics.setInstance(List.copyOf(instanceModelList));
 
         System.out.println(labelAssignments);
