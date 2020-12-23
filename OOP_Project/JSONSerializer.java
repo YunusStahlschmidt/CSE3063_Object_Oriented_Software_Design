@@ -3,9 +3,7 @@ package OOP_Project;
 import OOP_Project.MetricsJSONModels.MetricModel;
 
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 public class JSONSerializer {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
+    private PrintWriter pw;
 
     public JSONSerializer() {
     }
@@ -26,10 +25,9 @@ public class JSONSerializer {
                     dataset.getLabels(), dataset.getInstances(), lAssignments, users);
             Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
             String json = gson.toJson(myOutput);
-            // System.out.println(json);
 
             // writing JSON to file:"JSONExample.json" in cwd
-            PrintWriter pw = new PrintWriter(outputPath);
+            pw = new PrintWriter(outputPath);
             logger.info("Output file was created successfully");
 
             pw.write(json);
@@ -52,7 +50,7 @@ public class JSONSerializer {
             // TimeUnit.SECONDS.sleep(1);
 
             // writing JSON to file:"JSONExample.json" in cwd
-            PrintWriter pw = new PrintWriter(filePath);
+            pw = new PrintWriter(filePath);
             logger.info("Metrics file was created successfully");
 
             pw.write(json);
