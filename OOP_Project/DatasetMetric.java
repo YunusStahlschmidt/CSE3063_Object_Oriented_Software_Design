@@ -27,6 +27,17 @@ public class DatasetMetric {
     public DatasetMetric() {
     }
 
+    public void callAllNecessaryMethods(Instance anInstance, Dataset dataset) {
+        this.addUniqueLabeledInstances(anInstance); // for datasetCompleteness
+        this.calculateDatasetCompleteness(dataset.getInstances().size());// Dataset Metric - 1
+        this.calculateClassDistribution(); // Dataset Metric - 2
+        // dataset metric - 3 is done inside the loop
+        this.calculateUserCompleteness(dataset, dataset.getAssignedUsers()); // Dataset Metric - 5
+        // dataset metric 4 called while parsing
+        this.calculateAssignedUsersAndConcistencyPercentage(dataset.getAssignedUsers()); // Dataset Metric
+                                                                                         // -6
+    }
+
     public void setInitialDatasetModel() {
         datasetModel.setCompletenessPercentage(0.0);
         List<ListOfUsersAssignedAndTheirCompletenessPercentage> userList = new ArrayList<>();
@@ -113,6 +124,7 @@ public class DatasetMetric {
             NoOfUniqueInstancesForALabel = new ListNumberOfUniqueInstancesForEachClassLabel();
             NoOfUniqueInstancesForALabel.setLabel(aLabel.getLabelText());
             NoOfUniqueInstancesForALabel.setAmount(uniqueInstancesForLabel.get(aLabel).size());
+            listOfUniqueInstancesForLabel.add(NoOfUniqueInstancesForALabel);
         }
         this.datasetModel.setListNumberOfUniqueInstancesForEachClassLabel(listOfUniqueInstancesForLabel);
     }

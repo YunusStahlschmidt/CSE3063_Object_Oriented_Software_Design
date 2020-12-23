@@ -132,7 +132,7 @@ public class Parser {
     public ArrayList<LabelAssignment> parsePreviousLabelAssignemts(String currentDirectory, Integer datasetId)
             throws Exception {
         Gson gson = new Gson();
-        ArrayList<LabelAssignment> listOfLabelAssignments = null;
+        ArrayList<LabelAssignment> listOfLabelAssignments = new ArrayList<LabelAssignment>();
         try {
             currentDirectory += "\\output" + String.valueOf(datasetId) + ".json";
             BufferedReader br = new BufferedReader(new FileReader(currentDirectory));
