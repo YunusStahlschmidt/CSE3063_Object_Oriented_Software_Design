@@ -10,6 +10,7 @@ package OOP_Project;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -78,7 +79,7 @@ public class UserMetric {
     }
 
     public void incrementNumberOfLabeledInstances() {
-        userModel.setNumberOfDatasetsAssigned(labeledInstances.size());
+        userModel.setTotalNumberOfInstancesLabeled(labeledInstances.size());
     }
 
     // HashMap<Instance, ArrayList<LabelAssignment>>
@@ -151,5 +152,22 @@ public class UserMetric {
             datasetsWithCompleteness.add(aCompletenessOfDataset);
         }
         userModel.setListOfAllDatasetsWithTheirCompletenessPercentage(datasetsWithCompleteness);
+    }
+
+    public void callAllNecessaryMethods(Instance anInstance, Dataset dataset, LabelAssignment newLabelAssignment,
+            Date startDate, Date endDate) {
+        this.addLabeledInstances(anInstance, newLabelAssignment);
+        // updating User Metrices
+        // User metric 1: Number of datasets assigned already done in parser class
+        this.addUniqueLabeledInstances(anInstance); // User Metric -4
+        // List of all datasets with their completeness percentage setting with
+        // incrementDatasetCompleteness
+        this.incrementDatasetCompleteness(dataset);// User Metric - 2
+        this.incrementNumberOfLabeledInstances();// User Metric - 3
+        this.setConsistencyPercentage(); // User Metric - 5
+        // STD DEV called inside the setAverageTimeSpent func Metric - 6 - 7
+        if (startDate != null && endDate != null) {
+            this.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double) 1000));
+        }
     }
 }

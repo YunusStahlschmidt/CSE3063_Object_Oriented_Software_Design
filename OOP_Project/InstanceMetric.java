@@ -58,6 +58,19 @@ public class InstanceMetric {
 
     // Setters
 
+    public void callAllNecessaryMethods(User currentUser, LabelAssignment newLabelAssignment) {
+        this.addUniqueUser(currentUser);
+        this.addLabelAssignments(newLabelAssignment);
+        this.setTotalNumberOfAssignedLabels(); // update while model class object is created
+        this.setNumberOfUniqueAssignedLabels(); // parameters and method should be handled
+        // instanceMetric.setNumberOfUniqueUsers(); // calling inside addUniqueUser
+
+        // instanceMetric.setMostFrequentLabel();
+        // instanceMetric.setPercentageOfMostFrequentLabel();
+        this.updateClassLabelsAndPercentages();
+        this.setEntropy();
+    }
+
     public void updateClassLabelsAndPercentages() {
         Double total = 0.0, mostPercentage = 0.0, currentPercentage = 0.0;
         Label frequentLabel = null;
@@ -109,12 +122,18 @@ public class InstanceMetric {
     }
 
     public Double log2(Double N) {
-        Double result = (Double) (Math.log(N) / Math.log(this.uniqueLabels.size()));
+        Double result = (Double) (Math.log(N) / Math.log(this.classLabelsAndPercentages.size()));
         return result;
     }
 
     public void setTotalNumberOfAssignedLabels() {
-        instanceModel.setTotalNumberOfLabelAssignments(labelAssignments.size());
+        Integer totalNumberOfAssignedLabels = 0;
+        for (LabelAssignment lAssignment : this.labelAssignments) {
+            for (Integer labelId : lAssignment.getAssignedLabelId()) {
+                totalNumberOfAssignedLabels++;
+            }
+        }
+        instanceModel.setTotalNumberOfLabelAssignments(totalNumberOfAssignedLabels);
     }
 
     public void addLabelAssignments(LabelAssignment newLabelAssignment) { // call before setTotalNumberOfAssignedLabels
@@ -123,7 +142,7 @@ public class InstanceMetric {
     }
 
     public void setNumberOfUniqueAssignedLabels() {
-        instanceModel.setTotalNumberOfLabelAssignments(uniqueLabels.size());
+        instanceModel.setNumberOfUniqueLabelAssignments(uniqueLabels.size());
     }
 
     public void setNumberOfUniqueUsers() {

@@ -86,6 +86,48 @@ public class Main {
 
             // Traversing inside the modelLists to set corresponding dataset, instance and
             // user objects.
+
+            // HashSet<Instance> unlabeledInstances = (HashSet<Instance>)
+            // dataset.getInstances();
+            ArrayList<LabelAssignment> updatedLabelAssignments = new ArrayList<>();
+            LabelAssignment newestLabelAssignment;
+            ArrayList<Label> newAddedLabels;
+
+            for (LabelAssignment prevLabelAssignment : previousLabelAssignments.get(currentDatasetId)) {
+                for (Instance currInstance : dataset.getInstances()) {
+                    for (User currUser : dataset.getAssignedUsers()) {
+                        if (prevLabelAssignment.getInstanceId().equals(currInstance.getId())
+                                && prevLabelAssignment.getUserId().equals(currUser.getId())) {
+                            // dataset.getDatasetMetric().addUniqueLabeledInstances(currInstance);
+                            // tbd dataset metric updates
+                            newAddedLabels = new ArrayList<>();
+                            for (Integer labelId : prevLabelAssignment.getAssignedLabelId()) {
+                                for (Label currentLabel : dataset.getLabels()) {
+                                    if (currentLabel.getId().equals(labelId)) {
+                                        currInstance.getInstanceMetric().addUniqueLabel(currentLabel);
+                                        dataset.getDatasetMetric().addInstanceForLabel(currentLabel, currInstance);
+                                        newAddedLabels.add(currentLabel);
+                                    }
+                                }
+                            }
+                            newestLabelAssignment = new LabelAssignment(currInstance.getId(), newAddedLabels,
+                                    currUser.getId(), prevLabelAssignment.getDate());
+                            updatedLabelAssignments.add(newestLabelAssignment);
+
+                            currInstance.getInstanceMetric().callAllNecessaryMethods(currUser, newestLabelAssignment);
+                            currUser.getUserMetric().callAllNecessaryMethods(currInstance, dataset,
+                                    newestLabelAssignment, null, null);
+
+                            /* should be added */
+                            // updating Instance Metric
+
+                            // updating Dataset Metric - 3
+                        }
+                    }
+                    dataset.getDatasetMetric().callAllNecessaryMethods(currInstance, dataset);
+                }
+            }
+
             for (Dataset myDataset : datasetHashMap.values()) {
                 for (DatasetModel datasetModel : tempDatasetModelList) {
                     if (datasetModel.getDatasetId().equals(myDataset.getDatasetId())) {
@@ -113,22 +155,6 @@ public class Main {
                         }
                     }
                 }
-
-            }
-
-            HashSet<Instance> unlabeledInstances = (HashSet<Instance>) dataset.getInstances();
-            for (LabelAssignment prevLabelAssignment : previousLabelAssignments.get(currentDatasetId)) {
-                for (Instance currInstance : dataset.getInstances()) {
-                    if (prevLabelAssignment.getInstanceId() == currInstance.getId()) {
-                        dataset.getDatasetMetric().addUniqueLabeledInstances(currInstance);
-                        // tbd dataset metric updates
-                    }
-                }
-                for (User currUser : users) {
-                    if (prevLabelAssignment.getUserId() == currUser.getId()) {
-                        // tbd call user metrics updates
-                    }
-                }
             }
         } else {
             // Metric Model ListList<ListOfUsersAssignedAndTheirConsistencyPercentage>s
@@ -138,7 +164,7 @@ public class Main {
                 myDataset.getDatasetMetric().setInitialDatasetModel();
                 datasetModelList.add(myDataset.getDatasetMetric().getDatasetModel());
                 // for (User user : myDataset.getAssignedUsers()) {
-                //     user.getUserMetric().incrementNumberOfDatasetsAssigned();
+                // user.getUserMetric().incrementNumberOfDatasetsAssigned();
                 // }
 
                 for (User user : myDataset.getAssignedUsers()) {
@@ -173,14 +199,16 @@ public class Main {
         // datasetModelList.add(datasetMetric.getDatasetModel());
         for (Instance anInstance : dataset.getInstances()) {
 
-            numberOfAssignmentsPerInstance = random.nextInt(assignedUsers.size()) + 1;
+            numberOfAssignmentsPerInstance = 10;
+            // numberOfAssignmentsPerInstance = random.nextInt(assignedUsers.size()) + 1;
             for (int i = 0; i < numberOfAssignmentsPerInstance; i++) {
                 userIndex = random.nextInt(assignedUsers.size());
                 currentUser = assignedUsers.get(userIndex);
                 // picking random Instance based on probability
                 randomInstanceProbability = random.nextInt(100) + 1;
 
-                if (randomInstanceProbability <= currentUser.getConsistencyCheckProbability() * 100) {
+                if (randomInstanceProbability <= currentUser.getConsistencyCheckProbability() * 100
+                        && currentUser.getUserMetric().getUniqueLabeledInstances().size() > 0) {
                     recurrentLabeledInstances = new ArrayList<>();
                     for (Instance instanceToArray : currentUser.getUserMetric().getUniqueLabeledInstances()) {
                         recurrentLabeledInstances.add(instanceToArray);
@@ -219,52 +247,63 @@ public class Main {
                 labelAssignments.add(newLabelAssignment);
                 endDate = new Date();
 
-                userMetric.addLabeledInstances(anInstance, newLabelAssignment);
-                // updating User Metrices
-                // User metric 1: Number of datasets assigned already done in parser class
-                userMetric.addUniqueLabeledInstances(anInstance); // User Metric -4
-                // List of all datasets with their completeness percentage setting with
-                // incrementDatasetCompleteness
-                userMetric.incrementDatasetCompleteness(dataset);// User Metric - 2
-                userMetric.incrementNumberOfLabeledInstances();// User Metric - 3
-                userMetric.setConsistencyPercentage(); // User Metric - 5
-                // STD DEV called inside the setAverageTimeSpent func Metric - 6 - 7
-                userMetric.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) / (double) 1000));
+                userMetric.callAllNecessaryMethods(anInstance, dataset, newLabelAssignment, startDate, endDate);
+                // userMetric.addLabeledInstances(anInstance, newLabelAssignment);
+                // // updating User Metrices
+                // // User metric 1: Number of datasets assigned already done in parser class
+                // userMetric.addUniqueLabeledInstances(anInstance); // User Metric -4
+                // // List of all datasets with their completeness percentage setting with
+                // // incrementDatasetCompleteness
+                // userMetric.incrementDatasetCompleteness(dataset);// User Metric - 2
+                // userMetric.incrementNumberOfLabeledInstances();// User Metric - 3
+                // userMetric.setConsistencyPercentage(); // User Metric - 5
+                // // STD DEV called inside the setAverageTimeSpent func Metric - 6 - 7
+                // userMetric.setAverageTimeSpent(((endDate.getTime() - startDate.getTime()) /
+                // (double) 1000));
 
                 // updating Instance Metrics
+                instanceMetric.callAllNecessaryMethods(currentUser, newLabelAssignment);
                 /* we are calling addUniqueLabel inside the for loop */
-                instanceMetric.addUniqueUser(currentUser);
-                instanceMetric.addLabelAssignments(newLabelAssignment);
-                instanceMetric.setTotalNumberOfAssignedLabels(); // update while model class object is created
-                instanceMetric.setNumberOfUniqueAssignedLabels(); // parameters and method should be handled
+                // instanceMetric.addUniqueUser(currentUser);
+                // instanceMetric.addLabelAssignments(newLabelAssignment);
+                // instanceMetric.setTotalNumberOfAssignedLabels(); // update while model class
+                // object is created
+                // instanceMetric.setNumberOfUniqueAssignedLabels(); // parameters and method
+                // should be handled
                 // instanceMetric.setNumberOfUniqueUsers(); // calling inside addUniqueUser
 
                 /* May change the order of method calls */
                 // instanceMetric.setMostFrequentLabel();
                 // instanceMetric.setPercentageOfMostFrequentLabel();
-                instanceMetric.updateClassLabelsAndPercentages();
-                instanceMetric.setEntropy();
+                // instanceMetric.updateClassLabelsAndPercentages();
+                // instanceMetric.setEntropy();
                 // ------Hopefully Instance Metrics done-----
 
                 // pushing related Models into MetricModel List
-                instanceModelList.add(instanceMetric.getInstanceModel());
+                // instanceModelList.add(instanceMetric.getInstanceModel());
                 // userModelList.add(userMetric.getUserModel());
 
             }
             // updating Dataset Metrices
-            datasetMetric.addUniqueLabeledInstances(anInstance); // for datasetCompleteness
-            datasetMetric.calculateDatasetCompleteness(dataset.getInstances().size());// Dataset Metric - 1
-            datasetMetric.calculateClassDistribution(); // Dataset Metric - 2
-            // dataset metric - 3 is done inside the loop
-            datasetMetric.calculateUserCompleteness(dataset, dataset.getAssignedUsers()); // Dataset Metric - 5
-            // dataset metric 4 called while parsing
-            datasetMetric.calculateAssignedUsersAndConcistencyPercentage(dataset.getAssignedUsers()); // Dataset Metric
-                                                                                                      // -6
+            datasetMetric.callAllNecessaryMethods(anInstance, dataset);
+            // datasetMetric.addUniqueLabeledInstances(anInstance); // for
+            // datasetCompleteness
+            // datasetMetric.calculateDatasetCompleteness(dataset.getInstances().size());//
+            // Dataset Metric - 1
+            // datasetMetric.calculateClassDistribution(); // Dataset Metric - 2
+            // // dataset metric - 3 is done inside the loop
+            // datasetMetric.calculateUserCompleteness(dataset, dataset.getAssignedUsers());
+            // // Dataset Metric - 5
+            // // dataset metric 4 called while parsing
+            // datasetMetric.calculateAssignedUsersAndConcistencyPercentage(dataset.getAssignedUsers());
+            // // Dataset Metric
+            // -6
 
         }
         // setting hashset to final metric file !
         metrics.setUsers(List.copyOf(userModelList));
         metrics.setDataset(List.copyOf(datasetModelList));
+
         metrics.setInstance(List.copyOf(instanceModelList));
 
         System.out.println(labelAssignments);

@@ -15,8 +15,9 @@ public class Label {
     @Expose
     private String labelText;
 
-    
-    public Label() {}
+    public Label() {
+    }
+
     public Label(int id, String text) {
         this.labelId = id;
         this.labelText = text;
@@ -28,9 +29,8 @@ public class Label {
     }
 
     public String getLabelText() {
-        return labelText;
+        return this.labelText;
     }
-
 
     // Setters
 

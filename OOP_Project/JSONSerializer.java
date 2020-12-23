@@ -20,35 +20,44 @@ public class JSONSerializer {
 
     public void serializeOutputFile(String outputPath, Dataset dataset, ArrayList<LabelAssignment> lAssignments,
             ArrayList<User> users) throws Exception {
+        try {
+            Output myOutput = new Output(dataset.getDatasetId(), dataset.getDatasetName(), dataset.getMaxLabel(),
+                    dataset.getLabels(), dataset.getInstances(), lAssignments, users);
+            Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+            String json = gson.toJson(myOutput);
+            // System.out.println(json);
 
-        Output myOutput = new Output(dataset.getDatasetId(), dataset.getDatasetName(), dataset.getMaxLabel(),
-                dataset.getLabels(), dataset.getInstances(), lAssignments, users);
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        String json = gson.toJson(myOutput);
-        // System.out.println(json);
+            // writing JSON to file:"JSONExample.json" in cwd
+            PrintWriter pw = new PrintWriter(outputPath);
+            logger.info("Output file was created successfully");
 
-        // writing JSON to file:"JSONExample.json" in cwd
-        PrintWriter pw = new PrintWriter(outputPath);
-        logger.info("Output file was created successfully");
+            pw.write(json);
 
-        pw.write(json);
+            pw.flush();
+            pw.close();
 
-        pw.flush();
-        pw.close();
+        } catch (Exception e) {
+            logger.warn("Error while serializing Output file!");
+        }
 
     }
 
     public void serializeMetricFile(MetricModel metrics, String filePath) throws Exception {
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
-        String json = gson.toJson(metrics);
+        try {
+            Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+            String json = gson.toJson(metrics);
 
-        // writing JSON to file:"JSONExample.json" in cwd
-        PrintWriter pw = new PrintWriter(filePath);
-        logger.info("Metrics file was created successfully");
+            // writing JSON to file:"JSONExample.json" in cwd
+            PrintWriter pw = new PrintWriter(filePath);
+            logger.info("Metrics file was created successfully");
 
-        pw.write(json);
+            pw.write(json);
 
-        pw.flush();
-        pw.close();
+            pw.flush();
+            pw.close();
+        } catch (Exception e) {
+            logger.warn("Error while serializing metrics file!");
+        }
+
     }
 }
