@@ -226,7 +226,7 @@ public class Main {
                             .get((int) newLabelAssignment.getSpecificAssignedLabelId(0) - 1).getLabelText();
                     logger.info("user id:" + currentUser.getId() + " " + currentUser.getName() + " tagged instance id:"
                             + anInstance.getId() + " with class label " + newLabelAssignment.getAssignedLabelId() + ":"
-                            + label_name + " instance: " + anInstance.getInstance());
+                            + label_name); // + " instance: " + anInstance.getInstance());
                 } else {
                     ArrayList<String> labels = new ArrayList<>();
 
@@ -236,36 +236,36 @@ public class Main {
                     }
                     logger.info("user id:" + currentUser.getId() + " " + currentUser.getName() + " tagged instance id:"
                             + anInstance.getId() + " with class labels "
-                            + newLabelAssignment.getAssignedLabelId().toString() + ":" + labels.toString()
-                            + " instance: " + anInstance.getInstance());
+                            + newLabelAssignment.getAssignedLabelId().toString() + ":" + labels.toString());
+                            //+ " instance: " + anInstance.getInstance());
                 }
 
                 // updating current user metric
                 userMetric.callAllNecessaryMethods(anInstance, dataset, newLabelAssignment, startDate, endDate);
                 // updating Instance Metrics
                 instanceMetric.callAllNecessaryMethods(currentUser, newLabelAssignment);
-                // updating dataset metric
-                datasetMetric.callAllNecessaryMethods(anInstance, dataset);
-                // setting the list of models to the metrics object
-                metrics.setUsers(List.copyOf(userModelList));
-                metrics.setDataset(List.copyOf(datasetModelList));
-                metrics.setInstance(List.copyOf(instanceModelList));
+            }
+            // updating dataset metric
+            datasetMetric.callAllNecessaryMethods(anInstance, dataset);
+            // setting the list of models to the metrics object
+            metrics.setUsers(List.copyOf(userModelList));
+            metrics.setDataset(List.copyOf(datasetModelList));
+            metrics.setInstance(List.copyOf(instanceModelList));
 
-                // writing the updated output to file
-                try {
-                    System.out.println();
-                    String outputPath = currentDirectory + "\\output" + String.valueOf(currentDatasetId) + ".json";
-                    serializer.serializeOutputFile(outputPath, dataset, labelAssignments, users);
+            // writing the updated output to file
+            try {
+                System.out.println();
+                String outputPath = currentDirectory + "\\output" + String.valueOf(currentDatasetId) + ".json";
+                serializer.serializeOutputFile(outputPath, dataset, labelAssignments, users);
 
-                    String filePath = currentDirectory + "\\metrics.json";
-                    serializer.serializeMetricFile(metrics, filePath);
-                    System.out.println();
-                    System.out.println();
-                } catch (Exception e) {
-                    System.out.println();
-                    System.out.println("File not found! Please make sure you provided a correct path.");
-                    logger.warn("Output File path not found!");
-                }
+                String filePath = currentDirectory + "\\metrics.json";
+                serializer.serializeMetricFile(metrics, filePath);
+                System.out.println();
+                System.out.println();
+            } catch (Exception e) {
+                System.out.println();
+                System.out.println("File not found! Please make sure you provided a correct path.");
+                logger.warn("Output File path not found!");
             }
         }
         System.out.println();
