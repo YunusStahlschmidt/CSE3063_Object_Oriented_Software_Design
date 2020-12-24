@@ -50,7 +50,7 @@ public class UserMetric {
     }
 
     // Setters
-    public void addLabeledInstances(Instance instance, LabelAssignment lAssignment) {
+    private void addLabeledInstances(Instance instance, LabelAssignment lAssignment) {
         ArrayList<LabelAssignment> listOfAssignment;
         if (!labeledInstances.containsKey(instance)) {
             listOfAssignment = new ArrayList<LabelAssignment>();
@@ -61,7 +61,7 @@ public class UserMetric {
         }
     }
 
-    public void addTimeSpentPerInstance(Double timeSpent) {
+    private void addTimeSpentPerInstance(Double timeSpent) {
         this.timeSpentPerInstance.add(timeSpent);
     }
 
@@ -70,12 +70,12 @@ public class UserMetric {
         userModel.setNumberOfDatasetsAssigned(this.numberOfDatasetAssigned);
     }
 
-    public void incrementNumberOfLabeledInstances() {
+    private void incrementNumberOfLabeledInstances() {
         this.numOfLabeledInstances++;
         userModel.setTotalNumberOfInstancesLabeled(this.numOfLabeledInstances);
     }
 
-    public void setConsistencyPercentage() {
+    private void setConsistencyPercentage() {
         Integer total = 0, consistent = 0;
         for (ArrayList<LabelAssignment> listOfAssignment : labeledInstances.values()) {
             Integer i, j;
@@ -100,7 +100,7 @@ public class UserMetric {
         userModel.setConsistencyPercentage(consistencyPercentage);
     }
 
-    public void setStandardDeviation() {
+    private void setStandardDeviation() {
         Double sumOfDeviations = 0.0, deviationPart = 0.0;
         for (Double timeSpent : this.timeSpentPerInstance) {
             deviationPart = timeSpent - this.averageTimeSpent;
@@ -110,14 +110,14 @@ public class UserMetric {
         userModel.setStdDevOfTimeSpentInLabelingAnInstanceInSeconds(standardDeviation);
     }
 
-    public void setAverageTimeSpent(Double timeSpent) {
+    private void setAverageTimeSpent(Double timeSpent) {
         this.averageTimeSpent = (averageTimeSpent * numOfLabeledInstances + timeSpent) / (numOfLabeledInstances + 1);
         this.addTimeSpentPerInstance(timeSpent);
         this.setStandardDeviation();
         userModel.setAverageTimeSpentInLabelingAnInstanceInSeconds(this.averageTimeSpent);
     }
 
-    public void addUniqueLabeledInstances(Instance labeledInstance) {
+    private void addUniqueLabeledInstances(Instance labeledInstance) {
         this.uniqueLabeledInstances.add(labeledInstance);
         userModel.setTotalNumberOfUniqueInstancesLabeled(this.uniqueLabeledInstances.size());
     }
@@ -159,6 +159,7 @@ public class UserMetric {
     }
 
     public void setInitialUserModel() {
+
         userModel.setTotalNumberOfInstancesLabeled(0);
         userModel.setTotalNumberOfUniqueInstancesLabeled(0);
         userModel.setConsistencyPercentage(0.0);

@@ -49,7 +49,7 @@ public class DatasetMetric {
         return this.datasetModel;
     }
 
-    public void addUniqueLabeledInstances(Instance instance) {
+    private void addUniqueLabeledInstances(Instance instance) {
         this.uniqueLabeledInstances.add(instance);
     }
 
@@ -57,7 +57,7 @@ public class DatasetMetric {
         this.datasetModel.setNumberOfUsersAssignedToThisDataset(numberOfAssignedUsers);
     }
 
-    public void calculateDatasetCompleteness(Integer numberOfInstances) {
+    private void calculateDatasetCompleteness(Integer numberOfInstances) {
 
         this.datasetModel.setCompletenessPercentage(this.uniqueLabeledInstances.size() / (double) numberOfInstances);
     }
@@ -66,7 +66,7 @@ public class DatasetMetric {
         this.datasetModel = datasetModel;
     }
 
-    public void calculateClassDistribution() {
+    private void calculateClassDistribution() {
         ArrayList<ClassDistributionBasedOnFinalInstanceLabel> classDistributionsForDatasetModel = new ArrayList<>();
         ClassDistributionBasedOnFinalInstanceLabel aPercentageOfLabel;
         Integer maxCount, currentCount;
@@ -121,7 +121,7 @@ public class DatasetMetric {
         this.datasetModel.setListNumberOfUniqueInstancesForEachClassLabel(listOfUniqueInstancesForLabel);
     }
 
-    public void calculateUserCompleteness(Dataset currentDataset, ArrayList<User> assignedUsers) {
+    private void calculateUserCompleteness(Dataset currentDataset, ArrayList<User> assignedUsers) {
         ArrayList<ListOfUsersAssignedAndTheirCompletenessPercentage> assignedUsersCompleteness = new ArrayList<>();
         ListOfUsersAssignedAndTheirCompletenessPercentage anAssignedUserCompleteness;
         for (User user : assignedUsers) {
@@ -139,7 +139,7 @@ public class DatasetMetric {
         this.datasetModel.setListOfUsersAssignedAndTheirCompletenessPercentage(assignedUsersCompleteness);
     }
 
-    public void calculateAssignedUsersAndConcistencyPercentage(ArrayList<User> assignedUsers) {
+    private void calculateAssignedUsersAndConcistencyPercentage(ArrayList<User> assignedUsers) {
         ArrayList<ListOfUsersAssignedAndTheirConsistencyPercentage> assignedUsersConsistency = new ArrayList<>();
         ListOfUsersAssignedAndTheirConsistencyPercentage consistencyPercentageOfaUser;
         for (User user : assignedUsers) {

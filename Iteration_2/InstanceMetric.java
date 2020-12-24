@@ -63,7 +63,7 @@ public class InstanceMetric {
         this.setEntropy();
     }
 
-    public void updateClassLabelsAndPercentages() {
+    private void updateClassLabelsAndPercentages() {
         Double total = 0.0, mostPercentage = 0.0, currentPercentage = 0.0;
         Label frequentLabel = null;
 
@@ -91,8 +91,8 @@ public class InstanceMetric {
     }
 
     /* New added */
-    public void setMostFrequentLabel(Label frequentLabel, Double percentage) { // Do not call again, already called
-                                                                               // updateClassLabels above
+    private void setMostFrequentLabel(Label frequentLabel, Double percentage) { // Do not call again, already called
+                                                                                // updateClassLabels above
         ListClassLabelsAndPercentage mostFreq = new ListClassLabelsAndPercentage();
         mostFreq.setLabel(frequentLabel.getLabelText());
         mostFreq.setPercentage(percentage);
@@ -101,21 +101,21 @@ public class InstanceMetric {
         instanceModel.setMostFrequentClassLabelAndPercentage(list);
     }
 
-    public void setEntropy() { // check for base of logarithm (num of labels)
+    private void setEntropy() { // check for base of logarithm (num of labels)
         Double resultEnt = 0d;
 
         for (Double percentage : classLabelsAndPercentages.values()) {
-            resultEnt += -(percentage * log2(percentage));
+            resultEnt += -(percentage * myLog(percentage));
         }
         instanceModel.setEntropy(resultEnt);
     }
 
-    public Double log2(Double N) {
+    private Double myLog(Double N) {
         Double result = (Double) (Math.log(N) / Math.log(this.classLabelsAndPercentages.size()));
         return result;
     }
 
-    public void setTotalNumberOfAssignedLabels() {
+    private void setTotalNumberOfAssignedLabels() {
         Integer totalNumberOfAssignedLabels = 0;
         for (LabelAssignment lAssignment : this.labelAssignments) {
             for (Integer labelId : lAssignment.getAssignedLabelId()) {
@@ -125,12 +125,12 @@ public class InstanceMetric {
         instanceModel.setTotalNumberOfLabelAssignments(totalNumberOfAssignedLabels);
     }
 
-    public void addLabelAssignments(LabelAssignment newLabelAssignment) { // call before setTotalNumberOfAssignedLabels
-                                                                          // method
+    private void addLabelAssignments(LabelAssignment newLabelAssignment) { // call before setTotalNumberOfAssignedLabels
+                                                                           // method
         this.labelAssignments.add(newLabelAssignment);
     }
 
-    public void setNumberOfUniqueAssignedLabels() {
+    private void setNumberOfUniqueAssignedLabels() {
         instanceModel.setNumberOfUniqueLabelAssignments(uniqueLabels.size());
     }
 
@@ -138,7 +138,7 @@ public class InstanceMetric {
         instanceModel.setNumberOfUniqueUsers(uniqueUsers.size());
     }
 
-    public void addUniqueUser(User user) { // call before setNumberOfUniqueUsers
+    private void addUniqueUser(User user) { // call before setNumberOfUniqueUsers
         uniqueUsers.add(user);
         instanceModel.setNumberOfUniqueUsers(this.uniqueUsers.size());
     }

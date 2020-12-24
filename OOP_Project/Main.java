@@ -153,6 +153,7 @@ public class Main {
                 for (User user : myDataset.getAssignedUsers()) {
                     user.getUserMetric().incrementDatasetCompleteness(myDataset);
                     user.setUserIdToModel();
+                    user.getUserMetric().setInitialUserModel();
                 }
                 for (Instance instanceForId : myDataset.getInstances()) {
                     instanceForId.setDatasetIdToInstanceModel(myDataset.getDatasetId());
@@ -176,7 +177,7 @@ public class Main {
         ArrayList<User> assignedUsers = dataset.getAssignedUsers();
 
         // metric model set dataset model list
-        for (Instance anInstance : dataset.getInstances()) {       
+        for (Instance anInstance : dataset.getInstances()) {
             numberOfAssignmentsPerInstance = assignedUsers.size();
             for (int i = 0; i < numberOfAssignmentsPerInstance; i++) {
                 userIndex = random.nextInt(assignedUsers.size());

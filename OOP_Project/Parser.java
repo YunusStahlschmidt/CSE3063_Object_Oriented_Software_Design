@@ -59,7 +59,7 @@ public class Parser {
         this.users = users;
     }
 
-    public Dataset parseDatasetFile(Dataset dataset, String currentDirectory) throws Exception {
+    private Dataset parseDatasetFile(Dataset dataset, String currentDirectory) throws Exception {
         try {
             Gson gson = new Gson();
             currentDirectory += "\\" + dataset.getPath();
@@ -120,7 +120,7 @@ public class Parser {
         }
     }
 
-    public ArrayList<LabelAssignment> parsePreviousLabelAssignments(String currentDirectory, Integer datasetId)
+    private ArrayList<LabelAssignment> parsePreviousLabelAssignments(String currentDirectory, Integer datasetId)
             throws Exception {
         Gson gson = new Gson();
         ArrayList<LabelAssignment> listOfLabelAssignments = new ArrayList<LabelAssignment>();
