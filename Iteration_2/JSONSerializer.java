@@ -1,6 +1,6 @@
 package Iteration_2;
 
-import OOP_Project.MetricsJSONModels.MetricModel;
+import Iteration_2.MetricsJSONModels.MetricModel;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;

@@ -9,13 +9,13 @@ import java.util.HashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import OOP_Project.MetricsJSONModels.DatasetModel;
-import OOP_Project.MetricsJSONModels.InstanceModel;
-import OOP_Project.MetricsJSONModels.MetricModel;
-import OOP_Project.MetricsJSONModels.UserModel;
+import Iteration_2.MetricsJSONModels.DatasetModel;
+import Iteration_2.MetricsJSONModels.InstanceModel;
+import Iteration_2.MetricsJSONModels.MetricModel;
+import Iteration_2.MetricsJSONModels.UserModel;
 
 /* 
-This class hold all "computations" will take place
+This class hold all "computations" will take place 
 */
 
 public class Main {

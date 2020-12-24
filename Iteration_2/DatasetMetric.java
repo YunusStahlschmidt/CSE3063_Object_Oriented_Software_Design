@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
 
-import OOP_Project.MetricsJSONModels.DatasetModel;
-import OOP_Project.MetricsJSONModels.ListNumberOfUniqueInstancesForEachClassLabel;
-import OOP_Project.MetricsJSONModels.ClassDistributionBasedOnFinalInstanceLabel;
-import OOP_Project.MetricsJSONModels.ListOfUsersAssignedAndTheirConsistencyPercentage;
-import OOP_Project.MetricsJSONModels.ListOfUsersAssignedAndTheirCompletenessPercentage;
+import Iteration_2.MetricsJSONModels.DatasetModel;
+import Iteration_2.MetricsJSONModels.ListNumberOfUniqueInstancesForEachClassLabel;
+import Iteration_2.MetricsJSONModels.ClassDistributionBasedOnFinalInstanceLabel;
+import Iteration_2.MetricsJSONModels.ListOfUsersAssignedAndTheirConsistencyPercentage;
+import Iteration_2.MetricsJSONModels.ListOfUsersAssignedAndTheirCompletenessPercentage;
 
 public class DatasetMetric {
     private HashMap<Instance, Label> classDistributions = new HashMap<>();
@@ -58,7 +58,6 @@ public class DatasetMetric {
     }
 
     private void calculateDatasetCompleteness(Integer numberOfInstances) {
-
         this.datasetModel.setCompletenessPercentage(this.uniqueLabeledInstances.size() / (double) numberOfInstances);
     }
 
