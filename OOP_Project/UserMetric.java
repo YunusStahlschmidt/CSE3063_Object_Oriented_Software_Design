@@ -159,6 +159,7 @@ public class UserMetric {
     }
 
     public void setInitialUserModel() {
+
         userModel.setTotalNumberOfInstancesLabeled(0);
         userModel.setTotalNumberOfUniqueInstancesLabeled(0);
         userModel.setConsistencyPercentage(0.0);

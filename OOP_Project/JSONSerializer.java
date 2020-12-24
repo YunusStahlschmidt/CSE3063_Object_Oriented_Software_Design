@@ -33,7 +33,6 @@ public class JSONSerializer {
 
             pw.flush();
             pw.close();
-
         } catch (Exception e) {
             logger.warn("Error while serializing Output file!");
         }
