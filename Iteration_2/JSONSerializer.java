@@ -1,4 +1,4 @@
-package OOP_Project;
+package Iteration_2;
 
 import OOP_Project.MetricsJSONModels.MetricModel;
 
@@ -33,6 +33,7 @@ public class JSONSerializer {
 
             pw.flush();
             pw.close();
+
         } catch (Exception e) {
             logger.warn("Error while serializing Output file!");
         }

@@ -1,4 +1,4 @@
-package OOP_Project;
+package Iteration_2;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,7 +34,7 @@ public class Main {
         Random random = new Random();
         int currentDatasetId = 0;
         String currentDirectory = System.getProperty("user.dir");
-        currentDirectory += "\\OOP_Project";
+        currentDirectory += "\\Iteration_2";
         HashMap<Integer, ArrayList<LabelAssignment>> previousLabelAssignments = new HashMap<>();
 
         // parsing the files
@@ -131,7 +131,6 @@ public class Main {
                         break;
                     }
                 }
-            }
 
                 for (Instance instanceForId : myDataset.getInstances()) {
                     for (InstanceModel instanceModel : instanceModelList) {
@@ -178,9 +177,8 @@ public class Main {
 
         // metric model set dataset model list
         for (Instance anInstance : dataset.getInstances()) {
-          
-            numberOfAssignmentsPerInstance = 3;
 
+            numberOfAssignmentsPerInstance = 3;
             for (int i = 0; i < numberOfAssignmentsPerInstance; i++) {
                 userIndex = random.nextInt(assignedUsers.size());
                 currentUser = assignedUsers.get(userIndex);
@@ -221,23 +219,6 @@ public class Main {
                 labelAssignments.add(newLabelAssignment);
                 endDate = new Date();
 
-                if (newLabelAssignment.getAssignedLabelId().size() == 1) {
-                    String label_name = dataset.getLabels().get((int) newLabelAssignment.getSpecificAssignedLabelId(0) - 1)
-                            .getLabelText();
-                    logger.info("user id:" + currentUser.getId() + " " + currentUser.getName() + " tagged instance id:" + anInstance.getId()
-                            + " with class label " + newLabelAssignment.getAssignedLabelId()+ ":" + label_name + " instance: " + anInstance.getInstance());
-                } else {
-                    ArrayList<String> labels = new ArrayList<>();
-    
-                    for (int n = 0; n < newLabelAssignment.getAssignedLabelId().size(); n++) {
-                        labels.add(dataset.getLabels().get((int) newLabelAssignment.getSpecificAssignedLabelId(n) - 1)
-                                .getLabelText());
-                    }
-                    logger.info("user id:" + currentUser.getId() + " " + currentUser.getName() + " tagged instance id:" + anInstance.getId()
-                            + " with class labels " + newLabelAssignment.getAssignedLabelId().toString() + ":" + labels.toString()
-                            + " instance: " + anInstance.getInstance());
-                }
-
                 // print the output to console via the logger (and too app.log file)
                 if (newLabelAssignment.getAssignedLabelId().size() == 1) {
                     String label_name = dataset.getLabels()
@@ -269,6 +250,7 @@ public class Main {
                 metrics.setDataset(List.copyOf(datasetModelList));
                 metrics.setInstance(List.copyOf(instanceModelList));
 
+                // writing the updated output to file
                 try {
                     System.out.println();
                     String outputPath = currentDirectory + "\\output" + String.valueOf(currentDatasetId) + ".json";
@@ -278,7 +260,6 @@ public class Main {
                     serializer.serializeMetricFile(metrics, filePath);
                     System.out.println();
                     System.out.println();
-
                 } catch (Exception e) {
                     System.out.println();
                     System.out.println("File not found! Please make sure you provided a correct path.");
@@ -286,7 +267,6 @@ public class Main {
                 }
             }
         }
-
         System.out.println();
         logger.info("Program Excuted Successfully");
     }

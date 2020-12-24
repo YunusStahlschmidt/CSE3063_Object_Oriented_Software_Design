@@ -9,9 +9,6 @@ import java.util.HashMap;
 
 import com.google.gson.Gson;
 
-import org.json.simple.*;
-import org.json.simple.parser.*;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,8 +20,8 @@ public class Parser {
     private HashMap<Integer, Dataset> datasetHashMap = new HashMap<Integer, Dataset>();
     private int currentDatasetId;
     private ArrayList<User> users;
-    MetricModel metrics = null;
-    HashMap<Integer, ArrayList<LabelAssignment>> previousLabelAssignments = new HashMap<>();
+    private MetricModel metrics = null;
+    private HashMap<Integer, ArrayList<LabelAssignment>> previousLabelAssignments = new HashMap<>();
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public Parser() {
@@ -72,9 +69,6 @@ public class Parser {
             newDataset.setPath(dataset.getPath());
             newDataset.setAssignedUserIds(dataset.getAssignedUserIds());
             String logString = "dataset " + newDataset.getDatasetId() + " was parsed successfully";
-            // for (Instance instance : dataset.getInstances()){
-            // instance.setDatasetIdToInstanceModel(dataset.getDatasetId());
-            // }
             logger.info(logString);
             return newDataset;
 
@@ -98,13 +92,11 @@ public class Parser {
                         if (userId.equals(user.getId())) {
                             user.getUserMetric().incrementNumberOfDatasetsAssigned();// set number of assigned datasets
                             assignedUsers.add(user);
-                            // dataset completeness
-                            // user.getUserMetric().incrementDatasetCompleteness(dataset); // tbd ???
                         }
                     }
                 }
                 previousLabelAssignments.put(dataset.getDatasetId(),
-                        parsePreviousLabelAssignemts(currentDirectory, dataset.getDatasetId()));
+                        parsePreviousLabelAssignments(currentDirectory, dataset.getDatasetId()));
                 dataset = parseDatasetFile(dataset, currentDirectory); // parse each dataset
                 dataset.setAssignedUsers(assignedUsers);
                 dataset.getDatasetMetric().setNumberOfAssignedUsers(assignedUsers.size());// Dataset Metric - 4
@@ -119,17 +111,16 @@ public class Parser {
     public void parseMetrics(String currentDirectory) throws Exception {
         Gson gson = new Gson();
         try {
-            currentDirectory += "\\metrics.json"; // tbd
+            currentDirectory += "\\metrics.json";
             BufferedReader br = new BufferedReader(new FileReader(currentDirectory));
             metrics = gson.fromJson(br, MetricModel.class);
             logger.info("metrics file was parsed successfully");
         } catch (Exception e) {
             logger.warn("No previous metrics on record!");
         }
-
     }
 
-    public ArrayList<LabelAssignment> parsePreviousLabelAssignemts(String currentDirectory, Integer datasetId)
+    public ArrayList<LabelAssignment> parsePreviousLabelAssignments(String currentDirectory, Integer datasetId)
             throws Exception {
         Gson gson = new Gson();
         ArrayList<LabelAssignment> listOfLabelAssignments = new ArrayList<LabelAssignment>();

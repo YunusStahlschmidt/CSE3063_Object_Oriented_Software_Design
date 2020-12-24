@@ -1,4 +1,4 @@
-package OOP_Project;
+package Iteration_2;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -159,7 +159,6 @@ public class UserMetric {
     }
 
     public void setInitialUserModel() {
-
         userModel.setTotalNumberOfInstancesLabeled(0);
         userModel.setTotalNumberOfUniqueInstancesLabeled(0);
         userModel.setConsistencyPercentage(0.0);

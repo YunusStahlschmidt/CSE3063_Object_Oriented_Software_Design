@@ -1,0 +1,504 @@
+{
+  "Users": [
+    {
+      "userId": 1,
+      "number of datasets assigned": 1,
+      "list of all datasets with their completeness percentage": [
+        {
+          "datasetId": 1,
+          "completenessPercentage": 0.0
+        }
+      ]
+    },
+    {
+      "userId": 2,
+      "number of datasets assigned": 2,
+      "list of all datasets with their completeness percentage": [
+        {
+          "datasetId": 2,
+          "completenessPercentage": 0.8
+        }
+      ],
+      "total number of instances labeled": 9,
+      "total number of unique instances labeled": 4,
+      "consistency percentage": 0.0,
+      "Average time spent in labeling an instance in seconds": 1.0E-4,
+      "Std. dev. of time spent in labeling an instance in seconds": 3.144660377352201E-4
+    },
+    {
+      "userId": 3,
+      "number of datasets assigned": 2,
+      "list of all datasets with their completeness percentage": [
+        {
+          "datasetId": 2,
+          "completenessPercentage": 0.8
+        }
+      ],
+      "total number of instances labeled": 6,
+      "total number of unique instances labeled": 4,
+      "consistency percentage": 0.0,
+      "Average time spent in labeling an instance in seconds": 1.4285714285714287E-4,
+      "Std. dev. of time spent in labeling an instance in seconds": 3.7343778907995525E-4
+    }
+  ],
+  "Instance": [
+    {
+      "datasetId": 1,
+      "instanceId": 1,
+      "Total number of label assignments": 0,
+      "Number of unique label assignments": 0,
+      "Most frequent class label and percentage": [],
+      "List class labels and percentages": [],
+      "Entropy": 0.0
+    },
+    {
+      "datasetId": 1,
+      "instanceId": 2,
+      "Total number of label assignments": 0,
+      "Number of unique label assignments": 0,
+      "Most frequent class label and percentage": [],
+      "List class labels and percentages": [],
+      "Entropy": 0.0
+    },
+    {
+      "datasetId": 1,
+      "instanceId": 3,
+      "Total number of label assignments": 0,
+      "Number of unique label assignments": 0,
+      "Most frequent class label and percentage": [],
+      "List class labels and percentages": [],
+      "Entropy": 0.0
+    },
+    {
+      "datasetId": 1,
+      "instanceId": 4,
+      "Total number of label assignments": 0,
+      "Number of unique label assignments": 0,
+      "Most frequent class label and percentage": [],
+      "List class labels and percentages": [],
+      "Entropy": 0.0
+    },
+    {
+      "datasetId": 1,
+      "instanceId": 5,
+      "Total number of label assignments": 0,
+      "Number of unique label assignments": 0,
+      "Most frequent class label and percentage": [],
+      "List class labels and percentages": [],
+      "Entropy": 0.0
+    },
+    {
+      "datasetId": 1,
+      "instanceId": 6,
+      "Total number of label assignments": 0,
+      "Number of unique label assignments": 0,
+      "Most frequent class label and percentage": [],
+      "List class labels and percentages": [],
+      "Entropy": 0.0
+    },
+    {
+      "datasetId": 1,
+      "instanceId": 7,
+      "Total number of label assignments": 0,
+      "Number of unique label assignments": 0,
+      "Most frequent class label and percentage": [],
+      "List class labels and percentages": [],
+      "Entropy": 0.0
+    },
+    {
+      "datasetId": 1,
+      "instanceId": 8,
+      "Total number of label assignments": 0,
+      "Number of unique label assignments": 0,
+      "Most frequent class label and percentage": [],
+      "List class labels and percentages": [],
+      "Entropy": 0.0
+    },
+    {
+      "datasetId": 1,
+      "instanceId": 9,
+      "Total number of label assignments": 0,
+      "Number of unique label assignments": 0,
+      "Most frequent class label and percentage": [],
+      "List class labels and percentages": [],
+      "Entropy": 0.0
+    },
+    {
+      "datasetId": 1,
+      "instanceId": 10,
+      "Total number of label assignments": 0,
+      "Number of unique label assignments": 0,
+      "Most frequent class label and percentage": [],
+      "List class labels and percentages": [],
+      "Entropy": 0.0
+    },
+    {
+      "datasetId": 2,
+      "instanceId": 1,
+      "Total number of label assignments": 15,
+      "Number of unique label assignments": 11,
+      "Number of unique users": 2,
+      "Most frequent class label and percentage": [
+        {
+          "label": "fatura ",
+          "percentage": 0.13333333333333333
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "konu ",
+          "percentage": 0.06666666666666667
+        },
+        {
+          "label": "fatura ",
+          "percentage": 0.13333333333333333
+        },
+        {
+          "label": "borç ",
+          "percentage": 0.13333333333333333
+        },
+        {
+          "label": "bayi ",
+          "percentage": 0.13333333333333333
+        },
+        {
+          "label": "paket",
+          "percentage": 0.06666666666666667
+        },
+        {
+          "label": "işlem",
+          "percentage": 0.06666666666666667
+        },
+        {
+          "label": "hat ",
+          "percentage": 0.06666666666666667
+        },
+        {
+          "label": "borç ",
+          "percentage": 0.06666666666666667
+        },
+        {
+          "label": "taraf",
+          "percentage": 0.13333333333333333
+        },
+        {
+          "label": "müşteri",
+          "percentage": 0.06666666666666667
+        },
+        {
+          "label": "telefon",
+          "percentage": 0.06666666666666667
+        }
+      ],
+      "Entropy": 0.9751767440930255
+    },
+    {
+      "datasetId": 2,
+      "instanceId": 2,
+      "Total number of label assignments": 11,
+      "Number of unique label assignments": 8,
+      "Number of unique users": 2,
+      "Most frequent class label and percentage": [
+        {
+          "label": "bilgi ",
+          "percentage": 0.18181818181818182
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "bilgi ",
+          "percentage": 0.18181818181818182
+        },
+        {
+          "label": "fatura ",
+          "percentage": 0.09090909090909091
+        },
+        {
+          "label": "borç ",
+          "percentage": 0.09090909090909091
+        },
+        {
+          "label": "işlem",
+          "percentage": 0.09090909090909091
+        },
+        {
+          "label": "borç ",
+          "percentage": 0.09090909090909091
+        },
+        {
+          "label": "müşteri",
+          "percentage": 0.18181818181818182
+        },
+        {
+          "label": "telefon",
+          "percentage": 0.18181818181818182
+        },
+        {
+          "label": "firma ",
+          "percentage": 0.09090909090909091
+        }
+      ],
+      "Entropy": 0.9713256910609175
+    },
+    {
+      "datasetId": 2,
+      "instanceId": 3,
+      "Total number of label assignments": 10,
+      "Number of unique label assignments": 8,
+      "Number of unique users": 1,
+      "Most frequent class label and percentage": [
+        {
+          "label": "borç ",
+          "percentage": 0.2
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "numara ",
+          "percentage": 0.1
+        },
+        {
+          "label": "cihaz",
+          "percentage": 0.1
+        },
+        {
+          "label": "borç ",
+          "percentage": 0.2
+        },
+        {
+          "label": "bayi ",
+          "percentage": 0.1
+        },
+        {
+          "label": "işlem",
+          "percentage": 0.2
+        },
+        {
+          "label": "taraf",
+          "percentage": 0.1
+        },
+        {
+          "label": "müşteri",
+          "percentage": 0.1
+        },
+        {
+          "label": "telefon",
+          "percentage": 0.1
+        }
+      ],
+      "Entropy": 0.9739760316291208
+    },
+    {
+      "datasetId": 2,
+      "instanceId": 4,
+      "Total number of label assignments": 13,
+      "Number of unique label assignments": 9,
+      "Number of unique users": 1,
+      "Most frequent class label and percentage": [
+        {
+          "label": "fatura ",
+          "percentage": 0.15384615384615385
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "numara ",
+          "percentage": 0.07692307692307693
+        },
+        {
+          "label": "fatura ",
+          "percentage": 0.15384615384615385
+        },
+        {
+          "label": "cihaz",
+          "percentage": 0.07692307692307693
+        },
+        {
+          "label": "borç ",
+          "percentage": 0.07692307692307693
+        },
+        {
+          "label": "paket",
+          "percentage": 0.15384615384615385
+        },
+        {
+          "label": "borç ",
+          "percentage": 0.07692307692307693
+        },
+        {
+          "label": "taraf",
+          "percentage": 0.07692307692307693
+        },
+        {
+          "label": "müşteri",
+          "percentage": 0.15384615384615385
+        },
+        {
+          "label": "telefon",
+          "percentage": 0.15384615384615385
+        }
+      ],
+      "Entropy": 0.9732265278682556
+    },
+    {
+      "datasetId": 2,
+      "instanceId": 5,
+      "Total number of label assignments": 10,
+      "Number of unique label assignments": 7,
+      "Number of unique users": 2,
+      "Most frequent class label and percentage": [
+        {
+          "label": "fatura ",
+          "percentage": 0.2
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "hat ",
+          "percentage": 0.1
+        },
+        {
+          "label": "fatura ",
+          "percentage": 0.2
+        },
+        {
+          "label": "işlem",
+          "percentage": 0.1
+        },
+        {
+          "label": "hat ",
+          "percentage": 0.1
+        },
+        {
+          "label": "taraf",
+          "percentage": 0.2
+        },
+        {
+          "label": "müşteri",
+          "percentage": 0.2
+        },
+        {
+          "label": "firma ",
+          "percentage": 0.1
+        }
+      ],
+      "Entropy": 0.9695703501901252
+    }
+  ],
+  "Dataset": [
+    {
+      "datasetId": 1,
+      "Completeness percentage": 0.0,
+      "Class distribution based on final instance labels": [],
+      "List number of unique instances for each class label": [],
+      "Number of users assigned to this dataset": 3,
+      "List of users assigned and their completeness percentage": [],
+      "List of users assigned and their consistency percentage": []
+    },
+    {
+      "datasetId": 2,
+      "Completeness percentage": 1.0,
+      "Class distribution based on final instance labels": [
+        {
+          "label": "bilgi ",
+          "distributionPercentage": 0.2
+        },
+        {
+          "label": "fatura ",
+          "distributionPercentage": 0.6
+        },
+        {
+          "label": "borç ",
+          "distributionPercentage": 0.2
+        }
+      ],
+      "List number of unique instances for each class label": [
+        {
+          "label": "konu ",
+          "amount": 1
+        },
+        {
+          "label": "hat ",
+          "amount": 1
+        },
+        {
+          "label": "fatura ",
+          "amount": 4
+        },
+        {
+          "label": "cihaz",
+          "amount": 2
+        },
+        {
+          "label": "işlem",
+          "amount": 4
+        },
+        {
+          "label": "borç ",
+          "amount": 3
+        },
+        {
+          "label": "bilgi ",
+          "amount": 1
+        },
+        {
+          "label": "numara ",
+          "amount": 2
+        },
+        {
+          "label": "borç ",
+          "amount": 4
+        },
+        {
+          "label": "bayi ",
+          "amount": 2
+        },
+        {
+          "label": "paket",
+          "amount": 2
+        },
+        {
+          "label": "hat ",
+          "amount": 2
+        },
+        {
+          "label": "taraf",
+          "amount": 4
+        },
+        {
+          "label": "müşteri",
+          "amount": 5
+        },
+        {
+          "label": "telefon",
+          "amount": 4
+        },
+        {
+          "label": "firma ",
+          "amount": 2
+        }
+      ],
+      "Number of users assigned to this dataset": 2,
+      "List of users assigned and their completeness percentage": [
+        {
+          "userId": 2,
+          "completenessPercentage": 0.8
+        },
+        {
+          "userId": 3,
+          "completenessPercentage": 0.8
+        }
+      ],
+      "List of users assigned and their consistency percentage": [
+        {
+          "userId": 2,
+          "consistencyPercentage": 0.0
+        },
+        {
+          "userId": 3,
+          "consistencyPercentage": 0.0
+        }
+      ]
+    }
+  ]
+}
