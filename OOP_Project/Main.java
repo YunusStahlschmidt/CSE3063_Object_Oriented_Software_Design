@@ -131,7 +131,6 @@ public class Main {
                         break;
                     }
                 }
-            }
 
                 for (Instance instanceForId : myDataset.getInstances()) {
                     for (InstanceModel instanceModel : instanceModelList) {
@@ -177,10 +176,8 @@ public class Main {
         ArrayList<User> assignedUsers = dataset.getAssignedUsers();
 
         // metric model set dataset model list
-        for (Instance anInstance : dataset.getInstances()) {
-          
-            numberOfAssignmentsPerInstance = 3;
-
+        for (Instance anInstance : dataset.getInstances()) {       
+            numberOfAssignmentsPerInstance = assignedUsers.size();
             for (int i = 0; i < numberOfAssignmentsPerInstance; i++) {
                 userIndex = random.nextInt(assignedUsers.size());
                 currentUser = assignedUsers.get(userIndex);
@@ -220,23 +217,6 @@ public class Main {
                         new Date());
                 labelAssignments.add(newLabelAssignment);
                 endDate = new Date();
-
-                if (newLabelAssignment.getAssignedLabelId().size() == 1) {
-                    String label_name = dataset.getLabels().get((int) newLabelAssignment.getSpecificAssignedLabelId(0) - 1)
-                            .getLabelText();
-                    logger.info("user id:" + currentUser.getId() + " " + currentUser.getName() + " tagged instance id:" + anInstance.getId()
-                            + " with class label " + newLabelAssignment.getAssignedLabelId()+ ":" + label_name + " instance: " + anInstance.getInstance());
-                } else {
-                    ArrayList<String> labels = new ArrayList<>();
-    
-                    for (int n = 0; n < newLabelAssignment.getAssignedLabelId().size(); n++) {
-                        labels.add(dataset.getLabels().get((int) newLabelAssignment.getSpecificAssignedLabelId(n) - 1)
-                                .getLabelText());
-                    }
-                    logger.info("user id:" + currentUser.getId() + " " + currentUser.getName() + " tagged instance id:" + anInstance.getId()
-                            + " with class labels " + newLabelAssignment.getAssignedLabelId().toString() + ":" + labels.toString()
-                            + " instance: " + anInstance.getInstance());
-                }
 
                 // print the output to console via the logger (and too app.log file)
                 if (newLabelAssignment.getAssignedLabelId().size() == 1) {

@@ -1,5 +1,7 @@
 package OOP_Project.MetricsJSONModels;
 
+import java.text.DecimalFormat;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -25,7 +27,8 @@ public class ListOfAllDatasetsWithTheirCompletenessPercentage {
     }
 
     public void setCompletenessPercentage(Double completenessPercentage) {
-        this.completenessPercentage = completenessPercentage;
+        this.completenessPercentage = Double
+                .parseDouble(new DecimalFormat("##.###").format(completenessPercentage * 100));
     }
 
 }

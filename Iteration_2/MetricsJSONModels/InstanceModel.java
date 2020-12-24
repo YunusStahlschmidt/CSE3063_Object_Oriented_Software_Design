@@ -1,5 +1,6 @@
 package Iteration_2.MetricsJSONModels;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -94,6 +95,8 @@ public class InstanceModel {
 
     public void setEntropy(Double entropy) {
         this.entropy = entropy;
+        this.entropy = Double.parseDouble(new DecimalFormat("##.###").format(entropy));
+
     }
 
 }

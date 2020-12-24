@@ -1,5 +1,7 @@
 package Iteration_2.MetricsJSONModels;
 
+import java.text.DecimalFormat;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -25,7 +27,7 @@ public class ListClassLabelsAndPercentage {
     }
 
     public void setPercentage(Double percentage) {
-        this.percentage = percentage;
+        this.percentage = Double.parseDouble(new DecimalFormat("##.###").format(percentage * 100));
     }
 
 }

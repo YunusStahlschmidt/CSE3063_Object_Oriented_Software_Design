@@ -1,5 +1,6 @@
 package Iteration_2.MetricsJSONModels;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -41,7 +42,9 @@ public class DatasetModel {
     }
 
     public void setCompletenessPercentage(double completenessPercentage) {
-        this.completenessPercentage = completenessPercentage;
+        this.completenessPercentage = Double
+                .parseDouble(new DecimalFormat("##.###").format(completenessPercentage * 100));
+
     }
 
     public List<ClassDistributionBasedOnFinalInstanceLabel> getClassDistributionBasedOnFinalInstanceLabels() {

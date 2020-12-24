@@ -1,5 +1,6 @@
 package Iteration_2.MetricsJSONModels;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -110,24 +111,26 @@ public class UserModel {
     }
 
     public void setConsistencyPercentage(Double consistencyPercentage) {
-        this.consistencyPercentage = consistencyPercentage;
+        this.consistencyPercentage = Double
+                .parseDouble(new DecimalFormat("##.###").format(consistencyPercentage * 100));
     }
 
     public Double getAverageTimeSpentInLabelingAnInstanceInSeconds() {
         return averageTimeSpentInLabelingAnInstanceInSeconds;
     }
 
-    public void setAverageTimeSpentInLabelingAnInstanceInSeconds(Double averageTimeSpentInLabelingAnInstanceInSeconds) {
-        this.averageTimeSpentInLabelingAnInstanceInSeconds = averageTimeSpentInLabelingAnInstanceInSeconds;
+    public void setAverageTimeSpentInLabelingAnInstanceInSeconds(Double avgTime) {
+        this.averageTimeSpentInLabelingAnInstanceInSeconds = Double
+                .parseDouble(new DecimalFormat("##.###").format(avgTime));
     }
 
     public Double getStdDevOfTimeSpentInLabelingAnInstanceInSeconds() {
         return stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
     }
 
-    public void setStdDevOfTimeSpentInLabelingAnInstanceInSeconds(
-            Double stdDevOfTimeSpentInLabelingAnInstanceInSeconds) {
-        this.stdDevOfTimeSpentInLabelingAnInstanceInSeconds = stdDevOfTimeSpentInLabelingAnInstanceInSeconds;
+    public void setStdDevOfTimeSpentInLabelingAnInstanceInSeconds(Double stdOfTime) {
+        this.stdDevOfTimeSpentInLabelingAnInstanceInSeconds = Double
+                .parseDouble(new DecimalFormat("##.###").format(stdOfTime));
     }
 
 }

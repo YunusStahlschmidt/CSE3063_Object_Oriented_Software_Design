@@ -1,5 +1,7 @@
 package Iteration_2.MetricsJSONModels;
 
+import java.text.DecimalFormat;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -25,7 +27,8 @@ public class ClassDistributionBasedOnFinalInstanceLabel {
     }
 
     public void setDistribution(Double distributionPercentage) {
-        this.distributionPercentage = distributionPercentage;
+        this.distributionPercentage = Double
+                .parseDouble(new DecimalFormat("##.###").format(distributionPercentage * 100));
     }
 
 }

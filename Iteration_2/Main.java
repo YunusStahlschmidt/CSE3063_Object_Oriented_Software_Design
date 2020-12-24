@@ -153,6 +153,7 @@ public class Main {
                 for (User user : myDataset.getAssignedUsers()) {
                     user.getUserMetric().incrementDatasetCompleteness(myDataset);
                     user.setUserIdToModel();
+                    user.getUserMetric().setInitialUserModel();
                 }
                 for (Instance instanceForId : myDataset.getInstances()) {
                     instanceForId.setDatasetIdToInstanceModel(myDataset.getDatasetId());

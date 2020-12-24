@@ -25,7 +25,7 @@ public class ListOfUsersAssignedAndTheirCompletenessPercentage {
     }
 
     public void setCompletenessPercentage(Double completenessPercentage) {
-        this.completenessPercentage = completenessPercentage;
+        this.completenessPercentage = completenessPercentage * 100;
     }
 
 }
