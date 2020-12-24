@@ -7,6 +7,7 @@
     ],
     "datasets": [
         { "dataset id": 1, "dataset name": "Sentiment Dataset", "path": "CES3063F20_LabelingProject_Input-1.json", "assignedUserIds": [1, 2, 3] },
-        { "dataset id": 2, "dataset name": "Multilabel Topic Classification Dataset", "path": "CES3063F20_LabelingProject_Input-2.json", "assignedUserIds": [2, 3] }
+        { "dataset id": 2, "dataset name": "Multilabel Topic Classification Dataset", "path": "CES3063F20_LabelingProject_Input-2.json", "assignedUserIds": [2, 3] },
+        { "dataset id": 3, "dataset name": "Large Dataset", "path": "dataset3.json", "assignedUserIds": [1, 2, 3] }
     ]
 }

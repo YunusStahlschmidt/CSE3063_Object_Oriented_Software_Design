@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import OOP_Project.MetricsJSONModels.ListOfAllDatasetsWithTheirCompletenessPercentage;
-import OOP_Project.MetricsJSONModels.UserModel;
+import Iteration_2.MetricsJSONModels.ListOfAllDatasetsWithTheirCompletenessPercentage;
+import Iteration_2.MetricsJSONModels.UserModel;
 
 public class UserMetric {
     private int numberOfDatasetAssigned = 0;
