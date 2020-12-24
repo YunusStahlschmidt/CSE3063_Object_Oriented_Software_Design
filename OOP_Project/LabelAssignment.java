@@ -39,7 +39,7 @@ public class LabelAssignment {
 
     // Getters
 
-    public int getInstanceId() {
+    public Integer getInstanceId() {
         return instanceId;
     }
 
@@ -51,12 +51,12 @@ public class LabelAssignment {
         return lablesIds;
     }
 
-    public int getSpecificAssignedLabelId(int n) {
+    public Integer getSpecificAssignedLabelId(int n) {
         /* To get specific label id */
         return getAssignedLabelId().get(n);
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
@@ -66,11 +66,11 @@ public class LabelAssignment {
 
     // Setters
 
-    public void setInstanceId(int instanceId) {
+    public void setInstanceId(Integer instanceId) {
         this.instanceId = instanceId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
