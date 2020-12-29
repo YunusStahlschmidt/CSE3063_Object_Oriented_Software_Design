@@ -1,0 +1,4615 @@
+{
+  "datasetId": 3,
+  "datasetName": "Sentiment Dataset Big",
+  "maximumNumberOfLabelsPerInstance": 1,
+  "classLabels": [
+    {
+      "label id": 1,
+      "label text": "Positive"
+    },
+    {
+      "label id": 2,
+      "label text": "Negative"
+    },
+    {
+      "label id": 3,
+      "label text": "Notr"
+    }
+  ],
+  "instances": [
+    {
+      "id": 1,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 2,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 3,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 4,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 5,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 6,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 7,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 8,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 9,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 10,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 11,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 12,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 13,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 14,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 15,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 16,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 17,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 18,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 19,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 20,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 21,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 22,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 23,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 24,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 25,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 26,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 27,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 28,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 29,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 30,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 31,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 32,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 33,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 34,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 35,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 36,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 37,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 38,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 39,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 40,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 41,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 42,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 43,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 44,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 45,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 46,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 47,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 48,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 49,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 50,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 51,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 52,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 53,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 54,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 55,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 56,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 57,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 58,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 59,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 60,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 61,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 62,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 63,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 64,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 65,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 66,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 67,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 68,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 69,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 70,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 71,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 72,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 73,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 74,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 75,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 76,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 77,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 78,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 79,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 80,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 81,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 82,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 83,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 84,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 85,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 86,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 87,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 88,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 89,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 90,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 91,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 92,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 93,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 94,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 95,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 96,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 97,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 98,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 99,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 100,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 101,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 102,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 103,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 104,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 105,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 106,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 107,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 108,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 109,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 110,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 111,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 112,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 113,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 114,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 115,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 116,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 117,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 118,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 119,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 120,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 121,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 122,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 123,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 124,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 125,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 126,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 127,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 128,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 129,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 130,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 131,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 132,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 133,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 134,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 135,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 136,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 137,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 138,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 139,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 140,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 141,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 142,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 143,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 144,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 145,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 146,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 147,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 148,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 149,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 150,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 151,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 152,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 153,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 154,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 155,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 156,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 157,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 158,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 159,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 160,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 161,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 162,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 163,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 164,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 165,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 166,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 167,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 168,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 169,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 170,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 171,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 172,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 173,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 174,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 175,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 176,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 177,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 178,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 179,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 180,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 181,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 182,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 183,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 184,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 185,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 186,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 187,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 188,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 189,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 190,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 191,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 192,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 193,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 194,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 195,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 196,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 197,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 198,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 199,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 200,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 201,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 202,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 203,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 204,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 205,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 206,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 207,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 208,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 209,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 210,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 211,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 212,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 213,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 214,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 215,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 216,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 217,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 218,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 219,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 220,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 221,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 222,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 223,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 224,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 225,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 226,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 227,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 228,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 229,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 230,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 231,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 232,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 233,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 234,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 235,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 236,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 237,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 238,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 239,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 240,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 241,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 242,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 243,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 244,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 245,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 246,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 247,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 248,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 249,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 250,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 251,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 252,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 253,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 254,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 255,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 256,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 257,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 258,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 259,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 260,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 261,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 262,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 263,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 264,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 265,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 266,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 267,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 268,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 269,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 270,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 271,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 272,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 273,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 274,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 275,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 276,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 277,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 278,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 279,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 280,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 281,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 282,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 283,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 284,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 285,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 286,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 287,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 288,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 289,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 290,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 291,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 292,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 293,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 294,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 295,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 296,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 297,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 298,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 299,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 300,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 301,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 302,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 303,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 304,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 305,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 306,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 307,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 308,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 309,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 310,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 311,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 312,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 313,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 314,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 315,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 316,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 317,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 318,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 319,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 320,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 321,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 322,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 323,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 324,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 325,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 326,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 327,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 328,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 329,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 330,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 331,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 332,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 333,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 334,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 335,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 336,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 337,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 338,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 339,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 340,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 341,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 342,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 343,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 344,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 345,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 346,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 347,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 348,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 349,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 350,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 351,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 352,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 353,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 354,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 355,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 356,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 357,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 358,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 359,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 360,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 361,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 362,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 363,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 364,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 365,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 366,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 367,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 368,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 369,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 370,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 371,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 372,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 373,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 374,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 375,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 376,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 377,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 378,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 379,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 380,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 381,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 382,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 383,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 384,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 385,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 386,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 387,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 388,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 389,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 390,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 391,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 392,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 393,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 394,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 395,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 396,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 397,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 398,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 399,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 400,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 401,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 402,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 403,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 404,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 405,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 406,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 407,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 408,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 409,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 410,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 411,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 412,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 413,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 414,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 415,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 416,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 417,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 418,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 419,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 420,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 421,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 422,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 423,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 424,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 425,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 426,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 427,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 428,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 429,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 430,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 431,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 432,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 433,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 434,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 435,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 436,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 437,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 438,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 439,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 440,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 441,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 442,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 443,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 444,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 445,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 446,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 447,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 448,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 449,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 450,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 451,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 452,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 453,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 454,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 455,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 456,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 457,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 458,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 459,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 460,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 461,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 462,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 463,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 464,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 465,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 466,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 467,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 468,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 469,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 470,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 471,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 472,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 473,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 474,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 475,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 476,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 477,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 478,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 479,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 480,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 481,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 482,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 483,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 484,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 485,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 486,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 487,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 488,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 489,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 490,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 491,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 492,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 493,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 494,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 495,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 496,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 497,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 498,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 499,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 500,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 501,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 502,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 503,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 504,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 505,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 506,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 507,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 508,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 509,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 510,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 511,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 512,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 513,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 514,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 515,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 516,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 517,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 518,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 519,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 520,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 521,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 522,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 523,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 524,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 525,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 526,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 527,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 528,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 529,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 530,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 531,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 532,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 533,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 534,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 535,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 536,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 537,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 538,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 539,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 540,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 541,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 542,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 543,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 544,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 545,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 546,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 547,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 548,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 549,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 550,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 551,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 552,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 553,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 554,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 555,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 556,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 557,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 558,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 559,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 560,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 561,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 562,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 563,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 564,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 565,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 566,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 567,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 568,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 569,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 570,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 571,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 572,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 573,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 574,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 575,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 576,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 577,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 578,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 579,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 580,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 581,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 582,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 583,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 584,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 585,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 586,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 587,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 588,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 589,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 590,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 591,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 592,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 593,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 594,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 595,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 596,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 597,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 598,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 599,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 600,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 601,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 602,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 603,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 604,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 605,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 606,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 607,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 608,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 609,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 610,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 611,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 612,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 613,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 614,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 615,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 616,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 617,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 618,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 619,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 620,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 621,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 622,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 623,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 624,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 625,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 626,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 627,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 628,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 629,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 630,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 631,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 632,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 633,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 634,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 635,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 636,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 637,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 638,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 639,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 640,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 641,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 642,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 643,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 644,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 645,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 646,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 647,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 648,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 649,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 650,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 651,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 652,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 653,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 654,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 655,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 656,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 657,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 658,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 659,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 660,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 661,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 662,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 663,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 664,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 665,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 666,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 667,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 668,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 669,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 670,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 671,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 672,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 673,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 674,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 675,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 676,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 677,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 678,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 679,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 680,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 681,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 682,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 683,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 684,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 685,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 686,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 687,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 688,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 689,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 690,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 691,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 692,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 693,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 694,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 695,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 696,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 697,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 698,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 699,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 700,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 701,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 702,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 703,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 704,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 705,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 706,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 707,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 708,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 709,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 710,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 711,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 712,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 713,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 714,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 715,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 716,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 717,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 718,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 719,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 720,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 721,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 722,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 723,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 724,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 725,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 726,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 727,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 728,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 729,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 730,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 731,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 732,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 733,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 734,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 735,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 736,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 737,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 738,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 739,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 740,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 741,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 742,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 743,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 744,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 745,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 746,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 747,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 748,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 749,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 750,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 751,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 752,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 753,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 754,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 755,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 756,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 757,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 758,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 759,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 760,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 761,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 762,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 763,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 764,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 765,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 766,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 767,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 768,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 769,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 770,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 771,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 772,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 773,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 774,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 775,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 776,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 777,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 778,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 779,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 780,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 781,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 782,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 783,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 784,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 785,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 786,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 787,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 788,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 789,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 790,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 791,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 792,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 793,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 794,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 795,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 796,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 797,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 798,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 799,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 800,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 801,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 802,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 803,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 804,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 805,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 806,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 807,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 808,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 809,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 810,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 811,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 812,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 813,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 814,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 815,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 816,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 817,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 818,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 819,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 820,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 821,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 822,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 823,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 824,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 825,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 826,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 827,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 828,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 829,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 830,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 831,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 832,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 833,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 834,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 835,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 836,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 837,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 838,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 839,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 840,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 841,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 842,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 843,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 844,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 845,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 846,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 847,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 848,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 849,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 850,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 851,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 852,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 853,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 854,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 855,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 856,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 857,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 858,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 859,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 860,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 861,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 862,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 863,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 864,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 865,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 866,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 867,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 868,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 869,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 870,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 871,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 872,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 873,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 874,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 875,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 876,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 877,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 878,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 879,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 880,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 881,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 882,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 883,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 884,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 885,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 886,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 887,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 888,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 889,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 890,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 891,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 892,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 893,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 894,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 895,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 896,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 897,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 898,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 899,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 900,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 901,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 902,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 903,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 904,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 905,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 906,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 907,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 908,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 909,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 910,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 911,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 912,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 913,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 914,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 915,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 916,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 917,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 918,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 919,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 920,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 921,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 922,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 923,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 924,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 925,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 926,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 927,
+      "instance": "kullanışlı fiyata alınabilecek güzel düsünmeden alabilirsiniz"
+    },
+    {
+      "id": 928,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 929,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 930,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 931,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 932,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 933,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 934,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 935,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 936,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 937,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 938,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 939,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 940,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 941,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 942,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 943,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 944,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 945,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 946,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 947,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 948,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 949,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 950,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 951,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 952,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 953,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 954,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 955,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 956,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 957,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 958,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 959,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 960,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 961,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 962,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 963,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 964,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 965,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 966,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 967,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 968,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 969,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 970,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 971,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 972,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 973,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 974,
+      "instance": "şarjı hemen bitiriyor"
+    },
+    {
+      "id": 975,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 976,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 977,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 978,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 979,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 980,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 981,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 982,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 983,
+      "instance": "mesela kamerası aldık yoktu"
+    },
+    {
+      "id": 984,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 985,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 986,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 987,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 988,
+      "instance": "in yeni kampanyasi cok basarili"
+    },
+    {
+      "id": 989,
+      "instance": "siteniz çalışmıyor kaç gündür"
+    },
+    {
+      "id": 990,
+      "instance": "şimdilik memnun kaldım umarım kararım değişmez"
+    },
+    {
+      "id": 991,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 992,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 993,
+      "instance": "yöneticisi bizzat ilgilenerek gerekli özverili örneği göstererek güzel teşekkürler"
+    },
+    {
+      "id": 994,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 995,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 996,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 997,
+      "instance": "aldım eve gidince kutusundan çıkardım hasarlıydı"
+    },
+    {
+      "id": 998,
+      "instance": "filmin büyük artısı uzun zamandır görmediğimiz oyunculuğunu döktürmesini sağlamasıydı"
+    },
+    {
+      "id": 999,
+      "instance": "durduğu yerde sessiz moduna geçmesi başta fazla giden bataryasının ayda kapasitesinin ciddi anlamda düşmesi dışında fiyatı düşünüldüğünde iyi"
+    },
+    {
+      "id": 1000,
+      "instance": "in yeni kampanyasi cok basarili"
+    }
+  ],
+  "classLabelAssignments": [
+    {
+      "instance id": 554,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:35 AM"
+    },
+    {
+      "instance id": 554,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:35 AM"
+    },
+    {
+      "instance id": 554,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:35 AM"
+    },
+    {
+      "instance id": 2,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:36 AM"
+    },
+    {
+      "instance id": 2,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:36 AM"
+    },
+    {
+      "instance id": 2,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:36 AM"
+    },
+    {
+      "instance id": 353,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:36 AM"
+    },
+    {
+      "instance id": 353,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:36 AM"
+    },
+    {
+      "instance id": 353,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:36 AM"
+    },
+    {
+      "instance id": 4,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:36 AM"
+    },
+    {
+      "instance id": 4,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:36 AM"
+    },
+    {
+      "instance id": 4,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 5,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 5,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 172,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 6,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 6,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 6,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 7,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 7,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 7,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 8,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:37 AM"
+    },
+    {
+      "instance id": 8,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:38 AM"
+    },
+    {
+      "instance id": 8,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:38 AM"
+    },
+    {
+      "instance id": 9,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:38 AM"
+    },
+    {
+      "instance id": 9,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:38 AM"
+    },
+    {
+      "instance id": 823,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:38 AM"
+    },
+    {
+      "instance id": 10,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:38 AM"
+    },
+    {
+      "instance id": 10,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:38 AM"
+    },
+    {
+      "instance id": 972,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:38 AM"
+    },
+    {
+      "instance id": 11,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:38 AM"
+    },
+    {
+      "instance id": 11,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:38 AM"
+    },
+    {
+      "instance id": 11,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 12,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 12,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 12,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 13,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 13,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 13,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 14,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 14,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 14,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 15,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:39 AM"
+    },
+    {
+      "instance id": 15,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:40 AM"
+    },
+    {
+      "instance id": 15,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:40 AM"
+    },
+    {
+      "instance id": 16,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:40 AM"
+    },
+    {
+      "instance id": 16,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:40 AM"
+    },
+    {
+      "instance id": 16,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:40 AM"
+    },
+    {
+      "instance id": 17,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 1:07:40 AM"
+    },
+    {
+      "instance id": 17,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 1:07:40 AM"
+    },
+    {
+      "instance id": 17,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:40 AM"
+    },
+    {
+      "instance id": 18,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 1:07:40 AM"
+    }
+  ],
+  "users": [
+    {
+      "userId": 1,
+      "userName": "RandomLabelingMechanism1",
+      "userType": "RandomBot",
+      "consistencyCheckProbability": 0.1
+    },
+    {
+      "userId": 2,
+      "userName": "RandomLabelingMechanism2",
+      "userType": "RandomBot",
+      "consistencyCheckProbability": 0.1
+    },
+    {
+      "userId": 3,
+      "userName": "MachineLearningLabelingMechanism",
+      "userType": "MachineLearningBot",
+      "consistencyCheckProbability": 0.1
+    }
+  ]
+}
