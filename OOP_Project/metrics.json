@@ -6,11 +6,11 @@
       "list of all datasets with their completeness percentage": [
         {
           "datasetId": 3,
-          "completenessPercentage": 64.6
+          "completenessPercentage": 1.7
         }
       ],
-      "total number of instances labeled": 1047,
-      "total number of unique instances labeled": 646,
+      "total number of instances labeled": 35,
+      "total number of unique instances labeled": 17,
       "consistency percentage": 0.0,
       "Average time spent in labeling an instance in seconds": 0.0,
       "Std. dev. of time spent in labeling an instance in seconds": 0.0
@@ -21,11 +21,11 @@
       "list of all datasets with their completeness percentage": [
         {
           "datasetId": 3,
-          "completenessPercentage": 62.6
+          "completenessPercentage": 1.7
         }
       ],
-      "total number of instances labeled": 1008,
-      "total number of unique instances labeled": 626,
+      "total number of instances labeled": 33,
+      "total number of unique instances labeled": 17,
       "consistency percentage": 0.0,
       "Average time spent in labeling an instance in seconds": 0.0,
       "Std. dev. of time spent in labeling an instance in seconds": 0.0
@@ -36,11 +36,11 @@
       "list of all datasets with their completeness percentage": [
         {
           "datasetId": 3,
-          "completenessPercentage": 62.2
+          "completenessPercentage": 1.5
         }
       ],
-      "total number of instances labeled": 997,
-      "total number of unique instances labeled": 622,
+      "total number of instances labeled": 29,
+      "total number of unique instances labeled": 15,
       "consistency percentage": 0.0,
       "Average time spent in labeling an instance in seconds": 0.0,
       "Std. dev. of time spent in labeling an instance in seconds": 0.0
@@ -185,269 +185,33 @@
     {
       "datasetId": 3,
       "instanceId": 1,
-      "Total number of label assignments": 7,
+      "Total number of label assignments": 2,
       "Number of unique label assignments": 2,
-      "Number of unique users": 3,
+      "Number of unique users": 2,
       "Most frequent class label and percentage": [
         {
-          "label": "Notr",
-          "percentage": 71.429
+          "label": "Negative",
+          "percentage": 50.0
         }
       ],
       "List class labels and percentages": [
         {
           "label": "Negative",
-          "percentage": 28.571
+          "percentage": 50.0
         },
         {
-          "label": "Notr",
-          "percentage": 71.429
+          "label": "Positive",
+          "percentage": 50.0
         }
       ],
-      "Entropy": 0.863
+      "Entropy": 1.0
     },
     {
       "datasetId": 3,
       "instanceId": 2,
-      "Total number of label assignments": 8,
-      "Number of unique label assignments": 3,
-      "Number of unique users": 3,
-      "Most frequent class label and percentage": [
-        {
-          "label": "Notr",
-          "percentage": 50.0
-        }
-      ],
-      "List class labels and percentages": [
-        {
-          "label": "Notr",
-          "percentage": 50.0
-        },
-        {
-          "label": "Negative",
-          "percentage": 25.0
-        },
-        {
-          "label": "Positive",
-          "percentage": 25.0
-        }
-      ],
-      "Entropy": 0.946
-    },
-    {
-      "datasetId": 3,
-      "instanceId": 3,
-      "Total number of label assignments": 9,
-      "Number of unique label assignments": 2,
-      "Number of unique users": 3,
-      "Most frequent class label and percentage": [
-        {
-          "label": "Positive",
-          "percentage": 66.667
-        }
-      ],
-      "List class labels and percentages": [
-        {
-          "label": "Negative",
-          "percentage": 33.333
-        },
-        {
-          "label": "Positive",
-          "percentage": 66.667
-        }
-      ],
-      "Entropy": 0.918
-    },
-    {
-      "datasetId": 3,
-      "instanceId": 4,
-      "Total number of label assignments": 9,
-      "Number of unique label assignments": 3,
-      "Number of unique users": 3,
-      "Most frequent class label and percentage": [
-        {
-          "label": "Notr",
-          "percentage": 55.556
-        }
-      ],
-      "List class labels and percentages": [
-        {
-          "label": "Notr",
-          "percentage": 55.556
-        },
-        {
-          "label": "Negative",
-          "percentage": 11.111
-        },
-        {
-          "label": "Positive",
-          "percentage": 33.333
-        }
-      ],
-      "Entropy": 0.853
-    },
-    {
-      "datasetId": 3,
-      "instanceId": 5,
-      "Total number of label assignments": 7,
-      "Number of unique label assignments": 3,
-      "Number of unique users": 2,
-      "Most frequent class label and percentage": [
-        {
-          "label": "Notr",
-          "percentage": 57.143
-        }
-      ],
-      "List class labels and percentages": [
-        {
-          "label": "Notr",
-          "percentage": 57.143
-        },
-        {
-          "label": "Negative",
-          "percentage": 14.286
-        },
-        {
-          "label": "Positive",
-          "percentage": 28.571
-        }
-      ],
-      "Entropy": 0.87
-    },
-    {
-      "datasetId": 3,
-      "instanceId": 6,
-      "Total number of label assignments": 10,
-      "Number of unique label assignments": 2,
-      "Number of unique users": 3,
-      "Most frequent class label and percentage": [
-        {
-          "label": "Negative",
-          "percentage": 80.0
-        }
-      ],
-      "List class labels and percentages": [
-        {
-          "label": "Notr",
-          "percentage": 20.0
-        },
-        {
-          "label": "Negative",
-          "percentage": 80.0
-        }
-      ],
-      "Entropy": 0.722
-    },
-    {
-      "datasetId": 3,
-      "instanceId": 7,
-      "Total number of label assignments": 9,
-      "Number of unique label assignments": 3,
-      "Number of unique users": 2,
-      "Most frequent class label and percentage": [
-        {
-          "label": "Positive",
-          "percentage": 44.444
-        }
-      ],
-      "List class labels and percentages": [
-        {
-          "label": "Notr",
-          "percentage": 22.222
-        },
-        {
-          "label": "Negative",
-          "percentage": 33.333
-        },
-        {
-          "label": "Positive",
-          "percentage": 44.444
-        }
-      ],
-      "Entropy": 0.966
-    },
-    {
-      "datasetId": 3,
-      "instanceId": 8,
-      "Total number of label assignments": 5,
-      "Number of unique label assignments": 2,
-      "Number of unique users": 3,
-      "Most frequent class label and percentage": [
-        {
-          "label": "Notr",
-          "percentage": 60.0
-        }
-      ],
-      "List class labels and percentages": [
-        {
-          "label": "Notr",
-          "percentage": 60.0
-        },
-        {
-          "label": "Negative",
-          "percentage": 40.0
-        }
-      ],
-      "Entropy": 0.971
-    },
-    {
-      "datasetId": 3,
-      "instanceId": 9,
-      "Total number of label assignments": 8,
-      "Number of unique label assignments": 3,
-      "Number of unique users": 2,
-      "Most frequent class label and percentage": [
-        {
-          "label": "Positive",
-          "percentage": 62.5
-        }
-      ],
-      "List class labels and percentages": [
-        {
-          "label": "Notr",
-          "percentage": 25.0
-        },
-        {
-          "label": "Negative",
-          "percentage": 12.5
-        },
-        {
-          "label": "Positive",
-          "percentage": 62.5
-        }
-      ],
-      "Entropy": 0.819
-    },
-    {
-      "datasetId": 3,
-      "instanceId": 10,
-      "Total number of label assignments": 7,
-      "Number of unique label assignments": 2,
-      "Number of unique users": 3,
-      "Most frequent class label and percentage": [
-        {
-          "label": "Negative",
-          "percentage": 71.429
-        }
-      ],
-      "List class labels and percentages": [
-        {
-          "label": "Notr",
-          "percentage": 28.571
-        },
-        {
-          "label": "Negative",
-          "percentage": 71.429
-        }
-      ],
-      "Entropy": 0.863
-    },
-    {
-      "datasetId": 3,
-      "instanceId": 11,
       "Total number of label assignments": 6,
       "Number of unique label assignments": 3,
-      "Number of unique users": 2,
+      "Number of unique users": 3,
       "Most frequent class label and percentage": [
         {
           "label": "Notr",
@@ -472,67 +236,331 @@
     },
     {
       "datasetId": 3,
-      "instanceId": 12,
-      "Total number of label assignments": 6,
+      "instanceId": 3,
+      "Total number of label assignments": 4,
       "Number of unique label assignments": 2,
       "Number of unique users": 2,
       "Most frequent class label and percentage": [
         {
-          "label": "Negative",
-          "percentage": 66.667
+          "label": "Positive",
+          "percentage": 75.0
         }
       ],
       "List class labels and percentages": [
         {
           "label": "Negative",
-          "percentage": 66.667
+          "percentage": 25.0
+        },
+        {
+          "label": "Positive",
+          "percentage": 75.0
+        }
+      ],
+      "Entropy": 0.811
+    },
+    {
+      "datasetId": 3,
+      "instanceId": 4,
+      "Total number of label assignments": 6,
+      "Number of unique label assignments": 3,
+      "Number of unique users": 3,
+      "Most frequent class label and percentage": [
+        {
+          "label": "Notr",
+          "percentage": 50.0
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "Notr",
+          "percentage": 50.0
+        },
+        {
+          "label": "Negative",
+          "percentage": 16.667
         },
         {
           "label": "Positive",
           "percentage": 33.333
         }
       ],
+      "Entropy": 0.921
+    },
+    {
+      "datasetId": 3,
+      "instanceId": 5,
+      "Total number of label assignments": 7,
+      "Number of unique label assignments": 2,
+      "Number of unique users": 3,
+      "Most frequent class label and percentage": [
+        {
+          "label": "Positive",
+          "percentage": 71.429
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "Notr",
+          "percentage": 28.571
+        },
+        {
+          "label": "Positive",
+          "percentage": 71.429
+        }
+      ],
+      "Entropy": 0.863
+    },
+    {
+      "datasetId": 3,
+      "instanceId": 6,
+      "Total number of label assignments": 6,
+      "Number of unique label assignments": 3,
+      "Number of unique users": 3,
+      "Most frequent class label and percentage": [
+        {
+          "label": "Negative",
+          "percentage": 66.667
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "Notr",
+          "percentage": 16.667
+        },
+        {
+          "label": "Negative",
+          "percentage": 66.667
+        },
+        {
+          "label": "Positive",
+          "percentage": 16.667
+        }
+      ],
+      "Entropy": 0.79
+    },
+    {
+      "datasetId": 3,
+      "instanceId": 7,
+      "Total number of label assignments": 6,
+      "Number of unique label assignments": 2,
+      "Number of unique users": 2,
+      "Most frequent class label and percentage": [
+        {
+          "label": "Positive",
+          "percentage": 66.667
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "Negative",
+          "percentage": 33.333
+        },
+        {
+          "label": "Positive",
+          "percentage": 66.667
+        }
+      ],
       "Entropy": 0.918
     },
     {
       "datasetId": 3,
-      "instanceId": 13,
+      "instanceId": 8,
+      "Total number of label assignments": 5,
+      "Number of unique label assignments": 2,
+      "Number of unique users": 3,
+      "Most frequent class label and percentage": [
+        {
+          "label": "Negative",
+          "percentage": 60.0
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "Notr",
+          "percentage": 40.0
+        },
+        {
+          "label": "Negative",
+          "percentage": 60.0
+        }
+      ],
+      "Entropy": 0.971
+    },
+    {
+      "datasetId": 3,
+      "instanceId": 9,
+      "Total number of label assignments": 5,
+      "Number of unique label assignments": 3,
+      "Number of unique users": 3,
+      "Most frequent class label and percentage": [
+        {
+          "label": "Notr",
+          "percentage": 40.0
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "Notr",
+          "percentage": 40.0
+        },
+        {
+          "label": "Negative",
+          "percentage": 40.0
+        },
+        {
+          "label": "Positive",
+          "percentage": 20.0
+        }
+      ],
+      "Entropy": 0.96
+    },
+    {
+      "datasetId": 3,
+      "instanceId": 10,
       "Total number of label assignments": 5,
       "Number of unique label assignments": 2,
       "Number of unique users": 2,
       "Most frequent class label and percentage": [
         {
-          "label": "Positive",
-          "percentage": 80.0
+          "label": "Notr",
+          "percentage": 60.0
         }
       ],
       "List class labels and percentages": [
         {
-          "label": "Negative",
-          "percentage": 20.0
+          "label": "Notr",
+          "percentage": 60.0
         },
         {
           "label": "Positive",
-          "percentage": 80.0
+          "percentage": 40.0
         }
       ],
-      "Entropy": 0.722
+      "Entropy": 0.971
     },
     {
       "datasetId": 3,
-      "instanceId": 14,
-      "Total number of label assignments": 4,
-      "Number of unique label assignments": 2,
+      "instanceId": 11,
+      "Total number of label assignments": 6,
+      "Number of unique label assignments": 3,
+      "Number of unique users": 3,
+      "Most frequent class label and percentage": [
+        {
+          "label": "Notr",
+          "percentage": 66.667
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "Notr",
+          "percentage": 66.667
+        },
+        {
+          "label": "Negative",
+          "percentage": 16.667
+        },
+        {
+          "label": "Positive",
+          "percentage": 16.667
+        }
+      ],
+      "Entropy": 0.79
+    },
+    {
+      "datasetId": 3,
+      "instanceId": 12,
+      "Total number of label assignments": 6,
+      "Number of unique label assignments": 3,
       "Number of unique users": 2,
       "Most frequent class label and percentage": [
         {
-          "label": "Negative",
+          "label": "Positive",
           "percentage": 50.0
         }
       ],
       "List class labels and percentages": [
         {
+          "label": "Notr",
+          "percentage": 16.667
+        },
+        {
           "label": "Negative",
+          "percentage": 33.333
+        },
+        {
+          "label": "Positive",
+          "percentage": 50.0
+        }
+      ],
+      "Entropy": 0.921
+    },
+    {
+      "datasetId": 3,
+      "instanceId": 13,
+      "Total number of label assignments": 4,
+      "Number of unique label assignments": 2,
+      "Number of unique users": 2,
+      "Most frequent class label and percentage": [
+        {
+          "label": "Positive",
+          "percentage": 75.0
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "Notr",
+          "percentage": 25.0
+        },
+        {
+          "label": "Positive",
+          "percentage": 75.0
+        }
+      ],
+      "Entropy": 0.811
+    },
+    {
+      "datasetId": 3,
+      "instanceId": 14,
+      "Total number of label assignments": 4,
+      "Number of unique label assignments": 3,
+      "Number of unique users": 1,
+      "Most frequent class label and percentage": [
+        {
+          "label": "Positive",
+          "percentage": 50.0
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "Notr",
+          "percentage": 25.0
+        },
+        {
+          "label": "Negative",
+          "percentage": 25.0
+        },
+        {
+          "label": "Positive",
+          "percentage": 50.0
+        }
+      ],
+      "Entropy": 0.946
+    },
+    {
+      "datasetId": 3,
+      "instanceId": 15,
+      "Total number of label assignments": 4,
+      "Number of unique label assignments": 2,
+      "Number of unique users": 1,
+      "Most frequent class label and percentage": [
+        {
+          "label": "Notr",
+          "percentage": 50.0
+        }
+      ],
+      "List class labels and percentages": [
+        {
+          "label": "Notr",
           "percentage": 50.0
         },
         {
@@ -544,59 +572,31 @@
     },
     {
       "datasetId": 3,
-      "instanceId": 15,
-      "Total number of label assignments": 8,
-      "Number of unique label assignments": 3,
-      "Number of unique users": 3,
-      "Most frequent class label and percentage": [
-        {
-          "label": "Notr",
-          "percentage": 37.5
-        }
-      ],
-      "List class labels and percentages": [
-        {
-          "label": "Notr",
-          "percentage": 37.5
-        },
-        {
-          "label": "Negative",
-          "percentage": 37.5
-        },
-        {
-          "label": "Positive",
-          "percentage": 25.0
-        }
-      ],
-      "Entropy": 0.985
-    },
-    {
-      "datasetId": 3,
       "instanceId": 16,
-      "Total number of label assignments": 8,
+      "Total number of label assignments": 7,
       "Number of unique label assignments": 3,
       "Number of unique users": 3,
       "Most frequent class label and percentage": [
         {
-          "label": "Notr",
-          "percentage": 50.0
+          "label": "Negative",
+          "percentage": 42.857
         }
       ],
       "List class labels and percentages": [
         {
           "label": "Notr",
-          "percentage": 50.0
+          "percentage": 28.571
         },
         {
           "label": "Negative",
-          "percentage": 37.5
+          "percentage": 42.857
         },
         {
           "label": "Positive",
-          "percentage": 12.5
+          "percentage": 28.571
         }
       ],
-      "Entropy": 0.887
+      "Entropy": 0.982
     },
     {
       "datasetId": 3,
@@ -6875,30 +6875,26 @@
     {
       "datasetId": 3,
       "instanceId": 554,
-      "Total number of label assignments": 6,
-      "Number of unique label assignments": 3,
+      "Total number of label assignments": 4,
+      "Number of unique label assignments": 2,
       "Number of unique users": 2,
       "Most frequent class label and percentage": [
         {
-          "label": "Negative",
-          "percentage": 66.667
+          "label": "Notr",
+          "percentage": 50.0
         }
       ],
       "List class labels and percentages": [
         {
           "label": "Notr",
-          "percentage": 16.667
+          "percentage": 50.0
         },
         {
           "label": "Negative",
-          "percentage": 66.667
-        },
-        {
-          "label": "Positive",
-          "percentage": 16.667
+          "percentage": 50.0
         }
       ],
-      "Entropy": 0.79
+      "Entropy": 1.0
     },
     {
       "datasetId": 3,
@@ -10974,48 +10970,48 @@
     },
     {
       "datasetId": 3,
-      "Completeness percentage": 91.3,
+      "Completeness percentage": 2.3,
       "Class distribution based on final instance labels": [
         {
           "label": "Notr",
-          "distributionPercentage": 49.398
+          "distributionPercentage": 47.826
         },
         {
           "label": "Negative",
-          "distributionPercentage": 28.039
+          "distributionPercentage": 21.739
         },
         {
           "label": "Positive",
-          "distributionPercentage": 22.563
+          "distributionPercentage": 30.435
         }
       ],
       "List number of unique instances for each class label": [
         {
           "label": "Notr",
-          "amount": 645
+          "amount": 19
         },
         {
           "label": "Negative",
-          "amount": 659
+          "amount": 14
         },
         {
           "label": "Positive",
-          "amount": 612
+          "amount": 16
         }
       ],
       "Number of users assigned to this dataset": 3,
       "List of users assigned and their completeness percentage": [
         {
           "userId": 1,
-          "completenessPercentage": 64.60000000000001
+          "completenessPercentage": 1.7000000000000002
         },
         {
           "userId": 2,
-          "completenessPercentage": 62.6
+          "completenessPercentage": 1.7000000000000002
         },
         {
           "userId": 3,
-          "completenessPercentage": 62.2
+          "completenessPercentage": 1.5
         }
       ],
       "List of users assigned and their consistency percentage": [

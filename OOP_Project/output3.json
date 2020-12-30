@@ -4020,26 +4020,26 @@
   ],
   "classLabelAssignments": [
     {
-      "instance id": 554,
+      "instance id": 1,
       "class label ids": [
         {
           "label id": 2,
           "label text": "Negative"
         }
       ],
-      "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:35 AM"
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:42 PM"
     },
     {
-      "instance id": 554,
+      "instance id": 1,
       "class label ids": [
         {
-          "label id": 2,
-          "label text": "Negative"
+          "label id": 1,
+          "label text": "Positive"
         }
       ],
-      "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:35 AM"
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 10:29:42 PM"
     },
     {
       "instance id": 554,
@@ -4049,19 +4049,8 @@
           "label text": "Notr"
         }
       ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:35 AM"
-    },
-    {
-      "instance id": 2,
-      "class label ids": [
-        {
-          "label id": 3,
-          "label text": "Notr"
-        }
-      ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:36 AM"
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 10:29:42 PM"
     },
     {
       "instance id": 2,
@@ -4071,8 +4060,8 @@
           "label text": "Positive"
         }
       ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:36 AM"
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:42 PM"
     },
     {
       "instance id": 2,
@@ -4082,63 +4071,52 @@
           "label text": "Notr"
         }
       ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:36 AM"
-    },
-    {
-      "instance id": 353,
-      "class label ids": [
-        {
-          "label id": 1,
-          "label text": "Positive"
-        }
-      ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:36 AM"
-    },
-    {
-      "instance id": 353,
-      "class label ids": [
-        {
-          "label id": 1,
-          "label text": "Positive"
-        }
-      ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:36 AM"
-    },
-    {
-      "instance id": 353,
-      "class label ids": [
-        {
-          "label id": 3,
-          "label text": "Notr"
-        }
-      ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:36 AM"
-    },
-    {
-      "instance id": 4,
-      "class label ids": [
-        {
-          "label id": 3,
-          "label text": "Notr"
-        }
-      ],
       "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:36 AM"
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
     },
     {
-      "instance id": 4,
+      "instance id": 2,
       "class label ids": [
         {
           "label id": 2,
           "label text": "Negative"
         }
       ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:36 AM"
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 3,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 16,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 16,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
     },
     {
       "instance id": 4,
@@ -4149,7 +4127,40 @@
         }
       ],
       "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 4,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 4,
+      "class label ids": [
+        {
+          "label id": 3,
+          "label text": "Notr"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 5,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
     },
     {
       "instance id": 5,
@@ -4160,7 +4171,7 @@
         }
       ],
       "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
     },
     {
       "instance id": 5,
@@ -4170,30 +4181,8 @@
           "label text": "Notr"
         }
       ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
-    },
-    {
-      "instance id": 172,
-      "class label ids": [
-        {
-          "label id": 2,
-          "label text": "Negative"
-        }
-      ],
-      "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
-    },
-    {
-      "instance id": 6,
-      "class label ids": [
-        {
-          "label id": 2,
-          "label text": "Negative"
-        }
-      ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
     },
     {
       "instance id": 6,
@@ -4204,76 +4193,21 @@
         }
       ],
       "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
     },
     {
       "instance id": 6,
-      "class label ids": [
-        {
-          "label id": 2,
-          "label text": "Negative"
-        }
-      ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
-    },
-    {
-      "instance id": 7,
       "class label ids": [
         {
           "label id": 1,
           "label text": "Positive"
         }
       ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
-    },
-    {
-      "instance id": 7,
-      "class label ids": [
-        {
-          "label id": 1,
-          "label text": "Positive"
-        }
-      ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
-    },
-    {
-      "instance id": 7,
-      "class label ids": [
-        {
-          "label id": 2,
-          "label text": "Negative"
-        }
-      ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
-    },
-    {
-      "instance id": 8,
-      "class label ids": [
-        {
-          "label id": 2,
-          "label text": "Negative"
-        }
-      ],
       "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:37 AM"
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
     },
     {
-      "instance id": 8,
-      "class label ids": [
-        {
-          "label id": 3,
-          "label text": "Notr"
-        }
-      ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:38 AM"
-    },
-    {
-      "instance id": 8,
+      "instance id": 6,
       "class label ids": [
         {
           "label id": 3,
@@ -4281,10 +4215,65 @@
         }
       ],
       "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:38 AM"
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
     },
     {
-      "instance id": 9,
+      "instance id": 7,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 7,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 7,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 3,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 3,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 3,
       "class label ids": [
         {
           "label id": 1,
@@ -4292,7 +4281,7 @@
         }
       ],
       "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:38 AM"
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
     },
     {
       "instance id": 9,
@@ -4302,30 +4291,30 @@
           "label text": "Notr"
         }
       ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:38 AM"
-    },
-    {
-      "instance id": 823,
-      "class label ids": [
-        {
-          "label id": 3,
-          "label text": "Notr"
-        }
-      ],
       "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:38 AM"
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
     },
     {
-      "instance id": 10,
+      "instance id": 9,
       "class label ids": [
         {
-          "label id": 3,
-          "label text": "Notr"
+          "label id": 2,
+          "label text": "Negative"
         }
       ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:38 AM"
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:43 PM"
+    },
+    {
+      "instance id": 9,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
       "instance id": 10,
@@ -4336,18 +4325,29 @@
         }
       ],
       "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:38 AM"
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
-      "instance id": 972,
+      "instance id": 10,
       "class label ids": [
         {
-          "label id": 3,
-          "label text": "Notr"
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
+    },
+    {
+      "instance id": 10,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
         }
       ],
       "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:38 AM"
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
       "instance id": 11,
@@ -4358,18 +4358,7 @@
         }
       ],
       "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:38 AM"
-    },
-    {
-      "instance id": 11,
-      "class label ids": [
-        {
-          "label id": 1,
-          "label text": "Positive"
-        }
-      ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:38 AM"
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
       "instance id": 11,
@@ -4379,88 +4368,11 @@
           "label text": "Notr"
         }
       ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
-    },
-    {
-      "instance id": 12,
-      "class label ids": [
-        {
-          "label id": 2,
-          "label text": "Negative"
-        }
-      ],
-      "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
-    },
-    {
-      "instance id": 12,
-      "class label ids": [
-        {
-          "label id": 1,
-          "label text": "Positive"
-        }
-      ],
-      "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
-    },
-    {
-      "instance id": 12,
-      "class label ids": [
-        {
-          "label id": 2,
-          "label text": "Negative"
-        }
-      ],
-      "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
-    },
-    {
-      "instance id": 13,
-      "class label ids": [
-        {
-          "label id": 1,
-          "label text": "Positive"
-        }
-      ],
       "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
-      "instance id": 13,
-      "class label ids": [
-        {
-          "label id": 1,
-          "label text": "Positive"
-        }
-      ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
-    },
-    {
-      "instance id": 13,
-      "class label ids": [
-        {
-          "label id": 1,
-          "label text": "Positive"
-        }
-      ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
-    },
-    {
-      "instance id": 14,
-      "class label ids": [
-        {
-          "label id": 1,
-          "label text": "Positive"
-        }
-      ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
-    },
-    {
-      "instance id": 14,
+      "instance id": 11,
       "class label ids": [
         {
           "label id": 2,
@@ -4468,21 +4380,32 @@
         }
       ],
       "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
-      "instance id": 14,
+      "instance id": 12,
       "class label ids": [
         {
           "label id": 1,
           "label text": "Positive"
         }
       ],
-      "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
+      "user id": 1,
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
-      "instance id": 15,
+      "instance id": 12,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
+    },
+    {
+      "instance id": 12,
       "class label ids": [
         {
           "label id": 3,
@@ -4490,40 +4413,29 @@
         }
       ],
       "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:39 AM"
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
-      "instance id": 15,
-      "class label ids": [
-        {
-          "label id": 1,
-          "label text": "Positive"
-        }
-      ],
-      "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:40 AM"
-    },
-    {
-      "instance id": 15,
+      "instance id": 13,
       "class label ids": [
         {
           "label id": 3,
           "label text": "Notr"
         }
       ],
-      "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:40 AM"
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
       "instance id": 16,
       "class label ids": [
         {
-          "label id": 1,
-          "label text": "Positive"
+          "label id": 2,
+          "label text": "Negative"
         }
       ],
-      "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:40 AM"
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
       "instance id": 16,
@@ -4534,32 +4446,10 @@
         }
       ],
       "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:40 AM"
+      "datetime": "Dec 30, 2020, 10:29:44 PM"
     },
     {
-      "instance id": 16,
-      "class label ids": [
-        {
-          "label id": 2,
-          "label text": "Negative"
-        }
-      ],
-      "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:40 AM"
-    },
-    {
-      "instance id": 17,
-      "class label ids": [
-        {
-          "label id": 3,
-          "label text": "Notr"
-        }
-      ],
-      "user id": 3,
-      "datetime": "Dec 30, 2020, 1:07:40 AM"
-    },
-    {
-      "instance id": 17,
+      "instance id": 14,
       "class label ids": [
         {
           "label id": 3,
@@ -4567,48 +4457,119 @@
         }
       ],
       "user id": 2,
-      "datetime": "Dec 30, 2020, 1:07:40 AM"
+      "datetime": "Dec 30, 2020, 10:29:45 PM"
     },
     {
-      "instance id": 17,
+      "instance id": 5,
       "class label ids": [
         {
-          "label id": 3,
-          "label text": "Notr"
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 2,
+      "datetime": "Dec 30, 2020, 10:29:45 PM"
+    },
+    {
+      "instance id": 5,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 10:29:45 PM"
+    },
+    {
+      "instance id": 15,
+      "class label ids": [
+        {
+          "label id": 1,
+          "label text": "Positive"
+        }
+      ],
+      "user id": 3,
+      "datetime": "Dec 30, 2020, 10:29:45 PM"
+    },
+    {
+      "instance id": 8,
+      "class label ids": [
+        {
+          "label id": 2,
+          "label text": "Negative"
         }
       ],
       "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:40 AM"
+      "datetime": "Dec 30, 2020, 10:29:45 PM"
     },
     {
-      "instance id": 18,
+      "instance id": 8,
       "class label ids": [
         {
-          "label id": 3,
-          "label text": "Notr"
+          "label id": 2,
+          "label text": "Negative"
         }
       ],
       "user id": 1,
-      "datetime": "Dec 30, 2020, 1:07:40 AM"
+      "datetime": "Dec 30, 2020, 10:29:45 PM"
     }
   ],
   "users": [
     {
       "userId": 1,
       "userName": "RandomLabelingMechanism1",
+      "userPassword": "",
       "userType": "RandomBot",
       "consistencyCheckProbability": 0.1
     },
     {
       "userId": 2,
       "userName": "RandomLabelingMechanism2",
+      "userPassword": "",
       "userType": "RandomBot",
       "consistencyCheckProbability": 0.1
     },
     {
       "userId": 3,
-      "userName": "MachineLearningLabelingMechanism",
-      "userType": "MachineLearningBot",
+      "userName": "RandomLabelingMechanism3",
+      "userPassword": "",
+      "userType": "RandomBot",
+      "consistencyCheckProbability": 0.1
+    },
+    {
+      "userId": 4,
+      "userName": "HumanUser1",
+      "userPassword": "1234",
+      "userType": "Human",
+      "consistencyCheckProbability": 0.1
+    },
+    {
+      "userId": 5,
+      "userName": "HumanUser2",
+      "userPassword": "2345",
+      "userType": "Human",
+      "consistencyCheckProbability": 0.1
+    },
+    {
+      "userId": 6,
+      "userName": "HumanUser3",
+      "userPassword": "3456",
+      "userType": "Human",
+      "consistencyCheckProbability": 0.1
+    },
+    {
+      "userId": 7,
+      "userName": "HumanUser4",
+      "userPassword": "4567",
+      "userType": "Human",
+      "consistencyCheckProbability": 0.1
+    },
+    {
+      "userId": 8,
+      "userName": "HumanUser5",
+      "userPassword": "5678",
+      "userType": "Human",
       "consistencyCheckProbability": 0.1
     }
   ]

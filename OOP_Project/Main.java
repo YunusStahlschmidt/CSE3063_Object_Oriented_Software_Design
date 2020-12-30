@@ -178,7 +178,7 @@ public class Main {
 
         // metric model set dataset model list
         
-        boolean continueRandom = Login.randomInitialize();
+        boolean continueRandom = Login.randomInitialize(users);
 
         if (continueRandom)
         {

@@ -16,6 +16,9 @@ public class User {
     @SerializedName("userName")
     @Expose
     private String userName;
+    @SerializedName("userPassword")
+    @Expose
+    private String userPassword;
     @SerializedName("userType")
     @Expose
     private String userType;
@@ -27,10 +30,11 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, String type) {
+    public User(int id, String name, String type, String password) {
         this.userId = id;
         this.userName = name;
         this.userType = type;
+        this.userPassword = password;
     }
 
     // Getters
@@ -45,6 +49,11 @@ public class User {
 
     public String getType() {
         return userType;
+    }
+
+    public String getPassword()
+    {
+        return userPassword;
     }
 
     public UserMetric getUserMetric() {

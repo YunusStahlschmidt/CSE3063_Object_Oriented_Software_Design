@@ -1,23 +1,21 @@
 package OOP_Project;
-import java.util.HashMap;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Login {
 
-    public static boolean randomInitialize() { //returns true if random should be initialized else false
+    public static boolean randomInitialize(ArrayList<User> users) { //returns true if random should be initialized else false
         
         //key is username value is password
-        HashMap<String, String> validUsers = new HashMap<String, String>();
-        validUsers.put("ahmet", "1234");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.print("What is your username: ");
-            String username = scanner.nextLine();
+            String username = scanner.nextLine().trim();
 
             System.out.print("What is your password: ");
-            String password = scanner.nextLine();
-            
+            String password = scanner.nextLine().trim();
+
             if (username.equals(""))
             {
                 if (password.equals(""))
@@ -26,24 +24,34 @@ public class Login {
                     return true;
                 }
 
-            }
-
-            else if (validUsers.containsKey(username))
-            {
-                if (password.equals(validUsers.get(username)))
+                else
                 {
-                    System.out.println("Welcome mr/mrs " + username);
-                    scanner.close();
-                    return false;
+                    System.out.println("Username can't be empty");
                 }
 
-                else
-                    System.out.println("Invalid username or password. Please try again.");
             }
 
             else
-                System.out.println("Invalid username or password. Please try again.");
+            {
+                for (User user: users)
+                {
+    
+                    if (username.equals(user.getName()))
+                    {
+                        if (password.equals(user.getPassword()))
+                        {
+                            System.out.println("Welcome mr/mrs " + username);
+                            scanner.close();
+                            return false;
+                        }
+                    }
 
-        }   
-    }  
+    
+                }
+                
+                System.out.println("Invalid username or password. Please try again.");
+            
+            }   
+        }  
+    }
 }
