@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Login {
 
-    public static boolean randomInitialize(ArrayList<User> users) { //returns true if random should be initialized else false
+    public static User randomInitialize(ArrayList<User> users) { //returns true if random should be initialized else false
         
         //key is username value is password
         Scanner scanner = new Scanner(System.in);
@@ -19,9 +19,8 @@ public class Login {
             if (username.equals(""))
             {
                 if (password.equals(""))
-                {
-                    scanner.close();
-                    return true;
+                {   
+                    return null;
                 }
 
                 else
@@ -41,8 +40,8 @@ public class Login {
                         if (password.equals(user.getPassword()))
                         {
                             System.out.println("Welcome mr/mrs " + username);
-                            scanner.close();
-                            return false;
+                            
+                            return user;
                         }
                     }
 

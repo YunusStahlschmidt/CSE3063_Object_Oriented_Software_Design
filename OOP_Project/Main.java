@@ -1,9 +1,11 @@
 package OOP_Project;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.HashMap;
 
 import org.slf4j.Logger;
@@ -36,6 +38,8 @@ public class Main {
         String currentDirectory = System.getProperty("user.dir");
         currentDirectory += "\\OOP_Project";
         HashMap<Integer, ArrayList<LabelAssignment>> previousLabelAssignments = new HashMap<>();
+        Scanner sc = new Scanner(System.in);
+
 
         // parsing the files
         while (true) {
@@ -62,6 +66,7 @@ public class Main {
         int userIndex, numberOfAssignmentsPerInstance;
         ArrayList<Label> addedLabels;
         Label randomLabel;
+        List<Label> allLabels;
         User currentUser;
         Date startDate, endDate;
         LabelAssignment newLabelAssignment;
@@ -175,12 +180,11 @@ public class Main {
         ArrayList<Instance> recurrentLabeledInstances;
 
         ArrayList<User> assignedUsers = dataset.getAssignedUsers();
-
         // metric model set dataset model list
         
-        boolean continueRandom = Login.randomInitialize(users);
+        User continueRandom = Login.randomInitialize(users);
 
-        if (continueRandom)
+        if (continueRandom == null)
         {
 
             for (Instance anInstance : dataset.getInstances()) {
@@ -276,11 +280,158 @@ public class Main {
         }
 
         else
-        {
-            System.out.println("Human process");
+        {   
+
+            for (Instance anInstance : dataset.getInstances()) {
+                numberOfAssignmentsPerInstance = assignedUsers.size();
+                
+                currentUser = continueRandom;
+                // picking random Instance based on probability
+                randomInstanceProbability = random.nextInt(100) + 1;
+
+                if (randomInstanceProbability < currentUser.getConsistencyCheckProbability() * 100
+                        && currentUser.getUserMetric().getUniqueLabeledInstances().size() > 0) {
+                    recurrentLabeledInstances = new ArrayList<>();
+                    for (Instance instanceToArray : currentUser.getUserMetric().getUniqueLabeledInstances()) {
+                        recurrentLabeledInstances.add(instanceToArray);
+                    }
+                    recurrentLabeledInstanceIdx = random.nextInt(recurrentLabeledInstances.size());
+                    anInstance = recurrentLabeledInstances.get(recurrentLabeledInstanceIdx);
+                }
+                
+                startDate = new Date();
+
+                userMetric = currentUser.getUserMetric();
+
+                int maxLabel = (int) dataset.getMaxLabel();
+                List<String> chosen;
+                ArrayList<String> labelOpt = new ArrayList<String>();
+                allLabels = dataset.getLabels();
+
+                System.out.println("\n");
+
+                addedLabels = new ArrayList<>(); //initializing also here to prevent may not be initialized error
+                instanceMetric = anInstance.getInstanceMetric();
+
+                boolean running = true;
+                while (running)
+                {
+                    datasetMetric = dataset.getDatasetMetric();
+
+                    System.out.printf("Comment: %s\n\n", anInstance.getInstance());
+
+                
+                    addedLabels = new ArrayList<>();
+                    instanceMetric = anInstance.getInstanceMetric();
+
+                    for (Label l: allLabels)
+                    {
+                        System.out.printf("%s. %s ", l.getId(), l.getLabelText());
+                        labelOpt.add(l.getId().toString());
+                        addedLabels.add(l);
+                        instanceMetric.addUniqueLabel(l);
+                        datasetMetric.addInstanceForLabel(l, anInstance);
+                    }
+                                    
+
+                    System.out.printf("\nChoose max %s label/s number (seperate with coma if you choose more than one): ", maxLabel);
+                
+                    String assign = sc.nextLine().trim();
+
+                    if (assign.equals(""))
+                    {
+                        System.out.println("You have to choose a label. Please try again.");
+                        continue;
+                    }
+
+
+                    chosen =  Arrays.asList(assign.split(","));
+
+                    if (chosen.size() > maxLabel)
+                        System.out.println("\nYou outmaxed the maximum value. Please decrease number of labels\n");
+
+                    else
+                    {   
+                        int count = 0;
+                        for (String str : chosen) 
+                        {
+                            if (!labelOpt.contains(str))
+                            {
+                                System.out.printf("\n%s not in label options. Please choose valid ones.\n", str);
+                                break;
+                                
+                            }
+
+                            else
+                            {
+                                count++;
+                            }
+                                
+                        }
+
+                        if (count == chosen.size())
+                            running = false;
+
+                    }
+                        
+                }
+                
+                newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(), new Date());
+                labelAssignments.add(newLabelAssignment);
+                endDate = new Date();
+
+                // print the output to console via the logger (and too app.log file)
+                if (newLabelAssignment.getAssignedLabelId().size() == 1) {
+                    String label_name = dataset.getLabels()
+                            .get((int) newLabelAssignment.getSpecificAssignedLabelId(0) - 1).getLabelText();
+                    logger.info("user id:" + currentUser.getId() + " " + currentUser.getName() + " tagged instance id:"
+                            + anInstance.getId() + " with class label " + newLabelAssignment.getAssignedLabelId() + ":"
+                            + label_name + " instance: " + anInstance.getInstance());
+                } else {
+                    ArrayList<String> labels = new ArrayList<>();
+
+                    for (int n = 0; n < newLabelAssignment.getAssignedLabelId().size(); n++) {
+                        labels.add(dataset.getLabels().get((int) newLabelAssignment.getSpecificAssignedLabelId(n) - 1)
+                                .getLabelText());
+                    }
+                    logger.info("user id:" + currentUser.getId() + " " + currentUser.getName() + " tagged instance id:"
+                            + anInstance.getId() + " with class labels "
+                            + newLabelAssignment.getAssignedLabelId().toString() + ":" + labels.toString()
+                            + " instance: " + anInstance.getInstance());
+                }
+
+                // updating current user metric
+                userMetric.callAllNecessaryMethods(anInstance, dataset, newLabelAssignment, startDate, endDate);
+                // updating Instance Metrics
+                instanceMetric.callAllNecessaryMethods(currentUser, newLabelAssignment);
+                // updating dataset metric
+                datasetMetric.callAllNecessaryMethods(anInstance, dataset);
+                // setting the list of models to the metrics object
+                metrics.setUsers(List.copyOf(userModelList));
+                metrics.setDataset(List.copyOf(datasetModelList));
+                metrics.setInstance(List.copyOf(instanceModelList));
+
+                try {
+                    System.out.println();
+                    String outputPath = currentDirectory + "\\output" + String.valueOf(currentDatasetId) + ".json";
+                    serializer.serializeOutputFile(outputPath, dataset, labelAssignments, users);
+
+                    String filePath = currentDirectory + "\\metrics.json";
+                    serializer.serializeMetricFile(metrics, filePath);
+                    System.out.println();
+                    System.out.println();
+
+                } catch (Exception e) {
+                    System.out.println();
+                    System.out.println("File not found! Please make sure you provided a correct path.");
+                    logger.warn("Output File path not found!");
+                }
+                
+            }
         }
 
         System.out.println();
         logger.info("Program Excuted Successfully");
+        sc.close();
     }
 }
