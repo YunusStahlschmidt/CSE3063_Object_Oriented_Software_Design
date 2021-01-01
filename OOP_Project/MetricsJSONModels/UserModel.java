@@ -111,8 +111,7 @@ public class UserModel {
     }
 
     public void setConsistencyPercentage(Double consistencyPercentage) {
-        this.consistencyPercentage = Double
-                .parseDouble(new DecimalFormat("##.###").format(consistencyPercentage * 100));
+        this.consistencyPercentage = (double) Math.round(consistencyPercentage * 100);
     }
 
     public Double getAverageTimeSpentInLabelingAnInstanceInSeconds() {
@@ -120,8 +119,7 @@ public class UserModel {
     }
 
     public void setAverageTimeSpentInLabelingAnInstanceInSeconds(Double avgTime) {
-        this.averageTimeSpentInLabelingAnInstanceInSeconds = Double
-                .parseDouble(new DecimalFormat("##.###").format(avgTime));
+        this.averageTimeSpentInLabelingAnInstanceInSeconds = (double) Math.round(avgTime);
     }
 
     public Double getStdDevOfTimeSpentInLabelingAnInstanceInSeconds() {
@@ -129,8 +127,7 @@ public class UserModel {
     }
 
     public void setStdDevOfTimeSpentInLabelingAnInstanceInSeconds(Double stdOfTime) {
-        this.stdDevOfTimeSpentInLabelingAnInstanceInSeconds = Double
-                .parseDouble(new DecimalFormat("##.###").format(stdOfTime));
+        this.stdDevOfTimeSpentInLabelingAnInstanceInSeconds = (double) Math.round(stdOfTime);
     }
 
 }

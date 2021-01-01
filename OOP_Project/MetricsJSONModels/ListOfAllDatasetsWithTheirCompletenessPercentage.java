@@ -27,8 +27,7 @@ public class ListOfAllDatasetsWithTheirCompletenessPercentage {
     }
 
     public void setCompletenessPercentage(Double completenessPercentage) {
-        this.completenessPercentage = Double
-                .parseDouble(new DecimalFormat("##.###").format(completenessPercentage * 100));
+        this.completenessPercentage = (double) Math.round(completenessPercentage * 100);
     }
 
 }

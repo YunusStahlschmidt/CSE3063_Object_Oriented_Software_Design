@@ -58,7 +58,6 @@ public class DatasetMetric {
     }
 
     private void calculateDatasetCompleteness(Integer numberOfInstances) {
-
         this.datasetModel.setCompletenessPercentage(this.uniqueLabeledInstances.size() / (double) numberOfInstances);
     }
 

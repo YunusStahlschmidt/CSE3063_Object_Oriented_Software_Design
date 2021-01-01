@@ -95,8 +95,7 @@ public class InstanceModel {
 
     public void setEntropy(Double entropy) {
         this.entropy = entropy;
-        this.entropy = Double.parseDouble(new DecimalFormat("##.###").format(entropy));
-
+        this.entropy = (double) Math.round(entropy);
     }
 
 }
