@@ -19,12 +19,6 @@ public class Dataset {
     @SerializedName("dataset name")
     @Expose
     private String datasetName;
-    @SerializedName("path")
-    @Expose
-    private String path;
-    @SerializedName("assignedUserIds")
-    @Expose
-    private List<Integer> assignedUserIds;
     @SerializedName("maximum number of labels per instance")
     @Expose
     private Integer maxLabel;
@@ -53,14 +47,6 @@ public class Dataset {
 
     public String getDatasetName() {
         return datasetName;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public List<Integer> getAssignedUserIds() {
-        return this.assignedUserIds;
     }
 
     public ArrayList<User> getAssignedUsers() {
@@ -94,14 +80,6 @@ public class Dataset {
         this.datasetName = datasetName;
     }
 
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public void setAssignedUserIds(List<Integer> assignedUserIds) {
-        this.assignedUserIds = assignedUserIds;
-    }
-
     public void setAssignedUsers(ArrayList<User> assignedUsers) {
         this.assignedUsers = assignedUsers;
     }
@@ -122,4 +100,4 @@ public class Dataset {
         this.datasetMetric.getDatasetModel().setDatasetId(this.datasetId);
     }
 
-}
+} 
