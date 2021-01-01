@@ -27,29 +27,22 @@ public class Login {
                 {
                     System.out.println("Username can't be empty");
                 }
-
             }
 
             else
             {
                 for (User user: users)
                 {
-    
                     if (username.equals(user.getName()))
                     {
                         if (password.equals(user.getPassword()))
                         {
                             System.out.println("Welcome mr/mrs " + username);
-                            
                             return user;
                         }
                     }
-
-    
-                }
-                
-                System.out.println("Invalid username or password. Please try again.");
-            
+                }          
+                System.out.println("Invalid username or password. Please try again.");      
             }   
         }  
     }

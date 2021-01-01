@@ -16,15 +16,15 @@ public class User {
     @SerializedName("userName")
     @Expose
     private String userName;
-    @SerializedName("userPassword")
-    @Expose
-    private String userPassword;
     @SerializedName("userType")
     @Expose
     private String userType;
     @SerializedName("consistencyCheckProbability")
     @Expose
     private double consistencyCheckProbability;
+    @SerializedName("userPassword")
+    @Expose
+    private String userPassword;
     private UserMetric userMetric = new UserMetric();
 
     public User() {
