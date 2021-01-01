@@ -27,7 +27,7 @@ public class ListClassLabelsAndPercentage {
     }
 
     public void setPercentage(Double percentage) {
-        this.percentage = Double.parseDouble(new DecimalFormat("##.###").format(percentage * 100));
+        this.percentage = (double) Math.round(percentage * 100);
     }
 
 }

@@ -25,7 +25,7 @@ public class ListOfUsersAssignedAndTheirConsistencyPercentage {
     }
 
     public void setConsistencyPercentage(Double consistencyPercentage) {
-        this.consistencyPercentage = consistencyPercentage * 100;
+        this.consistencyPercentage = (double) Math.round(consistencyPercentage * 100);
     }
 
 }
