@@ -23,7 +23,7 @@
         </layout>
     </appender>
 
-    <logger name="Iteration_2" level="debug" additivity="false">
+    <logger name="OOP_Project" level="debug" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
 
