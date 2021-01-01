@@ -59,15 +59,15 @@ public class Parser {
         this.users = users;
     }
 
-    private Dataset parseDatasetFile(Dataset dataset, String currentDirectory) throws Exception {
+    private Dataset parseDatasetFile(DatasetParsingModel datasetPM, String currentDirectory) throws Exception {
         try {
             Gson gson = new Gson();
-            currentDirectory += "\\" + dataset.getPath();
+            currentDirectory += "\\" + datasetPM.getPath();
             BufferedReader br = new BufferedReader(new FileReader(currentDirectory));
             Dataset newDataset = gson.fromJson(br, Dataset.class);
 
-            newDataset.setPath(dataset.getPath());
-            newDataset.setAssignedUserIds(dataset.getAssignedUserIds());
+            // newDataset.setPath(datasetPM.getPath());
+            // newDataset.setAssignedUserIds(datasetPM.getAssignedUserIds());
             String logString = "dataset " + newDataset.getDatasetId() + " was parsed successfully";
             logger.info(logString);
             return newDataset;
@@ -75,7 +75,7 @@ public class Parser {
         } catch (Exception e) {
             logger.warn("Invalid dataset path!");
         }
-        return dataset;
+        return null;
     }
 
     public void parseConfigFile(String currentDirectory) throws Exception {
@@ -85,19 +85,21 @@ public class Parser {
             ConfigModel configModel = gson.fromJson(br, ConfigModel.class);
             this.currentDatasetId = configModel.getCurrentDatasetId();
             this.users = (ArrayList<User>) configModel.getUsers();
-            for (Dataset dataset : configModel.getDatasets()) {
+            for (DatasetParsingModel datasetPM : configModel.getDatasetParsingModels()) {
                 ArrayList<User> assignedUsers = new ArrayList<User>();
                 for (User user : this.users) {
-                    for (Integer userId : dataset.getAssignedUserIds()) {
+                    for (Integer userId : datasetPM.getAssignedUserIds()) {
                         if (userId.equals(user.getId())) {
                             user.getUserMetric().incrementNumberOfDatasetsAssigned();// set number of assigned datasets
                             assignedUsers.add(user);
                         }
                     }
                 }
-                previousLabelAssignments.put(dataset.getDatasetId(),
-                        parsePreviousLabelAssignments(currentDirectory, dataset.getDatasetId()));
-                dataset = parseDatasetFile(dataset, currentDirectory); // parse each dataset
+                previousLabelAssignments.put(datasetPM.getDatasetId(),
+                        parsePreviousLabelAssignments(currentDirectory, datasetPM.getDatasetId()));
+
+                // conversion from datasetParsingModel to dataset
+                Dataset dataset = parseDatasetFile(datasetPM, currentDirectory); // parse each dataset
                 dataset.setAssignedUsers(assignedUsers);
                 dataset.getDatasetMetric().setNumberOfAssignedUsers(assignedUsers.size());// Dataset Metric - 4
                 datasetHashMap.put(dataset.getDatasetId(), dataset); // put dataset into map of datasets
