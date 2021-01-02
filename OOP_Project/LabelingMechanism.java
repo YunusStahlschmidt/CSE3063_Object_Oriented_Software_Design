@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 // import java.util.Scanner;
 import java.util.HashMap;
 // import java.util.Formatter;
@@ -26,7 +27,6 @@ public class LabelingMechanism {
     private Integer randomInstanceProbability;
     private Integer recurrentLabeledInstanceIdx;
     private ArrayList<Instance> recurrentLabeledInstances;
-    private ArrayList<User> assignedUsers;
     private Random random = new Random();
     private Date startDate, endDate;
     private LabelAssignment newLabelAssignment;
@@ -41,13 +41,12 @@ public class LabelingMechanism {
 
     private static final Logger logger = LoggerFactory.getLogger(LabelingMechanism.class);
 
-    LabelingMechanism(Dataset dataset, MetricModel metrics, String currentDirectory,
+    public LabelingMechanism(Dataset dataset, MetricModel metrics, String currentDirectory,
             ArrayList<DatasetModel> datasetModelList, ArrayList<InstanceModel> instanceModelList,
             ArrayList<UserModel> userModelList, HashMap<Integer, ArrayList<LabelAssignment>> allLabelAssignments) {
 
         this.dataset = dataset;
         this.metrics = metrics;
-        this.assignedUsers = dataset.getAssignedUsers();
         this.currentDirectory = currentDirectory;
         this.datasetModelList = datasetModelList;
         this.instanceModelList = instanceModelList;
@@ -89,20 +88,15 @@ public class LabelingMechanism {
             while (running) {
                 datasetMetric = dataset.getDatasetMetric();
 
-                // System.out.printf("Comment: %s\n\n", anInstance.getInstance());
                 String message1 = String.format("Comment: %s\n\n", anInstance.getInstance());
                 ui.printOutput(message1);
                 newlyAddedLabels = new ArrayList<>();
-                // instanceMetric = anInstance.getInstanceMetric();
 
                 for (Label l : dataset.getLabels()) {
-                    // System.out.printf("%s. %s ", l.getId(), l.getLabelText());
                     String message3 = String.format("%s. %s ", l.getId(), l.getLabelText());
                     ui.printOutput(message3);
                     labelOpt.add(l.getId().toString());
                 }
-                // System.out.printf("\nChoose max %s label/s number (seperate with coma if you
-                // choose more than one): ", maxLabel);
                 String message4 = String.format(
                         "\nChoose max %s label/s number (seperate with coma if you choose more than one): ", maxLabel);
                 String assign = ui.askForInput(message4);
@@ -120,7 +114,6 @@ public class LabelingMechanism {
                     int count = 0;
                     for (String str : chosen) {
                         if (!labelOpt.contains(str)) {
-                            // System.out.printf("\n%s not in label options. Choose a valid Label.\n", str);
                             String message2 = String.format("\n%s not in label options. Choose a valid Label.\n", str);
                             ui.printOutput(message2);
                             break;
@@ -128,18 +121,19 @@ public class LabelingMechanism {
                             count++;
                         }
                     }
-                    if (count == chosen.size())
+                    if (count == chosen.size()){
                         running = false;
-                    for (int i = 0; i < chosen.size(); i++) {
-                        Label tempLabel = dataset.getLabels().get(Integer.parseInt(chosen.get(i)) - 1);
-                        newlyAddedLabels.add(tempLabel);
-                        instanceMetric.addUniqueLabel(tempLabel);
-                        datasetMetric.addInstanceForLabel(tempLabel, anInstance);
+                        for (int i = 0; i < chosen.size(); i++) {
+                            Label tempLabel = dataset.getLabels().get(Integer.parseInt(chosen.get(i)) - 1);
+                            newlyAddedLabels.add(tempLabel);
+                            instanceMetric.addUniqueLabel(tempLabel);
+                            datasetMetric.addInstanceForLabel(tempLabel, anInstance);
+                        }
+                        newLabelAssignment = new LabelAssignment(anInstance.getId(), newlyAddedLabels, currentUser.getId(),
+                                new Date());
+                        labelAssignments.add(newLabelAssignment);
+                        endDate = new Date();
                     }
-                    newLabelAssignment = new LabelAssignment(anInstance.getId(), newlyAddedLabels, currentUser.getId(),
-                            new Date());
-                    labelAssignments.add(newLabelAssignment);
-                    endDate = new Date();
                 }
             }
             this.logInfoAndUpdatingModels(anInstance, currentUser);
@@ -147,59 +141,68 @@ public class LabelingMechanism {
     }
 
     public void botLabeling() {
-        ArrayList<User> assignedUsers = this.dataset.getAssignedUsers();
-        ArrayList<Label> addedLabels;
+        ArrayList<User> assignedBotUsers = (ArrayList<User>) this.dataset.getAssignedUsers().stream()
+                .filter(u -> u.getType().equals("RandomBot") || u.getType().equals("MLBot") ).collect(Collectors.toList());
         User currentUser;
-        Label randomLabel;
+        
         datasetMetric = dataset.getDatasetMetric();
 
         for (Instance anInstance : dataset.getInstances()) {
-            for (int i = 0; i < this.assignedUsers.size(); i++) {
-                currentUser = assignedUsers.get(random.nextInt(assignedUsers.size()));
+            for (int i = 0; i < assignedBotUsers.size(); i++) {
+                currentUser = assignedBotUsers.get(random.nextInt(assignedBotUsers.size()));
                 // picking random Instance based on probability
                 randomInstanceProbability = random.nextInt(100) + 1;
 
-                if (randomInstanceProbability < currentUser.getConsistencyCheckProbability() * 100
-                        && currentUser.getUserMetric().getUniqueLabeledInstances().size() > 0) {
-                    recurrentLabeledInstances = new ArrayList<>();
-                    for (Instance instanceToArray : currentUser.getUserMetric().getUniqueLabeledInstances()) {
-                        recurrentLabeledInstances.add(instanceToArray);
-                    }
-                    recurrentLabeledInstanceIdx = random.nextInt(recurrentLabeledInstances.size());
-                    anInstance = recurrentLabeledInstances.get(recurrentLabeledInstanceIdx);
-                }
-
-                userMetric = currentUser.getUserMetric();
-                instanceMetric = anInstance.getInstanceMetric();
-                addedLabels = new ArrayList<>();
-
-                startDate = new Date();
-                for (int maxlabel = 1; maxlabel <= random.nextInt((int) dataset.getMaxLabel()) + 1;) {
-                    randomLabel = dataset.getLabels().get(random.nextInt(dataset.getLabels().size()));
-
-                    if (!addedLabels.contains(randomLabel)) {
-                        addedLabels.add(randomLabel);
-                        maxlabel++;
-
-                        // updating Instance Metric
-                        instanceMetric.addUniqueLabel(randomLabel);
-
-                        // updating Dataset Metric - 3
-                        datasetMetric.addInstanceForLabel(randomLabel, anInstance);
-                    }
-                }
-                newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(),
-                        new Date());
-                labelAssignments.add(newLabelAssignment);
-                endDate = new Date();
-
-                this.logInfoAndUpdatingModels(anInstance, currentUser);
+                if (currentUser.getType().equals("RandomBot"))
+                    randomLabeling(currentUser, anInstance);
+                else if (currentUser.getType().equals("MLBot"))
+                    ruleBasedLabeling(currentUser, anInstance);
             }
         }
     }
 
-    public void mlLabeling() {
+    public void randomLabeling(User currentUser, Instance anInstance) {
+        ArrayList<Label> addedLabels;
+        Label randomLabel;
+        if (randomInstanceProbability < currentUser.getConsistencyCheckProbability() * 100
+                && currentUser.getUserMetric().getUniqueLabeledInstances().size() > 0) {
+            recurrentLabeledInstances = new ArrayList<>();
+            for (Instance instanceToArray : currentUser.getUserMetric().getUniqueLabeledInstances()) {
+                recurrentLabeledInstances.add(instanceToArray);
+            }
+            recurrentLabeledInstanceIdx = random.nextInt(recurrentLabeledInstances.size());
+            anInstance = recurrentLabeledInstances.get(recurrentLabeledInstanceIdx);
+        }
 
+        userMetric = currentUser.getUserMetric();
+        instanceMetric = anInstance.getInstanceMetric();
+        addedLabels = new ArrayList<>();
+
+        startDate = new Date();
+        for (int maxlabel = 1; maxlabel <= random.nextInt((int) dataset.getMaxLabel()) + 1;) {
+            randomLabel = dataset.getLabels().get(random.nextInt(dataset.getLabels().size()));
+
+            if (!addedLabels.contains(randomLabel)) {
+                addedLabels.add(randomLabel);
+                maxlabel++;
+
+                // updating Instance Metric
+                instanceMetric.addUniqueLabel(randomLabel);
+
+                // updating Dataset Metric - 3
+                datasetMetric.addInstanceForLabel(randomLabel, anInstance);
+            }
+        }
+        newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(),
+                new Date());
+        labelAssignments.add(newLabelAssignment);
+        endDate = new Date();
+
+        this.logInfoAndUpdatingModels(anInstance, currentUser);
+    }
+
+    public void ruleBasedLabeling(User currentUser, Instance anInstance) {
+        System.out.println("executing ml labeling");
     }
 
     public void logInfoAndUpdatingModels(Instance anInstance, User currentUser) {
