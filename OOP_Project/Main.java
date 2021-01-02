@@ -1,11 +1,11 @@
 package OOP_Project;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+// import java.util.Arrays;
+// import java.util.Date;
+// import java.util.List;
+// import java.util.Random;
+// import java.util.Scanner;
 import java.util.HashMap;
 
 import org.slf4j.Logger;
@@ -23,7 +23,7 @@ This class hold all "computations" will take place
 public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
-    public Main() {
+    public static void main(String[] args) {
 
         // Required Objects
         HashMap<Integer, Dataset> datasetHashMap;
@@ -32,20 +32,22 @@ public class Main {
         // ArrayList<LabelAssignment> labelAssignments = new ArrayList<>();
         ArrayList<User> users = new ArrayList<>();
         Parser parser = new Parser();
-        JSONSerializer serializer = new JSONSerializer();
-        Random random = new Random();
+        // JSONSerializer serializer = new JSONSerializer();
+        // Random random = new Random();
         int currentDatasetId = 0;
         String currentDirectory = System.getProperty("user.dir");
         currentDirectory += "\\OOP_Project";
-        HashMap<Integer, ArrayList<LabelAssignment>> previousLabelAssignments = new HashMap<>();
-        Scanner sc = new Scanner(System.in);
+        HashMap<Integer, ArrayList<LabelAssignment>> allLabelAssignments = new HashMap<>();
+        // Scanner sc = new Scanner(System.in);
+        UI ui = new UI();
+        Login login = new Login();
 
         // parsing the files
         while (true) {
             try {
                 parser.parseConfigFile(currentDirectory);
                 datasetHashMap = parser.getDatasetHashMap();
-                previousLabelAssignments = parser.getPreviousLabelAssignments();
+                allLabelAssignments = parser.getPreviousLabelAssignments();
                 parser.parseMetrics(currentDirectory);
                 metrics = parser.getMetrics();// if null we have to initialize for all models first
 
@@ -54,21 +56,25 @@ public class Main {
                 break;
 
             } catch (Exception e) {
-                System.out.println("FileNotFound error has been occured! Please check your file paths.");
-                logger.warn("FileNotFound error has occured!");
+
+                // System.out.println("FileNotFound error has been occured! Please check your
+                // file paths.");
+                // ui.printOutput("FileNotFound error has occured! Please check your file
+                // paths.");
+                logger.error("FileNotFound error has occured!");
                 System.exit(0);
             }
         }
 
         dataset = datasetHashMap.get(currentDatasetId);
 
-        int userIndex, numberOfAssignmentsPerInstance;
-        ArrayList<Label> addedLabels;
-        Label randomLabel;
-        List<Label> allLabels;
-        User currentUser;
-        Date startDate, endDate;
-        LabelAssignment newLabelAssignment;
+        // int userIndex, numberOfAssignmentsPerInstance;
+        // ArrayList<Label> addedLabels;
+        // Label randomLabel;
+        // List<Label> allLabels;
+        // User currentUser;
+        // Date startDate, endDate;
+        // LabelAssignment newLabelAssignment;
 
         ArrayList<DatasetModel> datasetModelList = new ArrayList<DatasetModel>();
         ArrayList<InstanceModel> instanceModelList = new ArrayList<InstanceModel>();
@@ -88,11 +94,15 @@ public class Main {
 
             // add previous label assignments for current dataset to our main list of
             // assignments
-            for (LabelAssignment prevLabelAssignment : previousLabelAssignments.get(currentDatasetId)) {
+            for (LabelAssignment prevLabelAssignment : allLabelAssignments.get(currentDatasetId)) {
                 for (Instance currInstance : dataset.getInstances()) {
+                    if (!prevLabelAssignment.getInstanceId().equals(currInstance.getId())) {
+                        continue;
+                    }
                     for (User currUser : dataset.getAssignedUsers()) {
-                        if (prevLabelAssignment.getInstanceId().equals(currInstance.getId())
-                                && prevLabelAssignment.getUserId().equals(currUser.getId())) {
+                        if (!prevLabelAssignment.getUserId().equals(currUser.getId())) {
+                            continue;
+                        } else {
                             newAddedLabels = new ArrayList<>();
                             for (Integer labelId : prevLabelAssignment.getAssignedLabelId()) {
                                 for (Label currentLabel : dataset.getLabels()) {
@@ -100,6 +110,7 @@ public class Main {
                                         currInstance.getInstanceMetric().addUniqueLabel(currentLabel);
                                         dataset.getDatasetMetric().addInstanceForLabel(currentLabel, currInstance);
                                         newAddedLabels.add(currentLabel);
+
                                     }
                                 }
                             }
@@ -172,10 +183,24 @@ public class Main {
         }
 
         LabelingMechanism labelingMechanism = new LabelingMechanism(dataset, metrics, currentDirectory,
-                datasetModelList, instanceModelList, userModelList, previousLabelAssignments);
+                datasetModelList, instanceModelList, userModelList, allLabelAssignments);
 
-        labelingMechanism.botLabeling();
-        logger.info("Program sc.cl");
+        User user = login.logIn(dataset.getAssignedUsers(), ui);
+
+        if (user == null) {
+            for (User botuser : dataset.getAssignedUsers()) {
+                if (botuser.getType().equals("RandomBot")) {
+                    labelingMechanism.botLabeling();
+                } else if (botuser.getType() == "MLBot") {
+                    labelingMechanism.mlLabeling();
+                }
+            }
+        } else {
+            if (user.getType().equals("Human")) {
+                labelingMechanism.userLabeling(user);
+            }
+        }
+
+        logger.info("Program has excuted Succesfully.");
     }
-
 }

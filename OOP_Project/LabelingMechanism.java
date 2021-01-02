@@ -5,9 +5,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
+// import java.util.Scanner;
 import java.util.HashMap;
-import java.util.Formatter;
+// import java.util.Formatter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,6 @@ import OOP_Project.MetricsJSONModels.UserModel;
 
 public class LabelingMechanism {
     private Dataset dataset;
-    private User currentUser;
     private MetricModel metrics;
     private UserMetric userMetric;
     private InstanceMetric instanceMetric;
@@ -56,7 +55,7 @@ public class LabelingMechanism {
         this.labelAssignments = allLabelAssignments.get(this.dataset.getDatasetId());
     }
 
-    public void userLabeling(ArrayList<LabelAssignment> labelAssignments) {
+    public void userLabeling(User currentUser) {
         UI ui = new UI();
         // if (currentUser.getId())
         for (Instance anInstance : dataset.getInstances()) {
@@ -91,22 +90,21 @@ public class LabelingMechanism {
                 datasetMetric = dataset.getDatasetMetric();
 
                 // System.out.printf("Comment: %s\n\n", anInstance.getInstance());
-                String message1 = String.format("Comment: 1%s\n\n", anInstance.getInstance());
+                String message1 = String.format("Comment: %s\n\n", anInstance.getInstance());
                 ui.printOutput(message1);
                 newlyAddedLabels = new ArrayList<>();
                 // instanceMetric = anInstance.getInstanceMetric();
 
                 for (Label l : dataset.getLabels()) {
                     // System.out.printf("%s. %s ", l.getId(), l.getLabelText());
-                    String message3 = String.format("1%s. 2%s ", l.getId(), l.getLabelText());
+                    String message3 = String.format("%s. %s ", l.getId(), l.getLabelText());
                     ui.printOutput(message3);
                     labelOpt.add(l.getId().toString());
                 }
                 // System.out.printf("\nChoose max %s label/s number (seperate with coma if you
                 // choose more than one): ", maxLabel);
                 String message4 = String.format(
-                        "\nChoose max 1%s label/s number (seperate with coma if you choose more than one): ", maxLabel);
-                ui.printOutput(message4);
+                        "\nChoose max %s label/s number (seperate with coma if you choose more than one): ", maxLabel);
                 String assign = ui.askForInput(message4);
 
                 if (assign.equals("")) {
@@ -123,7 +121,7 @@ public class LabelingMechanism {
                     for (String str : chosen) {
                         if (!labelOpt.contains(str)) {
                             // System.out.printf("\n%s not in label options. Choose a valid Label.\n", str);
-                            String message2 = String.format("\n1%s not in label options. Choose a valid Label.\n", str);
+                            String message2 = String.format("\n%s not in label options. Choose a valid Label.\n", str);
                             ui.printOutput(message2);
                             break;
                         } else {
@@ -133,7 +131,7 @@ public class LabelingMechanism {
                     if (count == chosen.size())
                         running = false;
                     for (int i = 0; i < chosen.size(); i++) {
-                        Label tempLabel = dataset.getLabels().get(Integer.parseInt(chosen.get(i)));
+                        Label tempLabel = dataset.getLabels().get(Integer.parseInt(chosen.get(i)) - 1);
                         newlyAddedLabels.add(tempLabel);
                         instanceMetric.addUniqueLabel(tempLabel);
                         datasetMetric.addInstanceForLabel(tempLabel, anInstance);
@@ -144,6 +142,7 @@ public class LabelingMechanism {
                     endDate = new Date();
                 }
             }
+            this.logInfoAndUpdatingModels(anInstance, currentUser);
         }
     }
 
@@ -152,6 +151,7 @@ public class LabelingMechanism {
         ArrayList<Label> addedLabels;
         User currentUser;
         Label randomLabel;
+        datasetMetric = dataset.getDatasetMetric();
 
         for (Instance anInstance : dataset.getInstances()) {
             for (int i = 0; i < this.assignedUsers.size(); i++) {
@@ -193,7 +193,7 @@ public class LabelingMechanism {
                 labelAssignments.add(newLabelAssignment);
                 endDate = new Date();
 
-                this.logInfoAndUpdatingModels(anInstance);
+                this.logInfoAndUpdatingModels(anInstance, currentUser);
             }
         }
     }
@@ -202,7 +202,7 @@ public class LabelingMechanism {
 
     }
 
-    public void logInfoAndUpdatingModels(Instance anInstance) {
+    public void logInfoAndUpdatingModels(Instance anInstance, User currentUser) {
         // print the output to console via the logger (and too app.log file)
         if (newLabelAssignment.getAssignedLabelId().size() == 1) {
             String label_name = dataset.getLabels().get((int) newLabelAssignment.getSpecificAssignedLabelId(0) - 1)
