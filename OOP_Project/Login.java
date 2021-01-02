@@ -1,16 +1,15 @@
 package OOP_Project;
 
-import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Login {
 
-    public User logIn(ArrayList<User> users) { // returns true if random should be initialized else
-                                               // false
+    public User logIn(ArrayList<User> users, UI ui) { // returns true if random should be initialized else
+        // false
 
         // key is username value is password
         // Scanner scanner = new Scanner(System.in);
-        UI ui = new UI();
+        // UI ui = new UI();
 
         while (true) {
             // System.out.print("What is your username: ");
