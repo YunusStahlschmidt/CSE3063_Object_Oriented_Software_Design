@@ -121,18 +121,19 @@ public class LabelingMechanism {
                             count++;
                         }
                     }
-                    if (count == chosen.size())
+                    if (count == chosen.size()){
                         running = false;
-                    for (int i = 0; i < chosen.size(); i++) {
-                        Label tempLabel = dataset.getLabels().get(Integer.parseInt(chosen.get(i)) - 1);
-                        newlyAddedLabels.add(tempLabel);
-                        instanceMetric.addUniqueLabel(tempLabel);
-                        datasetMetric.addInstanceForLabel(tempLabel, anInstance);
+                        for (int i = 0; i < chosen.size(); i++) {
+                            Label tempLabel = dataset.getLabels().get(Integer.parseInt(chosen.get(i)) - 1);
+                            newlyAddedLabels.add(tempLabel);
+                            instanceMetric.addUniqueLabel(tempLabel);
+                            datasetMetric.addInstanceForLabel(tempLabel, anInstance);
+                        }
+                        newLabelAssignment = new LabelAssignment(anInstance.getId(), newlyAddedLabels, currentUser.getId(),
+                                new Date());
+                        labelAssignments.add(newLabelAssignment);
+                        endDate = new Date();
                     }
-                    newLabelAssignment = new LabelAssignment(anInstance.getId(), newlyAddedLabels, currentUser.getId(),
-                            new Date());
-                    labelAssignments.add(newLabelAssignment);
-                    endDate = new Date();
                 }
             }
             this.logInfoAndUpdatingModels(anInstance, currentUser);
