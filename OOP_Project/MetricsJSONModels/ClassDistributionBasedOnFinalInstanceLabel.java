@@ -27,8 +27,7 @@ public class ClassDistributionBasedOnFinalInstanceLabel {
     }
 
     public void setDistribution(Double distributionPercentage) {
-        this.distributionPercentage = Double
-                .parseDouble(new DecimalFormat("##.###").format(distributionPercentage * 100));
+        this.distributionPercentage =(double) Math.round(distributionPercentage* 100);
     }
 
 }
