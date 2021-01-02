@@ -14,5 +14,4 @@ public class UI {
     public void printOutput(String Message) {
         System.out.println(Message);
     }
-
 }
