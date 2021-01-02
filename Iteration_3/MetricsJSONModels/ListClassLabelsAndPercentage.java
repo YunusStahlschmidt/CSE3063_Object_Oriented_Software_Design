@@ -1,6 +1,4 @@
-package OOP_Project.MetricsJSONModels;
-
-import java.text.DecimalFormat;
+package Iteration_3.MetricsJSONModels;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

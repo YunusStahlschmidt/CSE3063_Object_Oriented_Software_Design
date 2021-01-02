@@ -1,4 +1,4 @@
-package OOP_Project;
+package Iteration_3;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import OOP_Project.MetricsJSONModels.InstanceModel;
-import OOP_Project.MetricsJSONModels.ListClassLabelsAndPercentage;
+import Iteration_3.MetricsJSONModels.InstanceModel;
+import Iteration_3.MetricsJSONModels.ListClassLabelsAndPercentage;
 
 public class InstanceMetric {
     private ArrayList<LabelAssignment> labelAssignments = new ArrayList<LabelAssignment>();

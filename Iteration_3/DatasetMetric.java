@@ -1,4 +1,4 @@
-package OOP_Project;
+package Iteration_3;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
 
-import OOP_Project.MetricsJSONModels.DatasetModel;
-import OOP_Project.MetricsJSONModels.ListNumberOfUniqueInstancesForEachClassLabel;
-import OOP_Project.MetricsJSONModels.ClassDistributionBasedOnFinalInstanceLabel;
-import OOP_Project.MetricsJSONModels.ListOfUsersAssignedAndTheirConsistencyPercentage;
-import OOP_Project.MetricsJSONModels.ListOfUsersAssignedAndTheirCompletenessPercentage;
+import Iteration_3.MetricsJSONModels.DatasetModel;
+import Iteration_3.MetricsJSONModels.ListNumberOfUniqueInstancesForEachClassLabel;
+import Iteration_3.MetricsJSONModels.ClassDistributionBasedOnFinalInstanceLabel;
+import Iteration_3.MetricsJSONModels.ListOfUsersAssignedAndTheirConsistencyPercentage;
+import Iteration_3.MetricsJSONModels.ListOfUsersAssignedAndTheirCompletenessPercentage;
 
 public class DatasetMetric {
     private HashMap<Instance, Label> classDistributions = new HashMap<>();
