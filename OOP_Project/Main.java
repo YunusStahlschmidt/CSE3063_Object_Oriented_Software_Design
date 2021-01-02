@@ -1,11 +1,6 @@
 package OOP_Project;
 
 import java.util.ArrayList;
-// import java.util.Arrays;
-// import java.util.Date;
-// import java.util.List;
-// import java.util.Random;
-// import java.util.Scanner;
 import java.util.HashMap;
 
 import org.slf4j.Logger;
@@ -29,16 +24,12 @@ public class Main {
         HashMap<Integer, Dataset> datasetHashMap;
         Dataset dataset;
         MetricModel metrics;
-        // ArrayList<LabelAssignment> labelAssignments = new ArrayList<>();
         ArrayList<User> users = new ArrayList<>();
         Parser parser = new Parser();
-        // JSONSerializer serializer = new JSONSerializer();
-        // Random random = new Random();
         int currentDatasetId = 0;
         String currentDirectory = System.getProperty("user.dir");
         currentDirectory += "\\OOP_Project";
         HashMap<Integer, ArrayList<LabelAssignment>> allLabelAssignments = new HashMap<>();
-        // Scanner sc = new Scanner(System.in);
         UI ui = new UI();
         Login login = new Login();
 
@@ -56,25 +47,12 @@ public class Main {
                 break;
 
             } catch (Exception e) {
-
-                // System.out.println("FileNotFound error has been occured! Please check your
-                // file paths.");
-                // ui.printOutput("FileNotFound error has occured! Please check your file
-                // paths.");
                 logger.error("FileNotFound error has occured!");
                 System.exit(0);
             }
         }
 
         dataset = datasetHashMap.get(currentDatasetId);
-
-        // int userIndex, numberOfAssignmentsPerInstance;
-        // ArrayList<Label> addedLabels;
-        // Label randomLabel;
-        // List<Label> allLabels;
-        // User currentUser;
-        // Date startDate, endDate;
-        // LabelAssignment newLabelAssignment;
 
         ArrayList<DatasetModel> datasetModelList = new ArrayList<DatasetModel>();
         ArrayList<InstanceModel> instanceModelList = new ArrayList<InstanceModel>();
@@ -188,17 +166,10 @@ public class Main {
         User user = login.logIn(dataset.getAssignedUsers(), ui);
 
         if (user == null) {
-            for (User botuser : dataset.getAssignedUsers()) {
-                if (botuser.getType().equals("RandomBot")) {
-                    labelingMechanism.botLabeling();
-                } else if (botuser.getType() == "MLBot") {
-                    labelingMechanism.mlLabeling();
-                }
-            }
+            labelingMechanism.botLabeling();
         } else {
-            if (user.getType().equals("Human")) {
-                labelingMechanism.userLabeling(user);
-            }
+            if (user.getType().equals("Human")) 
+                labelingMechanism.userLabeling(user);   
         }
 
         logger.info("Program has excuted Succesfully.");
