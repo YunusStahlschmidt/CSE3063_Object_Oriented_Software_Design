@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class Login {
 
-    public static User randomInitialize(ArrayList<User> users) { // returns true if random should be initialized else
-                                                                 // false
+    public User logIn(ArrayList<User> users) { // returns true if random should be initialized else
+                                               // false
 
         // key is username value is password
         // Scanner scanner = new Scanner(System.in);

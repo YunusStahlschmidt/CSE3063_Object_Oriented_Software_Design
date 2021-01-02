@@ -32,14 +32,31 @@ public class LabelingMechanism {
     private Date startDate, endDate;
     private LabelAssignment newLabelAssignment;
     private ArrayList<Label> newlyAddedLabels;
+    private JSONSerializer serializer = new JSONSerializer();
+    private String currentDirectory;
+    private ArrayList<LabelAssignment> labelAssignments;
+
+    private ArrayList<DatasetModel> datasetModelList = new ArrayList<DatasetModel>();
+    private ArrayList<InstanceModel> instanceModelList = new ArrayList<InstanceModel>();
+    private ArrayList<UserModel> userModelList = new ArrayList<UserModel>();
 
     private static final Logger logger = LoggerFactory.getLogger(LabelingMechanism.class);
 
-    LabelingMechanism(ArrayList<User> assignedUsers) {
-        this.assignedUsers = assignedUsers;
+    LabelingMechanism(Dataset dataset, MetricModel metrics, String currentDirectory,
+            ArrayList<DatasetModel> datasetModelList, ArrayList<InstanceModel> instanceModelList,
+            ArrayList<UserModel> userModelList, HashMap<Integer, ArrayList<LabelAssignment>> allLabelAssignments) {
+
+        this.dataset = dataset;
+        this.metrics = metrics;
+        this.assignedUsers = dataset.getAssignedUsers();
+        this.currentDirectory = currentDirectory;
+        this.datasetModelList = datasetModelList;
+        this.instanceModelList = instanceModelList;
+        this.userModelList = userModelList;
+        this.labelAssignments = allLabelAssignments.get(this.dataset.getDatasetId());
     }
 
-    public void userLabeling() {
+    public void userLabeling(ArrayList<LabelAssignment> labelAssignments) {
         UI ui = new UI();
         // if (currentUser.getId())
         for (Instance anInstance : dataset.getInstances()) {
@@ -81,15 +98,16 @@ public class LabelingMechanism {
 
                 for (Label l : dataset.getLabels()) {
                     // System.out.printf("%s. %s ", l.getId(), l.getLabelText());
-                    String message3 = String.format("1%s. 2%s ", l.getId(), l.getLabelText()));
+                    String message3 = String.format("1%s. 2%s ", l.getId(), l.getLabelText());
                     ui.printOutput(message3);
                     labelOpt.add(l.getId().toString());
                 }
-                // System.out.printf("\nChoose max %s label/s number (seperate with coma if you choose more than one): ", maxLabel);
-                String message4 = String.format("\nChoose max 1%s label/s number (seperate with coma if you choose more than one): ", maxLabel);
+                // System.out.printf("\nChoose max %s label/s number (seperate with coma if you
+                // choose more than one): ", maxLabel);
+                String message4 = String.format(
+                        "\nChoose max 1%s label/s number (seperate with coma if you choose more than one): ", maxLabel);
                 ui.printOutput(message4);
-                String assign = ui
-                        .askForInput(message4);
+                String assign = ui.askForInput(message4);
 
                 if (assign.equals("")) {
                     ui.printOutput("Choose a label. Please try again.");
@@ -131,7 +149,9 @@ public class LabelingMechanism {
 
     public void botLabeling() {
         ArrayList<User> assignedUsers = this.dataset.getAssignedUsers();
+        ArrayList<Label> addedLabels;
         User currentUser;
+        Label randomLabel;
 
         for (Instance anInstance : dataset.getInstances()) {
             for (int i = 0; i < this.assignedUsers.size(); i++) {
@@ -182,11 +202,11 @@ public class LabelingMechanism {
 
     }
 
-    public void logInfoAndUpdatingModels(Instance anInstance, LabelAssignment newLabelAssignment) {
+    public void logInfoAndUpdatingModels(Instance anInstance) {
         // print the output to console via the logger (and too app.log file)
         if (newLabelAssignment.getAssignedLabelId().size() == 1) {
-            String label_name = dataset.getLabels()
-                    .get((int) newLabelAssignment.getSpecificAssignedLabelId(0) - 1).getLabelText();
+            String label_name = dataset.getLabels().get((int) newLabelAssignment.getSpecificAssignedLabelId(0) - 1)
+                    .getLabelText();
             logger.info("user id:" + currentUser.getId() + " " + currentUser.getName() + " tagged instance id:"
                     + anInstance.getId() + " with class label " + newLabelAssignment.getAssignedLabelId() + ":"
                     + label_name + " instance: " + anInstance.getInstance());
@@ -198,9 +218,8 @@ public class LabelingMechanism {
                         .getLabelText());
             }
             logger.info("user id:" + currentUser.getId() + " " + currentUser.getName() + " tagged instance id:"
-                    + anInstance.getId() + " with class labels "
-                    + newLabelAssignment.getAssignedLabelId().toString() + ":" + labels.toString()
-                    + " instance: " + anInstance.getInstance());
+                    + anInstance.getId() + " with class labels " + newLabelAssignment.getAssignedLabelId().toString()
+                    + ":" + labels.toString() + " instance: " + anInstance.getInstance());
         }
 
         // updating current user metric
@@ -210,14 +229,14 @@ public class LabelingMechanism {
         // updating dataset metric
         datasetMetric.callAllNecessaryMethods(anInstance, dataset);
         // setting the list of models to the metrics object
-        metrics.setUsers(List.copyOf(userModelList));
-        metrics.setDataset(List.copyOf(datasetModelList));
-        metrics.setInstance(List.copyOf(instanceModelList));
+        metrics.setUsers((List<UserModel>) userModelList);
+        metrics.setDataset((List<DatasetModel>) datasetModelList);
+        metrics.setInstance((List<InstanceModel>) instanceModelList);
 
         try {
             System.out.println();
-            String outputPath = currentDirectory + "\\output" + String.valueOf(currentDatasetId) + ".json";
-            serializer.serializeOutputFile(outputPath, dataset, labelAssignments, users);
+            String outputPath = currentDirectory + "\\output" + String.valueOf(dataset.getDatasetId()) + ".json";
+            serializer.serializeOutputFile(outputPath, dataset, this.labelAssignments, dataset.getAssignedUsers());
 
             String filePath = currentDirectory + "\\metrics.json";
             serializer.serializeMetricFile(metrics, filePath);
@@ -230,3 +249,4 @@ public class LabelingMechanism {
             logger.warn("Output File path not found!");
         }
     }
+}
