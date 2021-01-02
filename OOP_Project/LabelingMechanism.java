@@ -56,10 +56,12 @@ public class LabelingMechanism {
 
     public void userLabeling(User currentUser) {
         UI ui = new UI();
-        // if (currentUser.getId())
         for (Instance anInstance : dataset.getInstances()) {
             // picking random Instance based on probability
             randomInstanceProbability = random.nextInt(100) + 1;
+            if (currentUser.getUserMetric().getUniqueLabeledInstances().contains(anInstance)) {
+                continue;
+            }
 
             if (randomInstanceProbability < currentUser.getConsistencyCheckProbability() * 100
                     && currentUser.getUserMetric().getUniqueLabeledInstances().size() > 0) {
@@ -121,7 +123,7 @@ public class LabelingMechanism {
                             count++;
                         }
                     }
-                    if (count == chosen.size()){
+                    if (count == chosen.size()) {
                         running = false;
                         for (int i = 0; i < chosen.size(); i++) {
                             Label tempLabel = dataset.getLabels().get(Integer.parseInt(chosen.get(i)) - 1);
@@ -129,8 +131,8 @@ public class LabelingMechanism {
                             instanceMetric.addUniqueLabel(tempLabel);
                             datasetMetric.addInstanceForLabel(tempLabel, anInstance);
                         }
-                        newLabelAssignment = new LabelAssignment(anInstance.getId(), newlyAddedLabels, currentUser.getId(),
-                                new Date());
+                        newLabelAssignment = new LabelAssignment(anInstance.getId(), newlyAddedLabels,
+                                currentUser.getId(), new Date());
                         labelAssignments.add(newLabelAssignment);
                         endDate = new Date();
                     }
@@ -142,17 +144,21 @@ public class LabelingMechanism {
 
     public void botLabeling() {
         ArrayList<User> assignedBotUsers = (ArrayList<User>) this.dataset.getAssignedUsers().stream()
-                .filter(u -> u.getType().equals("RandomBot") || u.getType().equals("MLBot") ).collect(Collectors.toList());
+                .filter(u -> u.getType().equals("RandomBot") || u.getType().equals("MLBot"))
+                .collect(Collectors.toList());
         User currentUser;
-        
+
         datasetMetric = dataset.getDatasetMetric();
 
         for (Instance anInstance : dataset.getInstances()) {
+
             for (int i = 0; i < assignedBotUsers.size(); i++) {
                 currentUser = assignedBotUsers.get(random.nextInt(assignedBotUsers.size()));
                 // picking random Instance based on probability
+                if (currentUser.getUserMetric().getUniqueLabeledInstances().contains(anInstance)) {
+                    continue;
+                }
                 randomInstanceProbability = random.nextInt(100) + 1;
-
                 if (currentUser.getType().equals("RandomBot"))
                     randomLabeling(currentUser, anInstance);
                 else if (currentUser.getType().equals("MLBot"))
@@ -193,8 +199,7 @@ public class LabelingMechanism {
                 datasetMetric.addInstanceForLabel(randomLabel, anInstance);
             }
         }
-        newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(),
-                new Date());
+        newLabelAssignment = new LabelAssignment(anInstance.getId(), addedLabels, currentUser.getId(), new Date());
         labelAssignments.add(newLabelAssignment);
         endDate = new Date();
 
