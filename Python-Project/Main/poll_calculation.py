@@ -1,3 +1,4 @@
+import numpy as np
 class PollCalculation(object):
     """
     docstring
@@ -13,26 +14,36 @@ class PollCalculation(object):
         
     def calculate7a(self, student_list, student_answer_list):
         for student_obj in student_list:
-            if not (student_obj in self.poll.attended_students):
-                continue
-            
             student_metric = [student_obj.student_id, student_obj.student_name, student_obj.student_surname]
+            if not (student_obj in self.poll.attended_students):
+                self.student_array_for7a.append(student_metric)
+                continue
             list_of_student_answer_obj = student_answer_list[student_obj]
             for question_obj in self.poll.question_list:
+                answered = 0
                 for std_answer_obj in list_of_student_answer_obj:
-                    if (std_answer_obj.poll is self.poll) and
-                       (std_answer_obj.question is question_obj) and
-                       (std_answer_obj.answer_list == question_obj.answer_key):
+                    if (std_answer_obj.poll is self.poll) and \
+                            (std_answer_obj.question is question_obj) and \
+                            (std_answer_obj.answer_list == question_obj.answer_key):
                         student_metric.append(1)
+                        answered = 1
 
-                    else:
+                    elif (std_answer_obj.poll is self.poll) and \
+                            (std_answer_obj.question is question_obj) :
                         student_metric.append(0)
-            
+                        answered = 1
+                    if answered:
+                        break
+                if not answered:
+                    student_metric.append(0)
+
+
             question_n = len(self.poll.question_list)
             student_metric.append(question_n)
             student_metric.append(f"{sum(student_metric[3:-1])} of {question_n}")
-            student_metric.append(sum(student_metric[3:-1])/question_n)
+            student_metric.append(sum(student_metric[3:-2])/question_n)
             self.student_array_for7a.append(student_metric)
+        # print(self.student_array_for7a)
 
     def set_header(self):
         for question_n in range(len(self.poll.question_list)):
@@ -40,6 +51,3 @@ class PollCalculation(object):
         self.student_array_for7a[0].append("Num Of Questions")
         self.student_array_for7a[0].append("Success Rate")
         self.student_array_for7a[0].append("Success Percentage")
-        
-
-    

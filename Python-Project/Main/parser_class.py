@@ -23,13 +23,19 @@ class Parser:
 
             csv_file = pd.read_csv(os.path.join(self.POLL_PATH, f), names=list(range(25)))
             csv_file = csv_file.iloc[1:, 1:-1].drop(axis=1, labels=[2])
+            # csv_file = csv_file.dropna(axis=1, how='all')
 
             for row in csv_file.values:
                 quest_obj = self.question_list.get(row[2])
                 for poll_obj in self.polls:
-                    if not (quest_obj in poll_obj.question_list):
-                        continue
-                    break
+                    if (poll_obj.poll_title[:-2] == f[:-4]) and (quest_obj in poll_obj.question_list):
+                        break
+
+
+                    # if not (quest_obj in poll_obj.question_list):
+                    #     continue
+                    # break
+                
 
                 student_obj = self.find_student_obj(row[0])
                 date_obj = row[1] # convert to date object
@@ -38,12 +44,10 @@ class Parser:
                     print("adini duzgun yazmayan biri bulundu", row[0])
 
                 poll_obj.add_attended_student(student_obj) 
-        
                 # self.student_answer_list.setdefault(student_obj, [])
                 for column_n, text in enumerate(row[2:]):
                     if type(text) == float:
                         break
-
                     if column_n % 2 == 0:
                         quest_obj = self.question_list.get(text)
                     else:
@@ -77,11 +81,13 @@ class Parser:
                     self.add_poll(question_text)
                     continue
 
-                question_obj = question.Question(question_text)
+                question_obj = self.question_list.get(question_text)
+                if question_obj is None:
+                    question_obj = question.Question(question_text)
 
-                answer_list = answer.split(';')
-                for ans in answer_list:
-                    question_obj.add_answer_key(ans)
+                    answer_list = answer.split(';')
+                    for ans in answer_list:
+                        question_obj.add_answer_key(ans)
 
                 self.polls[-1].add_question(question_obj)  # add to the last poll in the list
                 self.question_list.setdefault(question_text, question_obj)  # if not in dict already add the question
@@ -127,7 +133,7 @@ class Parser:
             if splitted_name[0] == "AYSENUR":
                 splitted_name[0] = "AYSE"
 
-            for std_name in splitted_name:
+            for std_name in set(splitted_name):
                 if std_name in full_name:
                     counter += 1
 
