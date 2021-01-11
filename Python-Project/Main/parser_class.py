@@ -32,14 +32,14 @@ class Parser:
                     break
 
                 student_obj = self.find_student_obj(row[0])
-                date_obj = row[1]
+                date_obj = row[1] # convert to date object
 
                 if student_obj is None:
                     print("adini duzgun yazmayan biri bulundu", row[0])
 
                 poll_obj.add_attended_student(student_obj) 
         
-                self.student_answer_list.setdefault(student_obj, [])
+                # self.student_answer_list.setdefault(student_obj, [])
                 for column_n, text in enumerate(row[2:]):
                     if type(text) == float:
                         break
@@ -47,12 +47,17 @@ class Parser:
                     if column_n % 2 == 0:
                         quest_obj = self.question_list.get(text)
                     else:
-                        answer_obj = quest_obj.answers.get(text)
-                        if answer_obj is None:
-                            answer_obj = quest_obj.add_answer(text)
-                    
-                        student_answer_obj = student_answer.StudentAnswer(student_obj, answer_obj, quest_obj, date_obj)
-                        self.student_answer_list[student_obj].append(student_answer_obj)
+                        multi_answer = text.split(';')
+                        std_answer_list = []
+                        for ans in multi_answer:
+                            answer_obj = quest_obj.answers.get(ans)
+                            if answer_obj is None:
+                                answer_obj = quest_obj.add_answer(ans)
+                            std_answer_list.append(answer_obj)
+                        
+                            # student_answer_obj = student_answer.StudentAnswer(poll_obj, student_obj, answer_obj, quest_obj, date_obj)
+                            # self.student_answer_list[student_obj].append(student_answer_obj)
+                        self.add_student_answer(poll_obj, student_obj, std_answer_list, quest_obj, date_obj)
 
 
     def parse_answer_keys(self):
@@ -68,7 +73,7 @@ class Parser:
 
             # poll_file_name = poll_text[:-2]
             for question_text, answer in csv_file.values:
-                if type(answer) == float:
+                if type(answer) == float:  # if the question in answer key has no answer it's a new poll
                     self.add_poll(question_text)
                     continue
 
@@ -78,8 +83,8 @@ class Parser:
                 for ans in answer_list:
                     question_obj.add_answer_key(ans)
 
-                self.polls[-1].add_question(question_obj)
-                self.question_list.setdefault(question_text, question_obj)
+                self.polls[-1].add_question(question_obj)  # add to the last poll in the list
+                self.question_list.setdefault(question_text, question_obj)  # if not in dict already add the question
 
     def parse_students(self):
         """
@@ -103,10 +108,11 @@ class Parser:
         question_obj = self.question_list.get(question_text)
         question_obj.add_answer(answer_text)
 
-    def student_answer(self, student_obj, answer_obj, question_obj):
+    def add_student_answer(self, poll_obj, student_obj, answer_obj_list, question_obj, date_obj):
         self.student_answer_list.setdefault(student_obj, [])
-        student_answer_obj = student_answer.StudentAnswer(student_obj, answer_obj, question_obj)
+        student_answer_obj = student_answer.StudentAnswer(poll_obj, student_obj, answer_obj_list, question_obj, date_obj)
         self.student_answer_list[student_obj].append(student_answer_obj)
+
 
     def add_poll(self, text):
         self.polls.append(poll.Poll(text))
