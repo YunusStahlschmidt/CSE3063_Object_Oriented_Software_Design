@@ -8,11 +8,17 @@ if __name__ == "__main__":
     parser_obj.parse_students()
     parser_obj.parse_answer_keys()
     parser_obj.parse_poll_reports()
+
     for poll in parser_obj.polls:
-        calculations = PollCalculation(poll)
-        calculations.set_header()
-        calculations.calculate7a(parser_obj.student_list,parser_obj.student_answer_list)
-        # print(calculations.student_array_for7a)
-        df1 = pd.DataFrame(calculations.student_array_for7a)
-        df1.to_csv(f'{poll.poll_title}.csv')
+        if poll.question_list[0].question_text != "Are you attending this lecture?":
+            calculations = PollCalculation(poll)
+            calculations.set_header()
+            calculations.calculate7a(parser_obj.student_list,parser_obj.student_answer_list)
+            calculations.calculate7b(parser_obj.student_list,parser_obj.student_answer_list)
+            calculations.create_charts()
+
+            # print(calculations.student_array_for7a)
+            df1 = pd.DataFrame(calculations.student_array_for7a)
+            df1.to_excel(f'{poll.poll_title}.xlsx')
+
         

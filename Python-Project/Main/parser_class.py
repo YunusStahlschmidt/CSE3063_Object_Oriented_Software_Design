@@ -31,12 +31,6 @@ class Parser:
                     if (poll_obj.poll_title[:-2] == f[:-4]) and (quest_obj in poll_obj.question_list):
                         break
 
-
-                    # if not (quest_obj in poll_obj.question_list):
-                    #     continue
-                    # break
-                
-
                 student_obj = self.find_student_obj(row[0])
                 date_obj = row[1] # convert to date object
 
@@ -59,8 +53,6 @@ class Parser:
                                 answer_obj = quest_obj.add_answer(ans)
                             std_answer_list.append(answer_obj)
                         
-                            # student_answer_obj = student_answer.StudentAnswer(poll_obj, student_obj, answer_obj, quest_obj, date_obj)
-                            # self.student_answer_list[student_obj].append(student_answer_obj)
                         self.add_student_answer(poll_obj, student_obj, std_answer_list, quest_obj, date_obj)
 
 
