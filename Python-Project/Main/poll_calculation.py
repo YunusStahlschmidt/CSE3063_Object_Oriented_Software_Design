@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -14,6 +15,15 @@ class PollCalculation(object):
         self.poll = poll
         self.student_array_for7a = [["Student_id", "Student_name", "Student_surname"]]
         self.question_dictionary_for7b = {}
+        self.CURRENT_PATH = os.path.dirname(__file__)
+
+        self.STAT_PATH = os.path.join(self.CURRENT_PATH, "statistics")
+        if not os.path.exists(self.STAT_PATH):
+            os.mkdir(self.STAT_PATH)
+
+        self.POLL_PATH = os.path.join(self.STAT_PATH, f"{self.poll.poll_title}")
+        if not os.path.exists(self.POLL_PATH):
+            os.mkdir(self.POLL_PATH)
         
     def calculate7a(self, student_list, student_answer_list):
         for student_obj in student_list:
@@ -65,39 +75,46 @@ class PollCalculation(object):
                     self.question_dictionary_for7b[student_answer_obj.question][answer_obj] += 1
 
     def create_charts(self):
-        counter = 1
+        question_n = 1
         for question_obj in self.question_dictionary_for7b.keys():
-            # statistics_for_question = [[], []]
-            answer_texts = []
-            answer_stats = []
-            colors = []
+            answer_texts, answer_foot_text, answer_stats, percentages, colors = [], [], [], [], []
             
-            counter2 = 1
+            answer_n = 1
             for answer_obj, stat in self.question_dictionary_for7b[question_obj].items():
-                answer_texts.append(f"Ans. {counter2}") # answer_obj.answer_text
+                answer_texts.append(f"Ans.{answer_n}") # answer_obj.answer_text
+                answer_foot_text.append(f"Ans.{answer_n} : {answer_obj.answer_text}") # answer_obj.answer_text
                 answer_stats.append(stat)
                 if answer_obj in question_obj.answer_key:
                     colors.append('green')
                 else:
                     colors.append('red')
-                counter2 += 1
-            # df = pd.Dataframe(statistics_for_question)
+                answer_n += 1
 
-            if len(question_obj.answer_key) == 1:
+            # total = sum(answer_stats)
+            # percentages = [round((student_n/total)*100,1) for student_n in answer_stats]
+
+            question_path = os.path.join(self.POLL_PATH, f"Q{question_n}.png")
+
+            if len(question_obj.answer_key) != 1:
                 fig = plt.figure()
-                # ax = fig.add_axes([0,0,1,1])
                 plt.bar(answer_texts, answer_stats, color=colors)
                 plt.ylabel("Number Of Students")
                 plt.title(question_obj.question_text)
-                
-                plt.savefig(f"Q{counter}.png", bbox_inches='tight')
-            counter += 1
-                
+                plt.figtext(0, -0.10, '\n'.join(answer_foot_text), horizontalalignment='left')
+                plt.savefig(question_path, bbox_inches='tight')
             
+            else:
+                explode = [0.1 if clr == 'green' else 0 for clr in colors]  # only "explode" the correct answer
 
+                fig1, ax1 = plt.subplots()
+                ax1.pie(answer_stats, explode=explode, labels=answer_texts, autopct='%1.1f%%',
+                        shadow=True, startangle=90)
+                ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-                
-
+                plt.title(question_obj.question_text)
+                plt.figtext(0.10, -0.05, '\n'.join(answer_foot_text), horizontalalignment='left')
+                plt.savefig(question_path, bbox_inches='tight')
+            question_n += 1
 
     def set_header(self):
         for question_n in range(len(self.poll.question_list)):
