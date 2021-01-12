@@ -3,6 +3,7 @@ from poll_calculation import *
 import pandas as pd
 import numpy as np
 import pprint
+import os
 if __name__ == "__main__":
     parser_obj = Parser()
     parser_obj.parse_students()
@@ -19,6 +20,6 @@ if __name__ == "__main__":
 
             # print(calculations.student_array_for7a)
             df1 = pd.DataFrame(calculations.student_array_for7a)
-            df1.to_excel(f'{poll.poll_title}.xlsx')
+            df1.to_excel(os.path.join(calculations.POLL_PATH, f'{poll.poll_title}.xlsx'))
 
         
