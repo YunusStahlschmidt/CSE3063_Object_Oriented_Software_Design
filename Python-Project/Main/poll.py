@@ -7,6 +7,7 @@ class Poll(object):
         docstring
         """
         self.poll_title = title
+        self.isAttendance = False
         self.attended_students = []
         self.question_list = []
 
@@ -20,3 +21,6 @@ class Poll(object):
 
     def add_question(self, question_obj):
         self.question_list.append(question_obj)
+        
+    def make_attendance_poll(self):
+        self.isAttendance = True
