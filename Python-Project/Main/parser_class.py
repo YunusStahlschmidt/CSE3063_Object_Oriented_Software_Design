@@ -28,6 +28,9 @@ class Parser:
             for row in csv_file.values:
                 quest_obj = self.question_list.get(row[2])
                 for poll_obj in self.polls:
+                    if len(poll_obj.question_list) == 1:
+                        poll_obj.make_attendance_poll() 
+                        
                     if (poll_obj.poll_title[:-2] == f[:-4]) and (quest_obj in poll_obj.question_list):
                         break
 

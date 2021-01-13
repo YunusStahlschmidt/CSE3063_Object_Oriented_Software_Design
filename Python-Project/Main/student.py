@@ -9,3 +9,4 @@ class Student(object):
         self.student_id = student_id
         self.student_name = student_name
         self.student_surname = student_surname
+        self.student_attendance = 0
