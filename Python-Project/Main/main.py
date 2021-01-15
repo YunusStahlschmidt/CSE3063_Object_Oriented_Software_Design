@@ -5,12 +5,25 @@ import pandas as pd
 import numpy as np
 import pprint
 import os
+import logging
+
 if __name__ == "__main__":
+    # logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(
+        level=logging.INFO,
+        handlers=[
+        logging.FileHandler("test.log"),
+        logging.StreamHandler()
+        ]
+    )
     parser_obj = Parser()
     attendence_obj = attendence()
     parser_obj.parse_students()
+    logging.info('Students parsed sucessfully')
     parser_obj.parse_answer_keys()
+    logging.info('Answer Keys parsed sucessfully')
     parser_obj.parse_poll_reports()
+    logging.info('Poll Reports parsed sucessfully')
 
     for poll in parser_obj.polls:
         if poll.question_list[0].question_text != "Are you attending this lecture?":
@@ -23,6 +36,7 @@ if __name__ == "__main__":
             # print(calculations.student_array_for7a)
             df1 = pd.DataFrame(calculations.student_array_for7a)
             df1.to_excel(os.path.join(calculations.POLL_PATH, f'{poll.poll_title}.xlsx'))
+            logging.info(f'Poll report {poll.poll_title} created sucessfully')
             
     attendence_obj.create_attendance_file(parser_obj)
 
