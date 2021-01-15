@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import logging
+import parser_class
 class PollCalculation(object):
     """
     docstring
@@ -12,10 +13,12 @@ class PollCalculation(object):
 
         7-b question and choice wise statistics (histogram and pie chart) and show question text and coice text below
     """
-    def __init__(self, poll):
+    def __init__(self, poll, is_global_exists, student_array_for8):
         self.poll = poll
-        self.student_array_for7a = [["Student_id", "Student_name", "Student_surname"]]
+        self.student_array_for7a = [["Student_id", "Student_name", "Student_surname", "Remark"]]
         self.question_dictionary_for7b = {}
+        self.is_global_exists = is_global_exists
+        self.student_array_for8 = student_array_for8
         self.CURRENT_PATH = os.path.dirname(__file__)
 
         self.STAT_PATH = os.path.join(self.CURRENT_PATH, "statistics")
@@ -28,7 +31,7 @@ class PollCalculation(object):
         
     def calculate7a(self, student_list, student_answer_list):
         for student_obj in student_list:
-            student_metric = [student_obj.student_id, student_obj.student_name, student_obj.student_surname]
+            student_metric = [student_obj.student_id, student_obj.student_name, student_obj.student_surname, student_obj.student_remark]
             if not (student_obj in self.poll.attended_students):
                 self.student_array_for7a.append(student_metric)
                 continue
@@ -57,6 +60,20 @@ class PollCalculation(object):
             student_metric.append(f"{sum(student_metric[3:-1])} of {question_n}")
             student_metric.append(sum(student_metric[3:-2])/question_n)
             self.student_array_for7a.append(student_metric)
+
+        if not self.is_global_exists:
+            self.student_array_for8 = pd.DataFrame()
+            self.student_array_for8['Student ID'] = [std_metric[0] for std_metric in self.student_array_for7a]
+            self.student_array_for8['Name'] = [std_metric[1] for std_metric in self.student_array_for7a]
+            self.student_array_for8['Surname'] = [std_metric[2] for std_metric in self.student_array_for7a]
+            self.student_array_for8['Remark'] = [std_metric[3] for std_metric in self.student_array_for7a]
+        for col in self.student_array_for8.columns:
+            if self.poll.poll_title in col:
+                break
+        # self.student_array_for8[f'{self.poll.poll_title Date}'] = [self.poll.date]
+        self.student_array_for8[f'{self.poll.poll_title} n questions'] = [std_metric[-3] for std_metric in self.student_array_for7a]
+        self.student_array_for8[f'{self.poll.poll_title} Succes Percentage'] = [std_metric[-1] for std_metric in self.student_array_for7a]
+
         # print(self.student_array_for7a)
 
     def calculate7b(self, student_list, student_answer_list):

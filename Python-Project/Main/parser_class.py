@@ -14,6 +14,10 @@ class Parser:
         self.ANSWER_KEY_PATH = os.path.join(self.CURRENT_PATH, "answer_keys")
         self.STUDENT_LIST_PATH = os.path.join(self.CURRENT_PATH, "CES3063_Fall2020_rptSinifListesi.XLS")
 
+        self.GLOBAL_PATH = os.path.join(self.CURRENT_PATH, "CES3063_Fall2020_Global.xlsx")
+        self.is_global_exist = False
+        self.student_array_for8 = []
+
     def parse_poll_reports(self):
         """
         Parsing polls from polls folder
@@ -28,8 +32,8 @@ class Parser:
             for row in csv_file.values:
                 quest_obj = self.question_list.get(row[2])
                 for poll_obj in self.polls:
-                    if len(poll_obj.question_list) == 1:
-                        poll_obj.make_attendance_poll() 
+                    if len(poll_obj.question_list) == 1: # TODO: single quiz in a day will be counted as an attendance as well.
+                        poll_obj.make_attendance_poll()
                         
                     if (poll_obj.poll_title[:-2] == f[:-4]) and (quest_obj in poll_obj.question_list):
                         break
@@ -92,15 +96,15 @@ class Parser:
         parsing students from student list
         """
         student_list = pd.read_excel(self.STUDENT_LIST_PATH, skiprows=12)
-        student_list = student_list.drop(axis=1, labels=["Unnamed: 3", "Unnamed: 5", "Unnamed: 6"]).iloc[:, 2:-1]
+        student_list = student_list.drop(axis=1, labels=["Unnamed: 3", "Unnamed: 5", "Unnamed: 6"]).iloc[:, 2:]
         student_list = student_list.dropna(axis=0, how='all').dropna(axis=1, how='all')
         student_list = student_list[student_list.Adı != "Adı"]
-        for no, name, surname in student_list.values:
-            self.add_student(no, name, surname)
+        for no, name, surname, remark in student_list.values:
+            self.add_student(no, name, surname, remark)
     
 
-    def add_student(self, no, name, surname):
-        self.student_list.append(student.Student(no, name, surname))
+    def add_student(self, no, name, surname, remark):
+        self.student_list.append(student.Student(no, name, surname, remark))
 
     def add_question(self, question_text):
         self.question_list.setdefault(question_text, question.Question(question_text))
@@ -127,6 +131,10 @@ class Parser:
             splitted_name = unidecode.unidecode(name_in_std_list).split()
             if splitted_name[0] == "AYSENUR":
                 splitted_name[0] = "AYSE"
+            elif splitted_name[1] == 'FAZIL':
+                splitted_name.pop(2)
+            elif splitted_name[1] == 'ALI' and splitted_name[2] == 'GOZUKIZIL':
+                splitted_name.pop(1)
 
             for std_name in set(splitted_name):
                 if std_name in full_name:
@@ -136,4 +144,18 @@ class Parser:
                 return stdnt
 
 
+    def load_global_file(self):
+        if self.check_global_output():
+            self.student_array_for8 = pd.read_excel(self.GLOBAL_PATH)
+            # print(student_array_for8)
+        else:
+            self.student_array_for8 = [["Student_id", "Student_name", "Student_surname"]]
+        return self.student_array_for8
+
+    def check_global_output(self):
+        if not os.path.exists(self.GLOBAL_PATH):
+            self.is_global_exist = False
+            return False
+        self.is_global_exist = True
+        return True
 
