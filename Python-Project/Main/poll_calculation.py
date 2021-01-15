@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import logging
 class PollCalculation(object):
     """
     docstring
@@ -115,6 +116,7 @@ class PollCalculation(object):
                 plt.figtext(0.10, -0.05, '\n'.join(answer_foot_text), horizontalalignment='left')
                 plt.savefig(question_path, bbox_inches='tight')
             question_n += 1
+            logging.info(f"charts created successfully for Q{question_n - 1}")
 
     def set_header(self):
         for question_n in range(len(self.poll.question_list)):

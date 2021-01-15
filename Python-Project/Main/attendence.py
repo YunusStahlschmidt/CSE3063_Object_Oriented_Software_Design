@@ -1,5 +1,6 @@
 import xlsxwriter
 import os
+import logging
 
 class attendence(object):
     def __init__(self):
@@ -42,3 +43,4 @@ class attendence(object):
                     worksheet.write(f"G{index}", str(f"{0}%"))
                 else:
                     worksheet.write(f"G{index}", str(f"{round((student.student_attendance/self.numOfAttendance)*100)}%"))
+        logging.info('Attendence file created sucessfully')
