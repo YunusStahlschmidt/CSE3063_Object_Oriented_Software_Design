@@ -2,23 +2,29 @@ import xlsxwriter
 import os
 import logging
 
-class attendence(object):
+class Attendance(object):
     def __init__(self):
         self.numOfAttendance = 0
         self.CURRENT_PATH = os.path.dirname(__file__)
         self.STAT_PATH = os.path.join(self.CURRENT_PATH, "statistics")
 
     def create_attendance_file(self, parser):
+        student_set_per_course = {}
         for poll in parser.polls:
+            poll_title = poll.poll_title[:-2]
+            attended_students_set = set(poll.attended_students)
+            student_set_per_course.setdefault(poll_title, attended_students_set)
+            student_set_per_course[poll_title] = student_set_per_course[poll_title].union(attended_students_set)
 
-            if poll.isAttendance:
+            if len(poll.question_list) == 1:
                 self.numOfAttendance += 1
 
-                print(poll.poll_title, len(poll.attended_students), len(set(poll.attended_students)))
-                for student in poll.attended_students:
-                    student.student_attendance += 1
+            print(poll.poll_title, len(poll.attended_students), len(set(poll.attended_students)))
+        for poll_attended_students in student_set_per_course.values():
+            for student in poll_attended_students:
+                student.student_attendance += 1
 
-                    
+    
         # can be moved to output
         filename = os.path.join(self.STAT_PATH, "Attendance.xlsx")
         with xlsxwriter.Workbook(filename) as workbook:
@@ -41,11 +47,11 @@ class attendence(object):
                 worksheet.write(f"B{index}", str(student.student_id))
                 worksheet.write(f"C{index}", str(student.student_name))
                 worksheet.write(f"D{index}", str(student.student_surname))
-                worksheet.write(f"E{index}", str(student.remark))
+                worksheet.write(f"E{index}", str(student.student_remark))
                 worksheet.write(f"F{index}", str(self.numOfAttendance))
-                worksheet.write(f"G{index}", str(f"attended {student.student_attendance} of {self.numOfAttendance} courses"))
+                worksheet.write(f"G{index}", str(f"attended {student.student_attendance} of {len(student_set_per_course)} courses"))
                 if self.numOfAttendance == 0:
                     worksheet.write(f"H{index}", str(f"{0}%"))
                 else:
-                    worksheet.write(f"H{index}", str(f"{round((student.student_attendance/self.numOfAttendance)*100)}%"))
-        logging.info('Attendence file created sucessfully')
+                    worksheet.write(f"H{index}", str(f"{round((student.student_attendance/len(student_set_per_course))*100, 2)}%"))
+        logging.info('Attendance file created sucessfully')

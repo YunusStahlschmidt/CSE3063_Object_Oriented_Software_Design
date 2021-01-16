@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import question, answer, poll, student, student_answer
 import unidecode
+import datetime
 
 class Parser:
     def __init__(self):
@@ -13,10 +14,7 @@ class Parser:
         self.POLL_PATH = os.path.join(self.CURRENT_PATH, "polls")
         self.ANSWER_KEY_PATH = os.path.join(self.CURRENT_PATH, "answer_keys")
         self.STUDENT_LIST_PATH = os.path.join(self.CURRENT_PATH, "CES3063_Fall2020_rptSinifListesi.XLS")
-
         self.GLOBAL_PATH = os.path.join(self.CURRENT_PATH, "CES3063_Fall2020_Global.xlsx")
-        self.is_global_exist = False
-        self.student_array_for8 = []
 
     def parse_poll_reports(self):
         """
@@ -32,14 +30,11 @@ class Parser:
             for row in csv_file.values:
                 quest_obj = self.question_list.get(row[2])
                 for poll_obj in self.polls:
-                    if len(poll_obj.question_list) == 1: # TODO: single quiz in a day will be counted as an attendance as well.
-                        poll_obj.make_attendance_poll()
-                        
                     if (poll_obj.poll_title[:-2] == f[:-4]) and (quest_obj in poll_obj.question_list):
                         break
 
                 student_obj = self.find_student_obj(row[0])
-                date_obj = row[1] # convert to date object
+                date = row[1] # convert to date object
 
                 if student_obj is None:
                     print("adini duzgun yazmayan biri bulundu", row[0])
@@ -60,7 +55,7 @@ class Parser:
                                 answer_obj = quest_obj.add_answer(ans)
                             std_answer_list.append(answer_obj)
                         
-                        self.add_student_answer(poll_obj, student_obj, std_answer_list, quest_obj, date_obj)
+                        self.add_student_answer(poll_obj, student_obj, std_answer_list, quest_obj, date)
 
 
     def parse_answer_keys(self):
@@ -73,11 +68,13 @@ class Parser:
 
             poll_text = csv_file.columns[0]
             self.add_poll(poll_text) # creating poll object
+            self.format_poll_date(poll_text)
 
             # poll_file_name = poll_text[:-2]
             for question_text, answer in csv_file.values:
                 if type(answer) == float:  # if the question in answer key has no answer it's a new poll
                     self.add_poll(question_text)
+                    self.format_poll_date(question_text)
                     continue
 
                 question_obj = self.question_list.get(question_text)
@@ -118,6 +115,9 @@ class Parser:
         student_answer_obj = student_answer.StudentAnswer(poll_obj, student_obj, answer_obj_list, question_obj, date_obj)
         self.student_answer_list[student_obj].append(student_answer_obj)
 
+    def format_poll_date(self, poll_text):
+        self.polls[-1].date = poll_text.split("_")[1]
+        self.polls[-1].date = self.polls[-1].date[:4] + "/" + self.polls[-1].date[4:6] + "/" + self.polls[-1].date[6:]
 
     def add_poll(self, text):
         self.polls.append(poll.Poll(text))
@@ -143,19 +143,19 @@ class Parser:
             if counter >= 2:
                 return stdnt
 
-
-    def load_global_file(self):
-        if self.check_global_output():
-            self.student_array_for8 = pd.read_excel(self.GLOBAL_PATH)
-            # print(student_array_for8)
-        else:
-            self.student_array_for8 = [["Student_id", "Student_name", "Student_surname"]]
-        return self.student_array_for8
-
-    def check_global_output(self):
+    def parse_global_report(self):
+        students_info = []
         if not os.path.exists(self.GLOBAL_PATH):
-            self.is_global_exist = False
-            return False
-        self.is_global_exist = True
-        return True
+            for std in self.student_list:
+                students_info.append([std.student_id,
+                                      std.student_name,
+                                      std.student_surname,
+                                      std.student_remark])
+                
+            global_df = pd.DataFrame(students_info,
+             columns=["Student ID", "Name", "Surname", "Remark"])
+            return global_df
+        return pd.read_excel(self.GLOBAL_PATH)
+
+
 
