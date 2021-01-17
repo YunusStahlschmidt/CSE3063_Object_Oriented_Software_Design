@@ -11,42 +11,63 @@ class PollCalculation(object):
 
         7-b question and choice wise statistics (histogram and pie chart) and show question text and coice text below
     """
-    def __init__(self, poll):
-        self.poll = poll
-        self.student_array_for7a = [["Student_id", "Student_name", "Student_surname"]]
-        self.student_array_for_global = []
-        self.question_dictionary_for7b = {}
-        self.CURRENT_PATH = os.path.dirname(__file__)
+    def __init__(self, poll, stat_path):
+        self._poll = poll
+        self._student_array_for7a = [["Student_id", "Student_name", "Student_surname"]]
+        self._student_array_for_global = []
+        self._question_dictionary_for7b = {}
+        self._STAT_PATH = stat_path
 
-        self.STAT_PATH = os.path.join(self.CURRENT_PATH, "statistics")
-        if not os.path.exists(self.STAT_PATH):
-            os.mkdir(self.STAT_PATH)
+        if not os.path.exists(self._STAT_PATH):
+            os.mkdir(self._STAT_PATH)
 
-        self.POLL_PATH = os.path.join(self.STAT_PATH, f"{self.poll.poll_title}")
-        if not os.path.exists(self.POLL_PATH):
-            os.mkdir(self.POLL_PATH)
+        self._CURRENT_POLL_PATH = os.path.join(self._STAT_PATH, f"{self.poll.poll_title}")
+        if not os.path.exists(self._CURRENT_POLL_PATH):
+            os.mkdir(self._CURRENT_POLL_PATH)
 
-        self.GLOBAL_PATH = os.path.join(self.STAT_PATH, "CES3063_Fall2020_Global.xlsx")
+    @property
+    def poll(self):
+        return self._poll
+
+    @poll.setter
+    def poll(self, value):
+        self._poll = value
+
+    @property
+    def student_array_for7a(self):
+        return self._student_array_for7a
+
+    @student_array_for7a.setter
+    def student_array_for7a(self, value):
+        self._student_array_for7a = value
+
+    @property
+    def student_array_for_global(self):
+        return self._student_array_for_global
+
+    @student_array_for_global.setter
+    def student_array_for_global(self, value):
+        self._student_array_for_global = value
         
     def calculate7a(self, student_list, student_answer_list):
         for student_obj in student_list:
-            student_metric = [student_obj.student_id, student_obj.student_name, student_obj.student_surname]
-            if not (student_obj in self.poll.attended_students):
-                self.student_array_for7a.append(student_metric)
-                self.student_array_for_global.append(["", "", ""])
+            student_metric = [student_obj._student_id, student_obj._student_name, student_obj._student_surname]
+            if not (student_obj in self._poll._attended_students):
+                self._student_array_for7a.append(student_metric)
+                self._student_array_for_global.append(["", "", ""])
                 continue
             list_of_student_answer_obj = student_answer_list[student_obj]
-            for question_obj in self.poll.question_list:
+            for question_obj in self._poll._question_list:
                 answered = 0
                 for std_answer_obj in list_of_student_answer_obj:
-                    if (std_answer_obj.poll is self.poll) and \
-                            (std_answer_obj.question is question_obj) and \
-                            (std_answer_obj.answer_list == question_obj.answer_key):
+                    if (std_answer_obj._poll is self._poll) and \
+                            (std_answer_obj._question is question_obj) and \
+                            (std_answer_obj._answer_list == question_obj._answer_key):
                         student_metric.append(1)
                         answered = 1
 
-                    elif (std_answer_obj.poll is self.poll) and \
-                            (std_answer_obj.question is question_obj) :
+                    elif (std_answer_obj._poll is self._poll) and \
+                            (std_answer_obj._question is question_obj) :
                         student_metric.append(0)
                         answered = 1
                     if answered:
@@ -55,43 +76,43 @@ class PollCalculation(object):
                     student_metric.append(0)
 
 
-            question_n = len(self.poll.question_list)
+            question_n = len(self._poll._question_list)
             student_metric.append(question_n)
             student_metric.append(f"{sum(student_metric[3:-1])} of {question_n}")
-            student_metric.append(round((sum(student_metric[3:-2])/question_n)*100, 2))
-            self.student_array_for7a.append(student_metric)
+            student_metric.append(round((sum(student_metric[3:-2])/question_n)*100.0, 2))
+            self._student_array_for7a.append(student_metric)
 
             # calculations for Global
-            self.student_array_for_global.append([self.poll.date, question_n, student_metric[-1]])
-        # print(self.student_array_for7a)
+            self._student_array_for_global.append([self._poll.date, question_n, student_metric[-1]])
+        # print(self._student_array_for7a)
 
     def calculate7b(self, student_list, student_answer_list):
-        for question_obj in self.poll.question_list:
-            self.question_dictionary_for7b[question_obj] = {}
-            for answer_obj in question_obj.answers.values():
-                self.question_dictionary_for7b[question_obj][answer_obj] = 0
+        for question_obj in self._poll._question_list:
+            self._question_dictionary_for7b[question_obj] = {}
+            for answer_obj in question_obj._answers.values():
+                self._question_dictionary_for7b[question_obj][answer_obj] = 0
 
         for student_obj in student_list:
-            if not (student_obj in self.poll.attended_students):
+            if not (student_obj in self._poll._attended_students):
                 continue
             list_of_student_answer_obj = student_answer_list[student_obj]
             for student_answer_obj in list_of_student_answer_obj:
-                if self.question_dictionary_for7b.get(student_answer_obj.question) is None:
+                if self._question_dictionary_for7b.get(student_answer_obj._question) is None:
                     continue
-                for answer_obj in student_answer_obj.answer_list:
-                    self.question_dictionary_for7b[student_answer_obj.question][answer_obj] += 1
+                for answer_obj in student_answer_obj._answer_list:
+                    self._question_dictionary_for7b[student_answer_obj._question][answer_obj] += 1
 
     def create_charts(self):
         question_n = 1
-        for question_obj in self.question_dictionary_for7b.keys():
+        for question_obj in self._question_dictionary_for7b.keys():
             answer_texts, answer_foot_text, answer_stats, percentages, colors = [], [], [], [], []
             
             answer_n = 1
-            for answer_obj, stat in self.question_dictionary_for7b[question_obj].items():
+            for answer_obj, stat in self._question_dictionary_for7b[question_obj].items():
                 answer_texts.append(f"Ans.{answer_n}") # answer_obj.answer_text
-                answer_foot_text.append(f"Ans.{answer_n} : {answer_obj.answer_text}") # answer_obj.answer_text
+                answer_foot_text.append(f"Ans.{answer_n} : {answer_obj._answer_text}") # answer_obj.answer_text
                 answer_stats.append(stat)
-                if answer_obj in question_obj.answer_key:
+                if answer_obj in question_obj._answer_key:
                     colors.append('green')
                 else:
                     colors.append('red')
@@ -100,13 +121,13 @@ class PollCalculation(object):
             # total = sum(answer_stats)
             # percentages = [round((student_n/total)*100,1) for student_n in answer_stats]
 
-            question_path = os.path.join(self.POLL_PATH, f"Q{question_n}.png")
+            question_path = os.path.join(self._CURRENT_POLL_PATH, f"Q{question_n}.png")
 
-            if len(question_obj.answer_key) != 1:
+            if len(question_obj._answer_key) != 1:
                 fig = plt.figure()
                 plt.bar(answer_texts, answer_stats, color=colors)
                 plt.ylabel("Number Of Students")
-                plt.title(question_obj.question_text)
+                plt.title(question_obj._question_text)
                 plt.figtext(0, -0.10, '\n'.join(answer_foot_text), horizontalalignment='left')
                 plt.savefig(question_path, bbox_inches='tight')
             
@@ -118,14 +139,14 @@ class PollCalculation(object):
                         shadow=True, startangle=90)
                 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-                plt.title(question_obj.question_text)
+                plt.title(question_obj._question_text)
                 plt.figtext(0.10, -0.05, '\n'.join(answer_foot_text), horizontalalignment='left')
                 plt.savefig(question_path, bbox_inches='tight')
             question_n += 1
 
     def set_header(self):
-        for question_n in range(len(self.poll.question_list)):
-            self.student_array_for7a[0].append(f"Q{question_n+1}")
-        self.student_array_for7a[0].append("Num Of Questions")
-        self.student_array_for7a[0].append("Success Rate")
-        self.student_array_for7a[0].append("Success Percentage")
+        for question_n in range(len(self._poll._question_list)):
+            self._student_array_for7a[0].append(f"Q{question_n+1}")
+        self._student_array_for7a[0].append("Num Of Questions")
+        self._student_array_for7a[0].append("Success Rate")
+        self._student_array_for7a[0].append("Success Percentage")

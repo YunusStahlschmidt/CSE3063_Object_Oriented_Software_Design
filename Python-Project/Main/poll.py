@@ -6,18 +6,43 @@ class Poll(object):
         """
         docstring
         """
-        self.poll_title = title
-        self.attended_students = []
-        self.question_list = []
-        self.date = ""
+        self._poll_title = title
+        self._attended_students = []
+        self._question_list = []
+        self._date = ""
 
+
+    @property
+    def poll_title(self):
+        return self._poll_title
+
+    @poll_title.setter
+    def poll_title(self, value):
+        self._poll_title = value
+
+    @property
+    def attended_students(self):
+        return self._attended_students
 
     def add_attended_student(self, student_obj):
-        """
-        docstring
-        """
-        self.attended_students.append(student_obj)
+        self._attended_students.append(student_obj)
 
+    @property
+    def question_list(self):
+        return self._question_list
 
     def add_question(self, question_obj):
-        self.question_list.append(question_obj)
+        self._question_list.append(question_obj)
+
+    @property
+    def date(self):
+        return self._date
+
+    @date.setter
+    def date(self, value):
+        self._date = value
+
+    
+
+
+    
