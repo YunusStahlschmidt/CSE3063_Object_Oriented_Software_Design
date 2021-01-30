@@ -50,17 +50,34 @@ class Parser:
         """
         poll_files = os.listdir(self._POLL_PATH)
         for f in poll_files:
+            same_poll = 0
             anomalies_per_poll = {"zoom poll report name":f,
                                   "Students in this poll report but don't exist in BYS Student List (Anomalies)":[]}
             csv_file = pd.read_csv(os.path.join(self._POLL_PATH, f), names=list(range(25)))
             csv_file = csv_file.iloc[1:, 1:-1]
-            # csv_file = csv_file.dropna(axis=1, how='all')
+            poll_date = csv_file.values[0][0].split()
+            poll_date = '_'.join(poll_date[0].split('-')) + '_' + '_'.join(poll_date[1].split(':'))
+            csv_file = csv_file.iloc[5:, :].dropna(axis=1, how='all')
+
+            for poll_obj in self._polls:
+                if poll_date in poll_obj._poll_title:
+                    same_poll = 1
+
+            if same_poll:
+                continue
 
             for row in csv_file.values:
                 quest_obj = self._question_list.get(row[3])
-                for poll_obj in self._polls:
-                    if (poll_obj.poll_title[:-2] == f[:-4]) and (quest_obj in poll_obj._question_list):
-                        break
+                if row[3] == 'Are you attending this lecture?':
+                    self.add_poll("Attending_poll")
+                    poll_obj = self._polls[-1]
+                    poll_obj.add_question(quest_obj)
+                else:
+                    for poll_obj in self._polls:
+                        if quest_obj in poll_obj._question_list:
+                            break
+
+                poll_obj._poll_title = poll_obj._poll_title + "_" + poll_date
 
                 student_obj = self.find_student_obj(row[0])
                 date = row[2]
@@ -77,8 +94,10 @@ class Parser:
                     if type(text) == float:
                         break
                     if column_n % 2 == 0:
-                        quest_obj = self._question_list.get(text)
+                        text = str(text)
+                        quest_obj = self._question_list[text]
                     else:
+                        text = str(text)
                         multi_answer = text.split(';')
                         std_answer_list = []
                         for ans in multi_answer:
@@ -89,37 +108,112 @@ class Parser:
                         
                         self.add_student_answer(poll_obj, student_obj, std_answer_list, quest_obj, date)
             self._anomalies.append(anomalies_per_poll)
+
+    # def parse_poll_reports(self):
+    #     """
+    #     Parsing polls from polls folder
+    #     """
+    #     poll_files = os.listdir(self._POLL_PATH)
+    #     for f in poll_files:
+    #         anomalies_per_poll = {"zoom poll report name":f,
+    #                               "Students in this poll report but don't exist in BYS Student List (Anomalies)":[]}
+    #         csv_file = pd.read_csv(os.path.join(self._POLL_PATH, f), names=list(range(25)))
+    #         csv_file = csv_file.iloc[1:, 1:-1]
+    #         csv_file = csv_file.dropna(axis=1, how='all')
+
+    #         for row in csv_file.values:
+    #             quest_obj = self._question_list.get(row[3])
+    #             for poll_obj in self._polls:
+    #                 if (poll_obj.poll_title[:-2] == f[:-4]) and (quest_obj in poll_obj._question_list):
+    #                     break
+
+    #             student_obj = self.find_student_obj(row[0])
+    #             date = row[2]
+    #             student_email = row[1]
+
+    #             if student_obj is False:
+    #                 anomalies_per_poll["Students in this poll report but don't exist in BYS Student List (Anomalies)"].append({"student email":student_email, "student name":row[0]})
+    #                 continue
+
+    #             student_obj._student_email = student_email
+    #             poll_obj.add_attended_student(student_obj) 
+    #             # self.student_answer_list.setdefault(student_obj, [])
+    #             for column_n, text in enumerate(row[3:]):
+    #                 if type(text) == float:
+    #                     break
+    #                 if column_n % 2 == 0:
+    #                     quest_obj = self._question_list.get(text)
+    #                 else:
+    #                     multi_answer = text.split(';')
+    #                     std_answer_list = []
+    #                     for ans in multi_answer:
+    #                         answer_obj = quest_obj.answers.get(ans)
+    #                         if answer_obj is None:
+    #                             answer_obj = quest_obj.add_answer(ans)
+    #                         std_answer_list.append(answer_obj)
+                        
+    #                     self.add_student_answer(poll_obj, student_obj, std_answer_list, quest_obj, date)
+    #         self._anomalies.append(anomalies_per_poll)
         
 
+    # def parse_answer_keys(self):
+    #     """
+    #     docstring
+    #     """
+    #     answerkey_files = os.listdir(self._ANSWER_KEY_PATH)
+    #     for f in answerkey_files:
+    #         csv_file = pd.read_csv(os.path.join(self._ANSWER_KEY_PATH, f))
+
+    #         poll_text = csv_file.columns[0]
+    #         self.add_poll(poll_text) # creating poll object
+    #         self.format_poll_date(poll_text)
+
+    #         # poll_file_name = poll_text[:-2]
+    #         for question_text, answer in csv_file.values:
+    #             if type(answer) == float:  # if the question in answer key has no answer it's a new poll
+    #                 self.add_poll(question_text)
+    #                 self.format_poll_date(question_text)
+    #                 continue
+
+    #             question_obj = self._question_list.get(question_text)
+    #             if question_obj is None:
+    #                 question_obj = question.Question(question_text)
+
+    #                 answer_list = answer.split(';')
+    #                 for ans in answer_list:
+    #                     question_obj.add_answer_key(ans)
+
+    #             self._polls[-1].add_question(question_obj)  # add to the last poll in the list
+    #             self._question_list.setdefault(question_text, question_obj)  # if not in dict already add the question
+
     def parse_answer_keys(self):
-        """
-        docstring
-        """
+        # adding attendance question
+        question_text = "Are you attending this lecture?"
+        question_obj = question.Question(question_text)
+        self._question_list.setdefault(question_text, question_obj)
+        question_obj.add_answer_key("Yes")
+
         answerkey_files = os.listdir(self._ANSWER_KEY_PATH)
-        for f in answerkey_files:
-            csv_file = pd.read_csv(os.path.join(self._ANSWER_KEY_PATH, f))
-
-            poll_text = csv_file.columns[0]
-            self.add_poll(poll_text) # creating poll object
-            self.format_poll_date(poll_text)
-
-            # poll_file_name = poll_text[:-2]
-            for question_text, answer in csv_file.values:
-                if type(answer) == float:  # if the question in answer key has no answer it's a new poll
-                    self.add_poll(question_text)
-                    self.format_poll_date(question_text)
-                    continue
-
-                question_obj = self._question_list.get(question_text)
-                if question_obj is None:
-                    question_obj = question.Question(question_text)
-
-                    answer_list = answer.split(';')
-                    for ans in answer_list:
-                        question_obj.add_answer_key(ans)
-
-                self._polls[-1].add_question(question_obj)  # add to the last poll in the list
-                self._question_list.setdefault(question_text, question_obj)  # if not in dict already add the question
+        for file_name in answerkey_files:
+            question_numbers = ['1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.', '10.']
+            file_path = os.path.join(self._ANSWER_KEY_PATH, file_name)
+            with open(file_path, 'r', encoding='utf8') as f:
+                line = f.readline()
+                while line != '':
+                    splitted_line = line.strip().split()
+                    if splitted_line != []:
+                        if splitted_line[0] == 'Poll':
+                            poll_number = splitted_line[1].split(':')
+                            poll_text = splitted_line[0] + "_" + poll_number[0] + "_" + "_".join(poll_number[1].split('-'))
+                            self.add_poll(poll_text)
+                        elif splitted_line[0] in question_numbers:
+                            question_text = ' '.join(splitted_line[1:-3])
+                            question_obj = question.Question(question_text)
+                            self._question_list.setdefault(question_text, question_obj)
+                            self._polls[-1].add_question(question_obj)
+                        elif splitted_line[0] == 'Answer':
+                            question_obj.add_answer_key(' '.join(splitted_line[2:]))
+                    line = f.readline()
 
     def parse_students(self):
         """
